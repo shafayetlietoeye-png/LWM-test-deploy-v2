@@ -66,14 +66,15 @@ export default function ArchiveDonors() {
                         <div style={{
                             backgroundColor: '#fff',
                             border: '1px solid #d4cbb3',
+                            borderTop: '3px solid #b38235',
                             borderRadius: '6px',
                             padding: '24px',
                             marginTop: '25px',
-                            boxShadow: '0 2px 4px rgba(26,21,18,0.02)'
+                            boxShadow: '0 4px 12px rgba(26,21,18,0.04)'
                         }}>
                             <h3 style={{ 
                                 fontSize: '1.25rem', 
-                                color: '#8d2024', 
+                                color: '#0d4228', 
                                 fontFamily: "'Roboto Slab', serif",
                                 marginBottom: '15px',
                                 borderBottom: '1px solid #e8e3d5',
@@ -89,9 +90,9 @@ export default function ArchiveDonors() {
                                         key={idx} 
                                         style={{
                                             fontSize: '0.88rem',
-                                            backgroundColor: '#f9f6ef',
+                                            backgroundColor: 'rgba(197, 155, 39, 0.08)',
                                             color: '#1a1512',
-                                            border: '1px solid #e8e3d5',
+                                            border: '1px solid rgba(197, 155, 39, 0.28)',
                                             padding: '4px 10px',
                                             borderRadius: '4px',
                                             fontFamily: "'Roboto', sans-serif"
@@ -165,14 +166,15 @@ export default function ArchiveDonors() {
                         <div style={{
                             backgroundColor: '#fff',
                             border: '1px solid #d4cbb3',
+                            borderTop: '3px solid #b38235',
                             borderRadius: '6px',
                             padding: '24px',
                             marginTop: '25px',
-                            boxShadow: '0 2px 4px rgba(26,21,18,0.02)'
+                            boxShadow: '0 4px 12px rgba(26,21,18,0.04)'
                         }}>
                             <h3 style={{ 
                                 fontSize: '1.25rem', 
-                                color: '#8d2024', 
+                                color: '#0d4228', 
                                 fontFamily: "'Roboto Slab', serif",
                                 marginBottom: '15px',
                                 borderBottom: '1px solid #e8e3d5',
@@ -196,9 +198,9 @@ export default function ArchiveDonors() {
                                         key={idx} 
                                         style={{
                                             fontSize: '0.88rem',
-                                            backgroundColor: '#f9f6ef',
+                                            backgroundColor: 'rgba(197, 155, 39, 0.08)',
                                             color: '#1a1512',
-                                            border: '1px solid #e8e3d5',
+                                            border: '1px solid rgba(197, 155, 39, 0.28)',
                                             padding: '4px 10px',
                                             borderRadius: '4px',
                                             fontFamily: "'Roboto', sans-serif"
@@ -249,14 +251,15 @@ export default function ArchiveDonors() {
                         <div style={{
                             backgroundColor: '#fff',
                             border: '1px solid #d4cbb3',
+                            borderTop: '3px solid #b38235',
                             borderRadius: '6px',
                             padding: '24px',
                             marginTop: '25px',
-                            boxShadow: '0 2px 4px rgba(26,21,18,0.02)'
+                            boxShadow: '0 4px 12px rgba(26,21,18,0.04)'
                         }}>
                             <h3 style={{ 
                                 fontSize: '1.25rem', 
-                                color: '#8d2024', 
+                                color: '#0d4228', 
                                 fontFamily: "'Roboto Slab', serif",
                                 marginBottom: '15px',
                                 borderBottom: '1px solid #e8e3d5',

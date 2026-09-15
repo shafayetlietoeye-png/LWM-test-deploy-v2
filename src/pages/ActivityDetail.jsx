@@ -642,7 +642,7 @@ export default function ActivityDetail() {
                                 <div className="members-grid">
                                     {data.juryBoard.initialMembers && (
                                         <div style={{ background: '#fdfcf7', padding: '24px', borderRadius: '8px', border: '1px solid #e3dec9' }}>
-                                            <h4 style={{ color: '#a62024', fontFamily: 'Playfair Display, serif', fontSize: '1.25rem', marginBottom: '16px', borderBottom: '1px solid #e3dec9', paddingBottom: '8px' }}>গঠনকালীন জুরি বোর্ড সদস্যবৃন্দ</h4>
+                                            <h4 style={{ color: '#a62024', fontFamily: "'Noto Sans Bengali', sans-serif", fontSize: '1.25rem', marginBottom: '16px', borderBottom: '1px solid #e3dec9', paddingBottom: '8px' }}>গঠনকালীন জুরি বোর্ড সদস্যবৃন্দ</h4>
                                             <ul style={{ paddingLeft: '20px', color: '#2c2015', lineHeight: '1.8' }}>
                                                 {data.juryBoard.initialMembers.map((member, idx) => (
                                                     <li key={idx} style={{ marginBottom: '6px' }}>{member}</li>
@@ -653,7 +653,7 @@ export default function ActivityDetail() {
 
                                     {data.juryBoard.reconstitutedMembers && (
                                         <div style={{ background: '#fdfaf2', padding: '24px', borderRadius: '8px', border: '1px solid #cdb66c', height: 'fit-content' }}>
-                                            <h4 style={{ color: '#a62024', fontFamily: 'Playfair Display, serif', fontSize: '1.25rem', marginBottom: '16px', borderBottom: '1px solid #cdb66c', paddingBottom: '8px' }}>পুনর্গঠিত জুরি বোর্ড সদস্যবৃন্দ</h4>
+                                            <h4 style={{ color: '#a62024', fontFamily: "'Noto Sans Bengali', sans-serif", fontSize: '1.25rem', marginBottom: '16px', borderBottom: '1px solid #cdb66c', paddingBottom: '8px' }}>পুনর্গঠিত জুরি বোর্ড সদস্যবৃন্দ</h4>
                                             <ul style={{ paddingLeft: '20px', color: '#2c2015', lineHeight: '1.8' }}>
                                                 {data.juryBoard.reconstitutedMembers.map((member, idx) => (
                                                     <li key={idx} style={{ marginBottom: '6px' }}><strong>{member}</strong></li>
@@ -674,7 +674,7 @@ export default function ActivityDetail() {
 
                                 <div className="policy-grid">
                                     <div>
-                                        <h4 style={{ color: '#1a1512', fontFamily: 'Playfair Display, serif', fontSize: '1.25rem', marginBottom: '16px' }}>বিচার মানদণ্ড</h4>
+                                        <h4 style={{ color: '#1a1512', fontFamily: "'Noto Sans Bengali', sans-serif", fontSize: '1.25rem', marginBottom: '16px' }}>বিচার মানদণ্ড</h4>
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                                             <div style={{ background: '#e8f5e9', border: '1px solid #c8e6c9', borderRadius: '8px', padding: '20px' }}>
                                                 <h5 style={{ color: '#2e7d32', margin: '0 0 8px 0', fontSize: '1.1rem', fontWeight: 'bold' }}>প্রিন্ট ও অনলাইন মিডিয়া</h5>
@@ -688,7 +688,7 @@ export default function ActivityDetail() {
                                     </div>
 
                                     <div>
-                                        <h4 style={{ color: '#1a1512', fontFamily: 'Playfair Display, serif', fontSize: '1.25rem', marginBottom: '16px' }}>মূল্যায়ন প্রক্রিয়া ও নীতিমালা</h4>
+                                        <h4 style={{ color: '#1a1512', fontFamily: "'Noto Sans Bengali', sans-serif", fontSize: '1.25rem', marginBottom: '16px' }}>মূল্যায়ন প্রক্রিয়া ও নীতিমালা</h4>
                                         <ul style={{ paddingLeft: '20px', color: '#2c2015', lineHeight: '1.85' }}>
                                             {data.policy.rules && data.policy.rules.map((rule, idx) => (
                                                 <li key={idx} style={{ marginBottom: '10px', textAlign: 'justify' }}>{rule}</li>
@@ -704,7 +704,7 @@ export default function ActivityDetail() {
                         <section className="block" style={{ paddingTop: '20px' }}>
                             <div className="block__content" style={{ marginBottom: '25px' }}>
                                 <div style={{ background: '#fdfcf7', borderLeft: '4px solid #a62024', border: '1px solid #e3dec9', borderLeftWidth: '4px', padding: '20px 24px', borderRadius: '6px', marginBottom: '25px' }}>
-                                    <h4 style={{ color: '#a62024', fontFamily: 'Playfair Display, serif', fontSize: '1.3rem', marginTop: 0, marginBottom: '10px' }}>পুরস্কারপ্রাপ্ত সাংবাদিকদের পটভূমি ও পরিচিতি</h4>
+                                    <h4 style={{ color: '#a62024', fontFamily: "'Noto Sans Bengali', sans-serif", fontSize: '1.3rem', marginTop: 0, marginBottom: '10px' }}>পুরস্কারপ্রাপ্ত সাংবাদিকদের পটভূমি ও পরিচিতি</h4>
                                     {data.winnersListDescription.split('\n\n').map((paragraph, idx) => (
                                         <p key={idx} className="p" style={{ fontSize: '1.02rem', color: '#2c2015', lineHeight: '1.75', marginBottom: idx === data.winnersListDescription.split('\n\n').length - 1 ? 0 : '14px', textAlign: 'justify' }}>
                                             {paragraph}

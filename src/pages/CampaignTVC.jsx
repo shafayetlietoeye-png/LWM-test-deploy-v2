@@ -58,9 +58,10 @@ export default function CampaignTVC() {
                                     style={{
                                         backgroundColor: '#fff',
                                         border: '1px solid #d4cbb3',
-                                        borderRadius: '8px',
+                                        borderTop: '3px solid #b38235',
+                                        borderRadius: '6px',
                                         overflow: 'hidden',
-                                        boxShadow: '0 4px 12px rgba(26,21,18,0.06)'
+                                        boxShadow: '0 4px 14px rgba(26,21,18,0.06)'
                                     }}
                                 >
                                     {/* 16:9 Responsive Embed */}
@@ -95,7 +96,7 @@ export default function CampaignTVC() {
                                         <h3 style={{
                                             margin: 0,
                                             fontSize: '1.1rem',
-                                            color: '#8d2024',
+                                            color: '#0d4228',
                                             fontFamily: "'Roboto Slab', serif",
                                             fontWeight: '700'
                                         }}>

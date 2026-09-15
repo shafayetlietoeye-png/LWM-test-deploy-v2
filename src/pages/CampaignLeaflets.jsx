@@ -52,9 +52,10 @@ export default function CampaignLeaflets() {
                                 <div key={idx} style={{ width: '100%', maxWidth: '900px', textAlign: 'center' }}>
                                     <div style={{
                                         overflow: 'hidden',
-                                        borderRadius: '8px',
+                                        borderRadius: '6px',
                                         border: '1px solid #d4cbb3',
-                                        boxShadow: '0 4px 12px rgba(26,21,18,0.06)'
+                                        borderTop: '3px solid #b38235',
+                                        boxShadow: '0 4px 14px rgba(26,21,18,0.06)'
                                     }}>
                                         <img
                                             src={leaflet.src}

@@ -105,13 +105,14 @@ export default function ObjectDonors() {
                             <button
                                 onClick={() => setSelectedLetter('All')}
                                 style={{
-                                    padding: '6px 12px',
-                                    borderRadius: '4px',
-                                    border: '1px solid #d4cbb3',
-                                    backgroundColor: selectedLetter === 'All' ? '#8d2024' : '#fff',
-                                    color: selectedLetter === 'All' ? '#fff' : '#1a1512',
+                                    padding: '6px 14px',
+                                    borderRadius: '3px',
+                                    border: selectedLetter === 'All' ? '1px solid #b38235' : '1px solid #d4cbb3',
+                                    backgroundColor: selectedLetter === 'All' ? '#0a3a24' : '#fff',
+                                    color: selectedLetter === 'All' ? '#fcfbf7' : '#1a1512',
                                     fontWeight: 'bold',
                                     cursor: 'pointer',
+                                    boxShadow: selectedLetter === 'All' ? 'inset 0 1px 0 rgba(255,255,255,0.15), 0 2px 4px rgba(0,0,0,0.15)' : 'none',
                                     transition: 'all 0.2s'
                                 }}
                             >
@@ -119,6 +120,7 @@ export default function ObjectDonors() {
                             </button>
                             {alphabet.map(letter => {
                                 const hasData = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'W', 'Y', 'Z'].includes(letter);
+                                const isSelected = selectedLetter === letter;
                                 return (
                                     <button
                                         key={letter}
@@ -127,13 +129,14 @@ export default function ObjectDonors() {
                                         style={{
                                             width: '35px',
                                             height: '35px',
-                                            borderRadius: '4px',
-                                            border: '1px solid #d4cbb3',
-                                            backgroundColor: selectedLetter === letter ? '#8d2024' : '#fff',
-                                            color: selectedLetter === letter ? '#fff' : (hasData ? '#1a1512' : '#ccc'),
+                                            borderRadius: '3px',
+                                            border: isSelected ? '1px solid #b38235' : '1px solid #d4cbb3',
+                                            backgroundColor: isSelected ? '#0a3a24' : '#fff',
+                                            color: isSelected ? '#fcfbf7' : (hasData ? '#1a1512' : '#ccc'),
                                             fontWeight: 'bold',
                                             cursor: hasData ? 'pointer' : 'not-allowed',
                                             opacity: hasData ? 1 : 0.4,
+                                            boxShadow: isSelected ? 'inset 0 1px 0 rgba(255,255,255,0.15), 0 2px 4px rgba(0,0,0,0.15)' : 'none',
                                             transition: 'all 0.2s'
                                         }}
                                         title={!hasData ? 'No records for this letter yet' : ''}
@@ -161,8 +164,8 @@ export default function ObjectDonors() {
                             {filteredGroups.map(group => (
                                 <div key={group.letter} id={`donor-group-${group.letter}`} style={{ marginBottom: '20px', scrollMarginTop: '100px' }}>
                                     {/* Letter Category Header using native block caps style */}
-                                    <div className="block__cap" style={{ display: 'flex', alignItems: 'baseline', gap: '15px', borderBottom: '2px solid #8d2024', paddingBottom: '8px', marginBottom: '25px' }}>
-                                        <span className="cap__title" style={{ fontSize: '1.8rem', color: '#8d2024', margin: 0 }}>
+                                    <div className="block__cap" style={{ display: 'flex', alignItems: 'baseline', gap: '15px', borderBottom: '2px solid #b38235', paddingBottom: '8px', marginBottom: '25px' }}>
+                                        <span className="cap__title" style={{ fontSize: '1.8rem', color: '#0d4228', margin: 0 }}>
                                             {group.letter}
                                         </span>
                                         <span style={{ fontSize: '1.05rem', color: '#666', fontWeight: 'bold' }}>
@@ -283,14 +286,14 @@ export default function ObjectDonors() {
                             }}
                             onMouseEnter={(e) => {
                                 if (hasData) {
-                                    e.currentTarget.style.backgroundColor = '#8d2024';
-                                    e.currentTarget.style.color = '#fff';
+                                    e.currentTarget.style.backgroundColor = '#0a3a24';
+                                    e.currentTarget.style.color = '#fcfbf7';
                                 }
                             }}
                             onMouseLeave={(e) => {
                                 if (hasData) {
                                     e.currentTarget.style.backgroundColor = 'transparent';
-                                    e.currentTarget.style.color = '#8d2024';
+                                    e.currentTarget.style.color = '#0a3a24';
                                 }
                             }}
                             title={!hasData ? 'No records for this letter yet' : `Go to letter ${letter}`}

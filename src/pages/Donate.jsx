@@ -57,8 +57,8 @@ export default function Donate() {
             <section className="hero hero--museum-story">
                 <div className="hero__inner hero__inner--bottom-left">
                     <div className="hero-card hero-card--dark-brush hero-card--wide">
-                        <div className="hero-card__title">অনুদান (Donation)</div>
-                        <div className="hero-card__desc">
+                        <div className="hero-card__title" style={{ fontFamily: "'Noto Sans Bengali', sans-serif" }}>অনুদান (Donation)</div>
+                        <div className="hero-card__desc" style={{ fontFamily: "'Noto Sans Bengali', sans-serif" }}>
                             নির্মিত হয়েছে মুক্তিযুদ্ধ জাদুঘর, গড়তে হবে স্থায়ী তহবিল
                         </div>
                     </div>
@@ -72,7 +72,7 @@ export default function Donate() {
                 <section className="block">
                     <div className="separator"></div>
                     <div className="block__cap">
-                        <span className="cap__title" style={{ fontSize: '1.8rem', color: '#1a1512', fontFamily: 'Roboto Slab, serif', textTransform: 'none' }}>
+                        <span className="cap__title" style={{ fontSize: '1.8rem', color: '#1a1512', fontFamily: "'Noto Sans Bengali', sans-serif", textTransform: 'none' }}>
                             গড়তে হবে স্থায়ী তহবিল
                         </span>
                     </div>
@@ -80,16 +80,27 @@ export default function Donate() {
                         <p className="p" style={{ textAlign: 'justify', fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '15px' }}>
                             মুক্তিযুদ্ধের প্রেরণায় জন-অংশগ্রহণে নির্মিত হয়েছে মুক্তিযুদ্ধ জাদুঘরের নিজস্ব ভবন। এর যথাযথ পরিচালনার জন্য সকলের সহায়তায় গড়ে উঠবে স্থায়ী তহবিল। মুক্তিযুদ্ধ জাদুঘরের সহায়তায় এগিয়ে আসুন আপনিও।
                         </p>
-                        <p className="p" style={{ textAlign: 'justify', fontSize: '1.05rem', lineHeight: '1.7', fontStyle: 'italic', color: '#555' }}>
-                            অনুদান-দাতার নাম জাদুঘর ভবনে স্থায়ীভাবে প্রদর্শিত হবে। যে ব্যক্তি বা প্রতিষ্ঠানের নামে অনুদানভূক্তি হবে তা পরিষ্কার হরফে বাংলায় ও ইংরেজিতে লিখুন (আপনার প্রদত্ত বানান অনুযায়ী নাম প্রদর্শিত হবে)।
-                        </p>
+                        <div style={{
+                            backgroundColor: 'rgba(197, 155, 39, 0.08)',
+                            borderLeft: '4px solid #b38235',
+                            borderTop: '1px solid rgba(197, 155, 39, 0.25)',
+                            borderRight: '1px solid rgba(197, 155, 39, 0.25)',
+                            borderBottom: '1px solid rgba(197, 155, 39, 0.25)',
+                            padding: '16px 20px',
+                            borderRadius: '4px',
+                            marginTop: '15px'
+                        }}>
+                            <p className="p" style={{ margin: 0, fontSize: '1.02rem', lineHeight: '1.7', color: '#3d2e0d', fontWeight: '500' }}>
+                                <strong style={{ color: '#8b181e' }}>★ স্থায়ী সম্মাননা:</strong> অনুদান-দাতার নাম জাদুঘর ভবনে স্থায়ীভাবে প্রদর্শিত হবে। যে ব্যক্তি বা প্রতিষ্ঠানের নামে অনুদানভূক্তি হবে তা পরিষ্কার হরফে বাংলায় ও ইংরেজিতে লিখুন (আপনার প্রদত্ত বানান অনুযায়ী নাম প্রদর্শিত হবে)।
+                            </p>
+                        </div>
                     </div>
                 </section>
 
                 {/* 2. WHY DONATE */}
                 <section className="block">
                     <div className="block__cap">
-                        <span className="cap__title" style={{ fontSize: '1.8rem', color: '#1a1512', fontFamily: 'Roboto Slab, serif', textTransform: 'none' }}>
+                        <span className="cap__title" style={{ fontSize: '1.8rem', color: '#1a1512', fontFamily: "'Noto Sans Bengali', sans-serif", textTransform: 'none' }}>
                             কেন অনুদান দিবেন?
                         </span>
                     </div>
@@ -125,7 +136,7 @@ export default function Donate() {
                 {/* 3. METHODS & FORM */}
                 <section className="block">
                     <div className="block__cap">
-                        <span className="cap__title" style={{ fontSize: '1.8rem', color: '#1a1512', fontFamily: 'Roboto Slab, serif', textTransform: 'none' }}>
+                        <span className="cap__title" style={{ fontSize: '1.8rem', color: '#1a1512', fontFamily: "'Noto Sans Bengali', sans-serif", textTransform: 'none' }}>
                             যেভাবে অনুদান দিবেন
                         </span>
                     </div>
@@ -142,7 +153,7 @@ export default function Donate() {
                                     color: activeTab === 'online' ? '#fff' : '#1a1512',
                                     fontWeight: 'bold',
                                     cursor: 'pointer',
-                                    fontFamily: 'Roboto Slab, serif',
+                                    fontFamily: "'Noto Sans Bengali', sans-serif",
                                     transition: 'all 0.2s ease'
                                 }}
                             >
@@ -158,7 +169,7 @@ export default function Donate() {
                                     color: activeTab === 'bkash' ? '#fff' : '#1a1512',
                                     fontWeight: 'bold',
                                     cursor: 'pointer',
-                                    fontFamily: 'Roboto Slab, serif',
+                                    fontFamily: "'Noto Sans Bengali', sans-serif",
                                     transition: 'all 0.2s ease'
                                 }}
                             >
@@ -174,7 +185,7 @@ export default function Donate() {
                                     color: activeTab === 'bank' ? '#fff' : '#1a1512',
                                     fontWeight: 'bold',
                                     cursor: 'pointer',
-                                    fontFamily: 'Roboto Slab, serif',
+                                    fontFamily: "'Noto Sans Bengali', sans-serif",
                                     transition: 'all 0.2s ease'
                                 }}
                             >
@@ -190,7 +201,7 @@ export default function Donate() {
                                     color: activeTab === 'office' ? '#fff' : '#1a1512',
                                     fontWeight: 'bold',
                                     cursor: 'pointer',
-                                    fontFamily: 'Roboto Slab, serif',
+                                    fontFamily: "'Noto Sans Bengali', sans-serif",
                                     transition: 'all 0.2s ease'
                                 }}
                             >
@@ -203,7 +214,7 @@ export default function Donate() {
                         {/* ONLINE FORM TAB */}
                         {activeTab === 'online' && (
                             <div style={{ padding: '25px', backgroundColor: '#fcfbf7', border: '1px solid #d4cbb3', borderRadius: '4px' }}>
-                                <h4 style={{ fontFamily: 'Roboto Slab, serif', fontSize: '1.25rem', color: '#8d2024', margin: '0 0 20px 0', fontWeight: 'bold' }}>
+                                <h4 style={{ fontFamily: "'Noto Sans Bengali', sans-serif", fontSize: '1.25rem', color: '#8d2024', margin: '0 0 20px 0', fontWeight: 'bold' }}>
                                     Donation Form / অনুদান ফরম
                                 </h4>
                                 
@@ -213,7 +224,7 @@ export default function Donate() {
                                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                                             <polyline points="22 4 12 14.01 9 11.01" />
                                         </svg>
-                                        <h5 style={{ fontFamily: 'Roboto Slab, serif', fontSize: '1.3rem', color: '#2e7d32', margin: '0 0 10px 0' }}>
+                                        <h5 style={{ fontFamily: "'Noto Sans Bengali', sans-serif", fontSize: '1.3rem', color: '#2e7d32', margin: '0 0 10px 0' }}>
                                             ধন্যবাদ! Thank You!
                                         </h5>
                                         <p className="p" style={{ fontSize: '1rem', color: '#555', marginBottom: '25px' }}>
@@ -354,16 +365,20 @@ export default function Donate() {
                                             type="submit" 
                                             className="btn btn--primary" 
                                             style={{ 
-                                                padding: '12px', 
-                                                backgroundColor: '#8d2024', 
+                                                padding: '12px 28px', 
+                                                background: 'linear-gradient(180deg, #8b181e 0%, #660f13 100%)', 
                                                 color: '#fff', 
-                                                border: 'none', 
-                                                borderRadius: '4px', 
+                                                border: '1px solid rgba(212, 175, 55, 0.45)', 
+                                                borderRadius: '3px', 
                                                 cursor: 'pointer', 
                                                 fontWeight: 'bold',
                                                 fontSize: '1rem',
-                                                fontFamily: 'Roboto Slab, serif',
-                                                marginTop: '10px'
+                                                fontFamily: "'Roboto Slab', serif",
+                                                textTransform: 'uppercase',
+                                                letterSpacing: '0.06em',
+                                                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 2px 6px rgba(0, 0, 0, 0.35)',
+                                                marginTop: '10px',
+                                                transition: 'all 0.2s ease-in-out'
                                             }}
                                         >
                                             Submit Form
@@ -376,7 +391,7 @@ export default function Donate() {
                         {/* BKASH APP TAB */}
                         {activeTab === 'bkash' && (
                             <div style={{ padding: '25px', backgroundColor: '#fcfbf7', border: '1px solid #d4cbb3', borderRadius: '4px' }}>
-                                <h4 style={{ fontFamily: 'Roboto Slab, serif', fontSize: '1.25rem', color: '#8d2024', margin: '0 0 15px 0', fontWeight: 'bold' }}>
+                                <h4 style={{ fontFamily: "'Noto Sans Bengali', sans-serif", fontSize: '1.25rem', color: '#8d2024', margin: '0 0 15px 0', fontWeight: 'bold' }}>
                                     বিকাশ অ্যাপের মাধ্যমে অনুদান (Donate via bKash App)
                                 </h4>
                                 <ol className="p" style={{ paddingLeft: '20px', margin: '0 0 20px 0', lineHeight: '1.6' }}>
@@ -408,14 +423,14 @@ export default function Donate() {
                         {/* BANK TRANSFER TAB */}
                         {activeTab === 'bank' && (
                             <div style={{ padding: '25px', backgroundColor: '#fcfbf7', border: '1px solid #d4cbb3', borderRadius: '4px' }}>
-                                <h4 style={{ fontFamily: 'Roboto Slab, serif', fontSize: '1.25rem', color: '#8d2024', margin: '0 0 20px 0', fontWeight: 'bold' }}>
+                                <h4 style={{ fontFamily: "'Noto Sans Bengali', sans-serif", fontSize: '1.25rem', color: '#8d2024', margin: '0 0 20px 0', fontWeight: 'bold' }}>
                                     ব্যাংক অ্যাকাউন্টের বিবরণ (Bank Account Details)
                                 </h4>
                                 
                                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
                                     {/* Bangla Details */}
                                     <div style={{ padding: '15px', backgroundColor: '#fff', border: '1px solid #e8e3d5', borderRadius: '4px' }}>
-                                        <h5 style={{ fontFamily: 'Roboto Slab, serif', color: '#8d2024', fontSize: '1.05rem', margin: '0 0 12px 0', fontWeight: 'bold' }}>বাংলা বিবরণ</h5>
+                                        <h5 style={{ fontFamily: "'Noto Sans Bengali', sans-serif", color: '#8d2024', fontSize: '1.05rem', margin: '0 0 12px 0', fontWeight: 'bold' }}>বাংলা বিবরণ</h5>
                                         <ul style={{ listStyle: 'none', paddingLeft: 0, margin: 0, lineHeight: '1.8', fontSize: '0.95rem' }}>
                                             <li><strong>ব্যাংক হিসাবের নাম:</strong> মুক্তিযুদ্ধ জাদুঘর ফান্ড</li>
                                             <li><strong>ব্যাংক হিসাব নং:</strong> ১১০১১৩১২৫২৬৪০৬৩</li>
@@ -443,7 +458,7 @@ export default function Donate() {
                         {/* DIRECT OFFICE TAB */}
                         {activeTab === 'office' && (
                             <div style={{ padding: '25px', backgroundColor: '#fcfbf7', border: '1px solid #d4cbb3', borderRadius: '4px' }}>
-                                <h4 style={{ fontFamily: 'Roboto Slab, serif', fontSize: '1.25rem', color: '#8d2024', margin: '0 0 15px 0', fontWeight: 'bold' }}>
+                                <h4 style={{ fontFamily: "'Noto Sans Bengali', sans-serif", fontSize: '1.25rem', color: '#8d2024', margin: '0 0 15px 0', fontWeight: 'bold' }}>
                                     সরাসরি মুক্তিযুদ্ধ জাদুঘর কার্যালয়ে (Directly to Office)
                                 </h4>
                                 
@@ -453,7 +468,7 @@ export default function Donate() {
                                         <circle cx="12" cy="10" r="3" />
                                     </svg>
                                     <div>
-                                        <h5 style={{ fontFamily: 'Roboto Slab, serif', fontSize: '1.1rem', color: '#1a1512', margin: '0 0 8px 0', fontWeight: 'bold' }}>
+                                        <h5 style={{ fontFamily: "'Noto Sans Bengali', sans-serif", fontSize: '1.1rem', color: '#1a1512', margin: '0 0 8px 0', fontWeight: 'bold' }}>
                                             জাদুঘরের ঠিকানা (Museum Address)
                                         </h5>
                                         <p style={{ margin: 0, lineHeight: '1.8', fontSize: '0.98rem', color: '#1a1a1a' }}>

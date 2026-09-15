@@ -1,4 +1,22 @@
 :root {
+  /* Brand Theme Colors */
+  --deep-green: #0a3822;
+  --deep-green-dark: #072818;
+  --deep-green-surface: #0e4429;
+  --deep-green-glass: rgba(10, 56, 34, 0.94);
+  --deep-green-tint: rgba(10, 56, 34, 0.85);
+
+  --heritage-red: #a82025;
+  --heritage-red-hover: #c5221f;
+  --heritage-red-dark: #8b181c;
+  --heritage-red-glow: rgba(168, 32, 37, 0.35);
+
+  --antique-gold: #c59b27;
+  --warm-bronze: #b38235;
+  --gold-light: #e0be6c;
+  --gold-border: rgba(197, 155, 39, 0.45);
+  --gold-soft-bg: rgba(197, 155, 39, 0.08);
+
   --cream: #e7dfc8;
   --donate: #cdb66c;
   --ink: #141414;
@@ -46,15 +64,21 @@ body {
   color: #111
 }
 
-/* ========== TOPBAR (wood) ========== */
+/* Dedicated Direct Noto Sans Bengali for all Bengali elements */
+:lang(bn), .bn, [class*="__bn"], [class*="-bn"], .bangla, .bengali, .bengali-text {
+  font-family: 'Noto Sans Bengali', sans-serif !important;
+}
+
+/* ========== TOPBAR (deep green) ========== */
 .topbar {
   position: relative;
-  background: url("/assets/img17.jpg") center/cover no-repeat fixed;
+  background: linear-gradient(180deg, #072818 0%, #0a3822 100%);
   color: #F3EBD0;
   font-size: 0.75rem;
   /* 12px */
   padding: 0.375rem 0;
   line-height: 1.5;
+  border-bottom: 1px solid var(--gold-border);
 }
 
 .topbar__inner {
@@ -73,7 +97,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, .22)
+  background: rgba(0, 0, 0, .15);
 }
 
 .topbar::after {
@@ -83,7 +107,7 @@ body {
   right: 0;
   bottom: 0;
   height: 1px;
-  background: rgba(255, 255, 255, .18)
+  background: var(--gold-border);
 }
 
 .topbar>* {
@@ -100,7 +124,7 @@ body {
 .topbar__divider {
   width: 1px;
   height: 14px;
-  background: rgba(255, 255, 255, .35)
+  background: var(--gold-border);
 }
 
 .topbar__lang {
@@ -121,19 +145,20 @@ body {
   transform: translateY(-2px);
 }
 
-/* ========== HEADER (wood) ========== */
+/* ========== HEADER (deep green) ========== */
 .header {
   position: relative;
-  background: url("/assets/img17.jpg") center/cover no-repeat fixed;
-  border-top: 2px solid #F3EBD0;
-  border-bottom: 2px solid #F3EBD0;
+  background: linear-gradient(180deg, #08301c 0%, #0a3822 100%);
+  border-top: 2px solid var(--antique-gold);
+  border-bottom: 2px solid var(--antique-gold);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
 }
 
 .header::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, .18)
+  background: rgba(0, 0, 0, .12);
 }
 
 .header__inner {
@@ -157,7 +182,7 @@ body {
 
 .brand__bn {
   color: #F3EBD0;
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
   font-size: 1.875rem;
   /* 30px */
   font-weight: 700;
@@ -183,7 +208,7 @@ body {
   top: 0;
   bottom: 0;
   width: 1px;
-  background: #F3EBD0;
+  background: var(--gold-border);
 }
 
 .vline--left {
@@ -248,27 +273,52 @@ body {
   text-decoration: none;
   padding-bottom: 3px;
   border-bottom: 3px solid transparent;
+  transition: all 0.2s ease;
 }
 
 .nav a:hover,
 .nav a:active,
 .nav a.active {
-  border-bottom-color: #E63531;
+  border-bottom-color: var(--heritage-red-hover);
+  color: #ffffff;
 }
 
-/* Original global btn-donate (restored for index.html) */
+/* Solemn Heritage Rectangular Donate CTA */
 .btn-donate {
-  background: url("/assets/donate button bg.svg") center/100% 100% no-repeat;
-  color: #1b1b1b !important;
-  padding: 4px 10px;
-  border-radius: 2px;
-  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #8b181e 0%, #660f13 100%);
+  color: #ffffff !important;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  padding: 7px 18px;
+  border-radius: 3px;
+  font-family: 'Roboto Slab', serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   text-decoration: none !important;
   position: relative;
   z-index: 100;
   cursor: pointer;
   pointer-events: auto;
-  /* Added pointer-events */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  transition: all 0.22s ease-in-out;
+}
+
+.btn-donate:hover {
+  background: linear-gradient(180deg, #9e1d23 0%, #751217 100%);
+  border-color: rgba(224, 186, 76, 0.75);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 4px 12px rgba(0, 0, 0, 0.45), 0 0 8px rgba(168, 28, 34, 0.35);
+  transform: translateY(-1px);
+  color: #ffffff !important;
+}
+
+.btn-donate:active {
+  transform: translateY(0);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* logo overlap */
@@ -395,14 +445,36 @@ body {
 }
 
 .hero-card__btn {
-  display: inline-block;
-  background: url("/assets/plan\ your\ visit\ button\ bg.png") center/100% 100% no-repeat;
-  color: #1b1b1b;
-  font-weight: 900;
-  font-size: 13px;
-  padding: 9px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #8b181e 0%, #660f13 100%);
+  color: #ffffff;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 11px 28px;
   border-radius: 3px;
+  border: 1px solid rgba(212, 175, 55, 0.45);
   text-decoration: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 rgba(0, 0, 0, 0.35), 0 4px 12px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  transition: all 0.22s ease-in-out;
+}
+
+.hero-card__btn:hover {
+  background: linear-gradient(180deg, #9e1d23 0%, #751217 100%);
+  border-color: rgba(224, 186, 76, 0.75);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 6px 18px rgba(0, 0, 0, 0.5), 0 0 12px rgba(168, 28, 34, 0.35);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.hero-card__btn:active {
+  transform: translateY(0);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* ========== CONTENT (beige blocks) ========== */
@@ -491,9 +563,10 @@ body {
   /* 28px */
   font-weight: 900;
   /* Black */
-  color: #222;
+  color: var(--deep-green);
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .cap__line {
@@ -587,21 +660,25 @@ body {
 .btn-dark {
   display: inline-block;
   margin-top: 18px;
-  background: url("/assets/know more button bg.png") center/100% 100% no-repeat;
-  color: #f3ead2;
+  background: linear-gradient(180deg, #a82025 0%, #8b181c 100%);
+  color: #ffffff !important;
   font-family: 'Roboto Slab', serif;
-  font-weight: 500;
-  /* Medium */
+  font-weight: 600;
   font-size: 1.25rem;
-  /* 20px */
-  letter-spacing: .02em;
-  padding: 10px 24px;
-  border-radius: 2px;
+  letter-spacing: .03em;
+  padding: 10px 28px;
+  border-radius: 4px;
+  border: 1px solid var(--antique-gold);
+  box-shadow: 0 4px 12px var(--heritage-red-glow);
   text-decoration: none;
+  transition: all 0.25s ease;
 }
 
 .btn-dark:hover {
-  opacity: .92
+  background: linear-gradient(180deg, #c5221f 0%, #9e191d 100%);
+  box-shadow: 0 6px 18px rgba(197, 34, 31, 0.5);
+  transform: translateY(-2px);
+  color: #ffffff !important;
 }
 
 .sketch {
@@ -685,6 +762,7 @@ body {
   font-weight: 700;
   font-size: 49px;
   letter-spacing: .02em;
+  color: var(--heritage-red);
 }
 
 .p--center {
@@ -738,7 +816,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 28px;
   font-weight: 900;
-  color: #1a1a1a;
+  color: var(--deep-green);
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -776,7 +854,9 @@ body {
 
 /* DARK SECTIONS (Trustees & Gallery) */
 .section-dark {
-  background-color: #23221E;
+  background: linear-gradient(180deg, #072818 0%, #0a3822 100%);
+  border-top: 2px solid var(--antique-gold);
+  border-bottom: 2px solid var(--antique-gold);
   color: #fff;
   padding: 60px 0 80px;
 }
@@ -844,9 +924,8 @@ body {
   flex: 1;
   height: 6px;
   background: url("/assets/section divide line.png") center/100% 100% no-repeat;
-  filter: invert(1) brightness(2);
-  /* Make it whiteish */
-  opacity: 0.4;
+  filter: invert(72%) sepia(50%) saturate(600%) hue-rotate(5deg) brightness(95%);
+  opacity: 0.7;
   max-width: 100%;
 }
 
@@ -858,7 +937,9 @@ body {
   /* Reduced from 24px */
   font-weight: 700;
   text-transform: uppercase;
-  color: #e7dfc8;
+  color: #F3EBD0;
+  border-bottom: 2px solid var(--antique-gold);
+  padding-bottom: 4px;
   white-space: nowrap;
 }
 
@@ -929,19 +1010,24 @@ body {
 
 .btn-beige {
   display: inline-block;
-  background: url("/assets/plan your visit button bg.png") no-repeat center/100% 100%;
-  /* card bg color */
-  color: #1a1a1a;
-  padding: 12px 30px;
+  background: #fbf5e6;
+  color: #8b181c;
+  border: 1.5px solid var(--antique-gold);
+  padding: 12px 34px;
   font-family: 'Roboto Slab', serif;
   font-weight: 700;
   text-decoration: none;
   font-size: 18px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s;
+  border-radius: 4px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
 }
 
 .btn-beige:hover {
+  background: var(--heritage-red);
+  color: #ffffff;
+  border-color: var(--heritage-red-hover);
+  box-shadow: 0 4px 14px var(--heritage-red-glow);
   transform: translateY(-2px);
 }
 
@@ -958,10 +1044,10 @@ body {
 
 .separator-white {
   height: 2px;
-  opacity: 0.5;
+  border-bottom: 1px solid var(--gold-border);
+  opacity: 0.7;
   margin: 60px auto 10px auto;
   max-width: 1400px;
-  /* Updated */
 }
 
 
@@ -972,7 +1058,9 @@ body {
   font-weight: 900;
   /* Black weight */
   text-transform: uppercase;
-  color: #e7dfc8;
+  color: #F3EBD0;
+  border-bottom: 2px solid var(--antique-gold);
+  padding-bottom: 4px;
   margin-bottom: 20px;
 }
 
@@ -1063,7 +1151,7 @@ body {
   /* Updated */
   font-weight: 700;
   text-transform: uppercase;
-  color: #1a1a1a;
+  color: var(--deep-green);
   white-space: nowrap;
 }
 
@@ -1103,19 +1191,23 @@ body {
 
 .btn-dark-grunge {
   display: inline-block;
-  background: url("/assets/know more button bg.png") no-repeat center/100% 100%;
-  color: #e7dfc8;
-  /* Light text for dark bg */
-  padding: 12px 40px;
+  background: linear-gradient(180deg, #a82025 0%, #8b181c 100%);
+  color: #ffffff !important;
+  padding: 12px 42px;
   font-family: 'Roboto Slab', serif;
   font-weight: 700;
   text-decoration: none;
   font-size: 16px;
-  transition: transform 0.2s;
+  border-radius: 4px;
+  border: 1px solid var(--antique-gold);
+  box-shadow: 0 4px 14px var(--heritage-red-glow);
+  transition: all 0.25s ease;
 }
 
 .btn-dark-grunge:hover {
-  transform: scale(1.05);
+  background: linear-gradient(180deg, #c5221f 0%, #9e191d 100%);
+  box-shadow: 0 6px 20px rgba(197, 34, 31, 0.5);
+  transform: translateY(-2px) scale(1.02);
 }
 
 /* EVENTS */
@@ -1149,8 +1241,8 @@ body {
 }
 
 .event-info {
-  border-left: 3px solid #C8C2AB;
-  /* Restored divider with color */
+  border-left: 3px solid var(--antique-gold);
+  /* Restored divider with antique gold */
   padding-left: 30px;
   text-align: left;
   /* Left align text */
@@ -1196,11 +1288,10 @@ body {
 
 .event-date {
   font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  /* Regular */
+  font-weight: 700;
   font-size: 28px;
   /* Updated */
-  color: #1a1a1a;
+  color: var(--heritage-red);
 }
 
 /* Global: Hide mobile nav by default on desktop */
@@ -1362,7 +1453,7 @@ body {
 
   .mbrand__bn {
     color: #F3EBD0;
-    font-family: 'Hind Siliguri', sans-serif;
+    font-family: 'Noto Sans Bengali', sans-serif;
     font-size: 20px;
     font-weight: 700;
     line-height: 1.1;
@@ -1496,22 +1587,29 @@ body {
     opacity: 0 !important;
   }
 
-  /* Donate Button - Match Screenshot (Grid/Beige) */
+  /* Donate Button - Mobile Header */
   .mbar__donate {
-    display: inline-block;
-    background: url("/assets/donate button bg.svg") center/100% 100% no-repeat;
-    color: #1b1b1b;
-    font-weight: 800;
-    font-size: 13px;
-    padding: 8px 20px;
-    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #8b181e 0%, #660f13 100%);
+    color: #ffffff !important;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 3px;
     text-decoration: none;
-    border: none;
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 rgba(0, 0, 0, 0.35), 0 2px 5px rgba(0, 0, 0, 0.35);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
     position: relative;
     z-index: 2100;
-    /* Ensure it's above everything */
     cursor: pointer;
     pointer-events: auto !important;
+    transition: all 0.22s ease-in-out;
   }
 
   /* Subpages: Always show logo on mobile */
@@ -1663,10 +1761,9 @@ body {
 
   .hero-card__btn {
     margin: 0 auto;
-    font-size: 16px;
-    padding: 12px 24px;
-    background: url("/assets/plan your visit button bg.png") center/100% 100% no-repeat;
-    color: #1a1a1a;
+    font-size: 13px;
+    padding: 10px 24px;
+    color: #ffffff;
   }
 
   /* HISTORY section: Side-by-Side Text/Image with Left Align */
@@ -1928,10 +2025,12 @@ body {
 
 /* FOOTER */
 .main-footer {
-  background-color: #23221E;
+  background: linear-gradient(180deg, #072818 0%, #051d11 100%);
+  border-top: 3px solid var(--antique-gold);
   color: #F3EBD0;
   padding: 80px 0 30px;
   margin-top: 0;
+  box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.35);
 }
 
 .footer-grid {
@@ -1945,8 +2044,20 @@ body {
   font-family: 'Roboto Slab', serif;
   font-weight: 700;
   font-size: 36px;
-  color: #F3EBD0;
-  margin-bottom: 30px;
+  color: #f7eed7;
+  margin-bottom: 25px;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-head::after {
+  content: "";
+  display: block;
+  width: 46px;
+  height: 3px;
+  background: var(--antique-gold);
+  margin-top: 8px;
+  border-radius: 2px;
 }
 
 .f-arrow {
@@ -1994,10 +2105,11 @@ body {
   font-size: 20px;
   color: #F3EBD0;
   text-decoration: none;
-  transition: opacity 0.2s;
+  transition: all 0.2s;
 }
 
 .footer-links-grid a:hover {
+  color: var(--gold-light);
   text-decoration: underline;
 }
 
@@ -2550,9 +2662,9 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
-    background: rgba(35, 34, 30, 0.4);
+    background: rgba(7, 40, 24, 0.7);
     z-index: 20;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid var(--gold-border);
     color: #F3EBD0;
   }
 
@@ -2560,13 +2672,17 @@ body {
     position: absolute;
     top: 1.875rem;
     width: 100%;
-    background: rgba(35, 34, 30, 0.4);
+    background: rgba(10, 56, 34, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid var(--gold-border);
+    border-bottom: 1px solid var(--gold-border);
     z-index: 20;
-    box-shadow: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   }
 
   .page-subpage .header__inner {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid var(--gold-border);
     justify-content: space-between;
   }
 
@@ -2592,7 +2708,7 @@ body {
   }
 
   .page-subpage .vline {
-    background: rgba(255, 255, 255, 0.3);
+    background: var(--gold-border);
   }
 
   .page-subpage .uico,
@@ -2607,11 +2723,12 @@ body {
   top: 0 !important;
   left: 0;
   width: 100%;
-  background: rgba(35, 34, 30, 0.97) !important;
+  background: rgba(7, 38, 22, 0.98) !important;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  border-bottom: 2px solid var(--antique-gold) !important;
   z-index: 2000 !important;
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   transform: translateY(-100%);
   opacity: 0;
   transition:
@@ -2908,8 +3025,8 @@ body.header-is-sticky .topbar {
     height: 100vh;
     padding-top: 100px;
     /* Space for top bar */
-    background: #1b1b1b;
-    /* Solid Dark Background as in screenshot */
+    background: linear-gradient(180deg, #072818 0%, #0a3822 100%);
+    border-top: 3px solid var(--antique-gold) !important;
     padding-bottom: 80px;
     flex-direction: column;
     align-items: center;
@@ -2917,7 +3034,6 @@ body.header-is-sticky .topbar {
     z-index: 1000;
     /* Below the hamburger button which needs z-index > 1000 */
     overflow-y: auto;
-    border-top: none !important;
   }
 
   .mobile-nav.active {
@@ -2949,19 +3065,19 @@ body.header-is-sticky .topbar {
     /* Center behind logo */
     left: 50%;
     transform: translateX(-50%);
-    width: 200vw;
+    width: 100%;
     height: 1px;
-    background: rgba(243, 235, 208, 0.4);
+    background: var(--gold-border);
     z-index: 0;
   }
 
   .mobile-nav__logo {
-    height: 75px;
-    width: auto;
+    width: 70px;
+    height: auto;
     position: relative;
     z-index: 1;
-    background: #1b1b1b;
-    /* Optional: mask the line behind logo */
+    background: #072818;
+    /* mask the line behind logo */
     padding: 0 10px;
   }
 
@@ -3006,6 +3122,12 @@ body.header-is-sticky .topbar {
     color: #F3EBD0;
     text-decoration: none;
     font-weight: 700;
+    transition: color 0.2s ease;
+  }
+
+  .mobile-nav a:hover,
+  .mobile-nav a:active {
+    color: var(--heritage-red-hover);
   }
 
   /* Mobile Explore Submenu */
@@ -6056,7 +6178,7 @@ body.header-is-sticky .topbar {
 }
 
 .sd-heritage-quote-author {
-  font-family: 'Hind Siliguri', 'Roboto', sans-serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
   font-size: 0.88rem;
   color: #8c7662;
   font-weight: 600;
@@ -6144,7 +6266,7 @@ body.header-is-sticky .topbar {
   gap: 6px;
   text-decoration: none;
   border: none;
-  font-family: 'Hind Siliguri', 'Roboto', sans-serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
 }
 
 .sd-heritage-button--primary {
@@ -6378,7 +6500,7 @@ body.header-is-sticky .topbar {
 }
 
 .sd-poster-paragraph {
-  font-family: 'Roboto', 'Hind Siliguri', sans-serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
   font-size: 1.05rem;
   line-height: 1.8;
   color: #2c2015;
@@ -6555,7 +6677,7 @@ body.header-is-sticky .topbar {
 }
 
 .sd-news-card__desc {
-  font-family: 'Roboto', 'Hind Siliguri', sans-serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
   font-size: 0.9rem;
   line-height: 1.5;
   color: #5c4e3f;
@@ -6919,7 +7041,7 @@ body.header-is-sticky .topbar {
 }
 
 .csgj-focus-desc {
-  font-family: 'Roboto', 'Hind Siliguri', sans-serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
   font-size: 0.95rem;
   line-height: 1.6;
   color: #5c4e3f;
@@ -6972,7 +7094,7 @@ body.header-is-sticky .topbar {
 }
 
 .csgj-program-desc {
-  font-family: 'Roboto', 'Hind Siliguri', sans-serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
   font-size: 0.95rem;
   line-height: 1.55;
   color: #5c4e3f;
@@ -7070,7 +7192,7 @@ body.header-is-sticky .topbar {
 }
 
 .csgj-checklist-text {
-  font-family: 'Roboto', 'Hind Siliguri', sans-serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
   font-size: 0.95rem;
   line-height: 1.6;
   color: #5c4e3f;
@@ -7213,7 +7335,7 @@ body.header-is-sticky .topbar {
 }
 
 .csgj-contact-p {
-  font-family: 'Roboto', 'Hind Siliguri', sans-serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
   font-size: 0.95rem;
   color: #5c4e3f;
   margin: 0 !important;
@@ -7308,7 +7430,7 @@ body.header-is-sticky .topbar {
 }
 
 .csgj-speaker-info {
-  font-family: 'Roboto', 'Hind Siliguri', sans-serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
   font-size: 0.98rem;
   line-height: 1.55;
   color: #5c4e3f;
@@ -7476,7 +7598,7 @@ body.header-is-sticky .topbar {
 }
 
 .oh-card-title {
-  font-family: 'Roboto', 'Noto Sans Bengali', sans-serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
   font-size: 1.25rem;
   font-weight: 600;
   color: #f3ebd0;
@@ -7815,7 +7937,7 @@ body.header-is-sticky .topbar {
 }
 
 .oh-cover-title {
-  font-family: 'Noto Sans Bengali', serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
   font-size: 2.6rem;
   font-weight: 700;
   color: #4a151b;
@@ -7878,7 +8000,7 @@ body.header-is-sticky .topbar {
 }
 
 .oh-back-title {
-  font-family: 'Noto Sans Bengali', serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
   font-size: 1.6rem;
   color: #4a151b;
   font-weight: 700;
@@ -7916,7 +8038,7 @@ body.header-is-sticky .topbar {
 
 /* Table of Contents (TOC) */
 .oh-page-title {
-  font-family: 'Noto Sans Bengali', serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
   font-size: 2rem;
   color: #4a151b;
   margin-bottom: 10px;
@@ -7989,7 +8111,7 @@ body.header-is-sticky .topbar {
 
 /* Story Pages */
 .oh-story-title {
-  font-family: 'Noto Sans Bengali', serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
   font-size: 1.8rem;
   color: #4a151b;
   margin-bottom: 15px;
@@ -8076,7 +8198,7 @@ body.header-is-sticky .topbar {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Roboto', 'Noto Sans Bengali', sans-serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
   box-shadow: 0 4px 15px rgba(0,0,0,0.35);
@@ -8123,7 +8245,7 @@ body.header-is-sticky .topbar {
   border-bottom: 1px solid rgba(255,255,255,0.1);
   padding-bottom: 6px;
   margin-bottom: 4px;
-  font-family: 'Roboto', 'Noto Sans Bengali', sans-serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
 }
 
 .oh-floating-menu-list {
@@ -8157,7 +8279,7 @@ body.header-is-sticky .topbar {
   font-size: 0.95rem;
   font-weight: 600;
   color: #f3ebd0;
-  font-family: 'Roboto', 'Noto Sans Bengali', sans-serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
   transition: color 0.2s ease;
 }
 
@@ -8165,7 +8287,7 @@ body.header-is-sticky .topbar {
   font-size: 0.78rem;
   color: #aaa;
   margin-top: 2px;
-  font-family: 'Roboto', 'Noto Sans Bengali', sans-serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
 }
 
 @media (max-width: 768px) {

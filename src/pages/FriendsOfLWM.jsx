@@ -123,12 +123,13 @@ export default function FriendsOfLWM() {
                             >
                                 <span style={{
                                     fontFamily: "'Roboto Slab', serif",
-                                    fontSize: '2rem',
+                                    fontSize: '1.75rem',
                                     fontWeight: '700',
-                                    color: 'rgba(141,32,36,0.18)',
+                                    color: '#b38235',
                                     lineHeight: 1,
                                     minWidth: '48px',
-                                    userSelect: 'none'
+                                    userSelect: 'none',
+                                    opacity: 0.85
                                 }}>
                                     {item.num}
                                 </span>
@@ -219,8 +220,8 @@ export default function FriendsOfLWM() {
                             alignItems: 'center',
                             flexWrap: 'wrap',
                             gap: '0',
-                            borderTop: '2px solid #8d2024',
-                            borderBottom: '2px solid #8d2024',
+                            borderTop: '2px solid #b38235',
+                            borderBottom: '2px solid #b38235',
                             margin: '24px 0',
                             padding: '18px 0'
                         }}>
@@ -228,9 +229,9 @@ export default function FriendsOfLWM() {
                                 flex: '1',
                                 minWidth: '220px',
                                 padding: '0 24px 0 0',
-                                borderRight: '1px solid rgba(141,32,36,0.2)'
+                                borderRight: '1px solid rgba(179,130,53,0.2)'
                             }}>
-                                <div style={{ fontSize: '0.72rem', fontWeight: '700', color: '#8d2024', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px', fontFamily: "'Roboto', sans-serif" }}>Organisation</div>
+                                <div style={{ fontSize: '0.72rem', fontWeight: '700', color: '#0d4228', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px', fontFamily: "'Roboto', sans-serif" }}>Organisation</div>
                                 <div style={{ fontFamily: "'Roboto Slab', serif", fontWeight: '700', fontSize: '1rem', color: '#1a1512' }}>FLWMB</div>
                                 <div style={{ fontFamily: "'Roboto', sans-serif", fontSize: '0.88rem', color: '#666' }}>Friends of Liberation War Museum, Bangladesh</div>
                             </div>
@@ -239,7 +240,7 @@ export default function FriendsOfLWM() {
                                 minWidth: '220px',
                                 padding: '0 24px'
                             }}>
-                                <div style={{ fontSize: '0.72rem', fontWeight: '700', color: '#8d2024', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px', fontFamily: "'Roboto', sans-serif" }}>Location</div>
+                                <div style={{ fontSize: '0.72rem', fontWeight: '700', color: '#0d4228', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px', fontFamily: "'Roboto', sans-serif" }}>Location</div>
                                 <div style={{ fontFamily: "'Roboto', sans-serif", fontSize: '0.92rem', color: '#1a1512' }}>120, S San Antonio Ave, Suite A</div>
                                 <div style={{ fontFamily: "'Roboto', sans-serif", fontSize: '0.92rem', color: '#666' }}>Ontario, CA 91762 — USA</div>
                             </div>
@@ -247,9 +248,9 @@ export default function FriendsOfLWM() {
                                 flex: '1',
                                 minWidth: '200px',
                                 padding: '0 0 0 24px',
-                                borderLeft: '1px solid rgba(141,32,36,0.2)'
+                                borderLeft: '1px solid rgba(179,130,53,0.2)'
                             }}>
-                                <div style={{ fontSize: '0.72rem', fontWeight: '700', color: '#8d2024', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px', fontFamily: "'Roboto', sans-serif" }}>Email</div>
+                                <div style={{ fontSize: '0.72rem', fontWeight: '700', color: '#0d4228', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px', fontFamily: "'Roboto', sans-serif" }}>Email</div>
                                 <a href="mailto:FLWMBangladesh@gmail.com" style={{ fontFamily: "'Roboto', sans-serif", fontSize: '0.92rem', color: '#8d2024', fontWeight: '600', textDecoration: 'none' }}>
                                     FLWMBangladesh@gmail.com
                                 </a>
@@ -260,13 +261,16 @@ export default function FriendsOfLWM() {
                                 to="/donate"
                                 style={{
                                     display: 'inline-block',
-                                    backgroundColor: '#8d2024',
+                                    background: 'linear-gradient(180deg, #8b181e 0%, #660f13 100%)',
                                     color: '#fff',
+                                    border: '1px solid rgba(212, 175, 55, 0.45)',
+                                    boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 2px 6px rgba(0, 0, 0, 0.35)',
+                                    borderRadius: '3px',
                                     padding: '10px 26px',
                                     fontWeight: '700',
                                     fontSize: '0.88rem',
                                     textDecoration: 'none',
-                                    fontFamily: "'Roboto', sans-serif",
+                                    fontFamily: "'Roboto Slab', serif",
                                     letterSpacing: '0.07em',
                                     textTransform: 'uppercase',
                                     marginRight: '12px'
@@ -278,13 +282,15 @@ export default function FriendsOfLWM() {
                                 href="mailto:FLWMBangladesh@gmail.com"
                                 style={{
                                     display: 'inline-block',
-                                    color: '#8d2024',
-                                    border: '2px solid #8d2024',
+                                    color: '#7a181d',
+                                    border: '1px solid rgba(212, 175, 55, 0.6)',
+                                    backgroundColor: 'rgba(212, 175, 55, 0.08)',
+                                    borderRadius: '3px',
                                     padding: '10px 26px',
                                     fontWeight: '700',
                                     fontSize: '0.88rem',
                                     textDecoration: 'none',
-                                    fontFamily: "'Roboto', sans-serif",
+                                    fontFamily: "'Roboto Slab', serif",
                                     letterSpacing: '0.07em',
                                     textTransform: 'uppercase'
                                 }}
