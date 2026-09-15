@@ -27,8 +27,8 @@ export default function BoardOfTrustees() {
                 {/* FOUNDER BOARD OF TRUSTEES */}
                 <div className="section-paper">
                     <section className="block">
-                        <div className="dark-line"></div>
-                        <div className="dark-head">
+                        <div className="dark-head dark-head--stacked">
+                            <div className="dark-line"></div>
                             <h2 className="dark-title">FOUNDER BOARD OF TRUSTEES</h2>
                         </div>
 

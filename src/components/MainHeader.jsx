@@ -53,10 +53,6 @@ export default function MainHeader() {
                     {/* Desktop right nav */}
                     <div className="right right--desktop">
                         <div className="utility">
-                            <a className="uitem" href="#"><img src="/assets/icon/user-plus-svgrepo-com 1.png" className="uico" alt="user" />
-                                Membership</a>
-                            <a className="uitem" href="#"><img src="/assets/icon/cart-shopping-svgrepo-com 1.png" className="uico" alt="shop" />
-                                Shop</a>
                             <a className="uitem" href="#"><img src="/assets/icon/search-plus-svgrepo-com 1.png" className="uico" alt="search" />
                                 Search</a>
                             <Link className="btn-donate" to="/donate">Donate</Link>

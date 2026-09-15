@@ -104,8 +104,8 @@ export default function Home() {
                 {/* FOUNDER BOARD OF TRUSTEES */}
                 <div className="section-dark">
                     <section className="block">
-                        <div className="dark-line"></div>
-                        <div className="dark-head">
+                        <div className="dark-head dark-head--stacked">
+                            <div className="dark-line"></div>
                             <h2 className="dark-title">FOUNDER BOARD OF TRUSTEES</h2>
                         </div>
 
@@ -196,8 +196,6 @@ export default function Home() {
                             <a className="btn-beige" href="#">Know More</a>
                         </div>
                     </section>
-
-                    <div className="separator-white"></div>
 
                     {/* GALLERY */}
                     <section className="block">
