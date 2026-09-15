@@ -1,3 +1,141 @@
+/* =========================================================
+   GOOGLE NOTO SANS BENGALI UNICODE FALLBACK SYSTEM
+   Ensures ALL Bengali characters (U+0980-09FF, U+0964-0965, etc.)
+   automatically render in Google Noto Sans Bengali across all
+   elements, fonts (Roboto, Roboto Slab, sans-serif, serif),
+   and components, while preserving English typography.
+   ========================================================= */
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Noto Sans Bengali Light'), local('Noto Sans Bengali'),
+    url('https://fonts.gstatic.com/s/notosansbengali/v33/Cn-SJsCGWQxOjaGwMQ6fIiMywrNJIky6nvd8BjzVMvJx2mcSPVFpVEqE-6KmstdLudA.ttf') format('truetype');
+  unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+20B9, U+25CC;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Noto Sans Bengali Regular'), local('Noto Sans Bengali'),
+    url('https://fonts.gstatic.com/s/notosansbengali/v33/Cn-SJsCGWQxOjaGwMQ6fIiMywrNJIky6nvd8BjzVMvJx2mcSPVFpVEqE-6KmsolLudA.ttf') format('truetype');
+  unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+20B9, U+25CC;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Noto Sans Bengali Medium'), local('Noto Sans Bengali'),
+    url('https://fonts.gstatic.com/s/notosansbengali/v33/Cn-SJsCGWQxOjaGwMQ6fIiMywrNJIky6nvd8BjzVMvJx2mcSPVFpVEqE-6KmsrtLudA.ttf') format('truetype');
+  unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+20B9, U+25CC;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Noto Sans Bengali SemiBold'), local('Noto Sans Bengali'),
+    url('https://fonts.gstatic.com/s/notosansbengali/v33/Cn-SJsCGWQxOjaGwMQ6fIiMywrNJIky6nvd8BjzVMvJx2mcSPVFpVEqE-6KmsldMudA.ttf') format('truetype');
+  unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+20B9, U+25CC;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Noto Sans Bengali Bold'), local('Noto Sans Bengali'),
+    url('https://fonts.gstatic.com/s/notosansbengali/v33/Cn-SJsCGWQxOjaGwMQ6fIiMywrNJIky6nvd8BjzVMvJx2mcSPVFpVEqE-6Kmsm5MudA.ttf') format('truetype');
+  unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+20B9, U+25CC;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: local('Noto Sans Bengali ExtraBold'), local('Noto Sans Bengali'),
+    url('https://fonts.gstatic.com/s/notosansbengali/v33/Cn-SJsCGWQxOjaGwMQ6fIiMywrNJIky6nvd8BjzVMvJx2mcSPVFpVEqE-6KmsglMudA.ttf') format('truetype');
+  unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+20B9, U+25CC;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Noto Sans Bengali Light'), local('Noto Sans Bengali'),
+    url('https://fonts.gstatic.com/s/notosansbengali/v33/Cn-SJsCGWQxOjaGwMQ6fIiMywrNJIky6nvd8BjzVMvJx2mcSPVFpVEqE-6KmstdLudA.ttf') format('truetype');
+  unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+20B9, U+25CC;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Noto Sans Bengali Regular'), local('Noto Sans Bengali'),
+    url('https://fonts.gstatic.com/s/notosansbengali/v33/Cn-SJsCGWQxOjaGwMQ6fIiMywrNJIky6nvd8BjzVMvJx2mcSPVFpVEqE-6KmsolLudA.ttf') format('truetype');
+  unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+20B9, U+25CC;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Noto Sans Bengali Medium'), local('Noto Sans Bengali'),
+    url('https://fonts.gstatic.com/s/notosansbengali/v33/Cn-SJsCGWQxOjaGwMQ6fIiMywrNJIky6nvd8BjzVMvJx2mcSPVFpVEqE-6KmsrtLudA.ttf') format('truetype');
+  unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+20B9, U+25CC;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Noto Sans Bengali SemiBold'), local('Noto Sans Bengali'),
+    url('https://fonts.gstatic.com/s/notosansbengali/v33/Cn-SJsCGWQxOjaGwMQ6fIiMywrNJIky6nvd8BjzVMvJx2mcSPVFpVEqE-6KmsldMudA.ttf') format('truetype');
+  unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+20B9, U+25CC;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Noto Sans Bengali Bold'), local('Noto Sans Bengali'),
+    url('https://fonts.gstatic.com/s/notosansbengali/v33/Cn-SJsCGWQxOjaGwMQ6fIiMywrNJIky6nvd8BjzVMvJx2mcSPVFpVEqE-6Kmsm5MudA.ttf') format('truetype');
+  unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+20B9, U+25CC;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: local('Noto Sans Bengali ExtraBold'), local('Noto Sans Bengali'),
+    url('https://fonts.gstatic.com/s/notosansbengali/v33/Cn-SJsCGWQxOjaGwMQ6fIiMywrNJIky6nvd8BjzVMvJx2mcSPVFpVEqE-6KmsglMudA.ttf') format('truetype');
+  unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+20B9, U+25CC;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: local('Noto Sans Bengali Bold'), local('Noto Sans Bengali'),
+    url('https://fonts.gstatic.com/s/notosansbengali/v33/Cn-SJsCGWQxOjaGwMQ6fIiMywrNJIky6nvd8BjzVMvJx2mcSPVFpVEqE-6Kmsm5MudA.ttf') format('truetype');
+  unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+20B9, U+25CC;
+}
+
 :root {
   /* Brand Theme Colors */
   --deep-green: #0a3822;
@@ -64,8 +202,56 @@ body {
   color: #111
 }
 
-/* Dedicated Direct Noto Sans Bengali for all Bengali elements */
-:lang(bn), .bn, [class*="__bn"], [class*="-bn"], .bangla, .bengali, .bengali-text {
+/* =========================================================
+   BENGALI TYPOGRAPHY RULES:
+   1. Brand Logo Header Bengali -> 'Hind Siliguri' (Exact User Request)
+   2. All other Bengali content -> Google 'Noto Sans Bengali'
+   3. English content -> 'Roboto', 'Roboto Slab', etc.
+   ========================================================= */
+
+/* Brand Header / Logo Bengali text: STRICTLY Hind Siliguri */
+.brand__bn,
+.mbrand__bn,
+.brand-text .brand__bn,
+.mbar__text .mbrand__bn,
+.brand--desktop .brand__bn {
+  font-family: 'Hind Siliguri', sans-serif !important;
+}
+
+/* Direct Bengali font enforcement for all other Bangla specific elements */
+.sd-heritage-resource-card--bangla,
+.sd-heritage-resource-card--bangla .sd-heritage-resource-title,
+.sd-heritage-video-card--bangla,
+.sd-heritage-video-card--bangla .sd-heritage-video-title,
+.sd-heritage-quote-author,
+.sd-heritage-button,
+.sd-poster-paragraph,
+.sd-news-card__desc,
+.csgj-focus-desc,
+.csgj-program-desc,
+.csgj-checklist-text,
+.csgj-contact-p,
+.csgj-speaker-info,
+.oh-card-title,
+.oh-cover-title,
+.oh-back-title,
+.oh-page-title,
+.oh-toc-item,
+.oh-toc-story-title,
+.oh-story-title,
+.oh-story-header-running,
+.oh-story-para,
+.oh-story-list-line,
+.oh-floating-toc,
+.oh-floating-menu-header,
+.oh-floating-menu-title,
+.oh-floating-menu-sub,
+[lang="bn"]:not(.brand__bn):not(.mbrand__bn),
+:lang(bn):not(.brand__bn):not(.mbrand__bn),
+.bn:not(.brand__bn):not(.mbrand__bn),
+.bangla:not(.brand__bn):not(.mbrand__bn),
+.bengali:not(.brand__bn):not(.mbrand__bn),
+.bengali-text:not(.brand__bn):not(.mbrand__bn) {
   font-family: 'Noto Sans Bengali', sans-serif !important;
 }
 
@@ -182,11 +368,11 @@ body {
 
 .brand__bn {
   color: #F3EBD0;
-  font-family: 'Noto Sans Bengali', sans-serif;
+  font-family: 'Hind Siliguri', sans-serif !important;
   font-size: 1.875rem;
   /* 30px */
   font-weight: 700;
-  line-height: 1.05
+  line-height: 1.05;
 }
 
 .brand__en {
@@ -1660,6 +1846,7 @@ body {
   }
 
   .mbar__text .mbrand__bn {
+    font-family: 'Hind Siliguri', sans-serif !important;
     font-size: 18px !important;
     color: #F3EBD0;
     line-height: 1;
