@@ -85,9 +85,6 @@ export default function ProjectsAndPrograms() {
             <main className="museum-story-content">
                 <section className="block">
                     <div className="separator"></div>
-                    <div className="block__cap">
-                        <span className="cap__title">Projects and Programs</span>
-                    </div>
 
                     <div className="block__content">
                         <h3>School Programs</h3>

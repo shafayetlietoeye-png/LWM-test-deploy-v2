@@ -40,6 +40,130 @@ export const activitiesData = {
   'programs/regular-public-programs': {
     title: 'Regular Public Programs',
     desc: 'Participate in our weekly and monthly public programs, discussion forums, and cultural events.',
+    overview: [
+      "The Liberation War Museum holds public programs throughout the year to connect the memory of 1971 with contemporary social consciousness, education, and civic engagement.",
+      "Some programs are part of regular annual events commemorating historic milestones, while others are organized as special commemorative forums, youth festivals, and cultural gatherings."
+    ],
+    programs: [
+      {
+        title: "Mass Upsurge Day",
+        date: "24 January",
+        description: "In January 1969, political parties and students alliances launched a movement to press home their demands and launched a mass movement against the backdrop of Bangabandhu’s 6 point programme and formulated the 22 point programme of the Chatra Sangram Parishad. On 20 January police opened fire on students’ processions killing student leader Asad, Matiur, Prof. Dr. Shamsuzzoha and many others. This sparked a nationwide protest and the movement became a mass upsurge, ultimately culminated in President Gen. Ayub Khan to step down."
+      },
+      {
+        title: "Painting Competition on Shaheed Sergeant Zahurul Hoque Remembrance Day",
+        date: "15 February",
+        description: "The mass Upsurge Movement gained momentum as a popular movement. It spread quickly throughout the country and gained momentum. President Ayub in a desperate attempt to curb this upsurge of popular sentiment revived a trial named as the Agartala Conspiracy Case against Sheikh Mujib and 34 others. Sergeant Zahurul Hoque, a co-accused was brutally killed in Dhaka cantonment under captivity on 15 February, 1969. Every year the LWM remembers Martyr Sgt. Zahurul Hoque on this day by holding a children’s art competition."
+      },
+      {
+        title: "International Mother Language Day",
+        date: "21 February",
+        description: "Pakistan was born in 1947 and from day one the West Pakistani military & bureaucratic elite started hatching conspiracies against the Bengalis. In 1948 Mohammad Ali Jinnah came to visit East Pakistan and declared in a public meeting that Urdu shall be the state language of Pakistan. The Bengalis could not accept this and started agitating. Ultimately, it took popular shape in the name of language movement. In 1952, the Language Movement gained momentum and the police opened fire on the street procession in front of Dhaka Medical College, causing the deaths of Rafique, Barkat, Jabbar, Shafiq and many others. Ultimately Bangla language got the status of state language in 1955. In 1999 UNESCO recognized this day as the International Language Day. LWM remembers language martyrs on 21 February."
+      },
+      {
+        title: "Muktir Utsab (Festival of Freedom)",
+        date: "January – March",
+        description: "Under the outreach program, LWM brings students from educational institutions from Dhaka Metropolitan city by providing them free transport. They are given guided tour in the museum. For those students who have visited the museum in that calendar year, the LWM holds a grand Festival between January and March at Dhaka University Stadium. Veteran Freedom Fighters, leading intellectuals, cultural personalities, Hon’ble Ministers usually speak to about 10 thousand cheering students. Famous celebrity figures also entertain the children."
+      },
+      {
+        title: "Bangabandhu Sheikh Mujibur Rahman’s Birth Anniversary",
+        date: "17 March",
+        description: "March 17 is the birthday of the Father of the Nation, Bangabandhu Sheikh Mujibur Rahman. It has recently been added to our list of programmes that are observed during the year."
+      },
+      {
+        title: "LWM Anniversary Day",
+        date: "22 March",
+        description: "22 March is the Foundation Day of LWM and the day is celebrated each year with great festivity in a week-long programme which merges with the Independence Day Celebrations. Friends, well-wishers and members of the museum attend the anniversary celebration. The anniversary lecture is given by a renowned international personality."
+      },
+      {
+        title: "Independence Day Program",
+        date: "22–27 March",
+        description: "The week long Independence Day program includes lectures, speeches by the valiant Freedom Fighters, cultural activists and HR activists. Cultural teams from educational institutions, from remote areas of Bangladesh and Dhaka Metropolitan City present their performances. On March 26, a day-long Art camp is organized and renowned Artists create their paintings under live TV coverage."
+      },
+      {
+        title: "Book Fair on Liberation War",
+        date: "22–31 March",
+        description: "As a part of Independence Day celebrations LWM organizes a book-fair at museum’s auditorium. Publishers participate with their published books related to the Liberation struggle."
+      },
+      {
+        title: "Bazlur Rahman Smriti Padak",
+        date: "March (Annual)",
+        description: "Late Mr. Bazlur Rahman was a famous journalist and devoted his entire life to honest and courageous journalism. He established his distinct journalistic language and never compromised with any pressure group or unholy power groups. He edited the famous Bangla daily newspaper ‘The Sangbad’ until his death. After his death, his family members donated his retirement benefits to the museum and with this fund, LWM has created an annual award namely, ‘Bazlur Rahman Smriti Padak’. An open competition for journalistic work dealing with all aspects of the Liberation War is held and the best print and electronic media coverage are awarded prizes."
+      },
+      {
+        title: "Bengali New Year’s Day Celebration (Pohela Boishakh)",
+        date: "14 April",
+        description: "In this country, Bengali New Year’s day is usually celebrated with great joy and festivity. Over a million people join the different rallies, which are concentrated around central Dhaka areas. Many cultural organizations hold cultural programmes in different key points in the city. In rural areas of Bangladesh also there are joyful celebrations, which is popularly known as ‘Boishakhi Mela’. LWM also celebrates the day with gatherings of children, arranging folk music and other related cultural programs."
+      },
+      {
+        title: "International Museum Day",
+        date: "18 May",
+        description: "LWM celebrates World Museum Day each year with the cooperation of ICOM, Bangladesh. Representatives from the National Museum and other members of the ICOM participate in the event."
+      },
+      {
+        title: "Foundation Anniversary of Jalladkhana Badhabhumi, Mirpur",
+        date: "21 June",
+        description: "Mirpur was the satellite town of Dhaka City during the Pakistani period where non-Bengali refugees were settled. During the Liberation War, the non-Bengali people of Mirpur unfortunately took the side of Pakistan and started killing innocent Bengalis. They established many killing fields there. Two of the most infamous killing fields were the Jalladkhana Baddhabhumi and Muslim Bazar Baddhabhumi. With the help of army and local people, LWM undertook an excavation work in 1999 and recovered a good number of human remains from there. LWM established a memorial site at Mirpur Jalladkhana Baddhabhumi and opened it for the public on 21 June, 2007. Each year on 21 June, LWM celebrates the foundation anniversary."
+      },
+      {
+        title: "Remembering Poet Sufia Kamal and Shaheed Janani Jahanara Imam",
+        date: "22–27 June",
+        description: "Sufia Kamal is treated as the conscience of the Bengali nation. A renowned poet, she was always in the foreground of all activism work in achieving demands of democracy, autonomy and independence. LWM remembers her each year in between 22-27 June. Jahanara Imam is one of the highly respected ladies in this country and known for her lifelong struggle for bringing war criminals under justice. LWM remembers her each year between 22-27 June."
+      },
+      {
+        title: "Birth Day Anniversary of Tajuddin Ahmed",
+        date: "23 July",
+        description: "Mr. Tajuddin Ahmed was the Prime Minister of the Provisional Government of Bangladesh during the Liberation War in 1971. Under his able leadership the Liberation Struggle took the final shape and ultimately victory was achieved on 16 December, 1971. He was the Finance Minister of Bangladesh Govt. under Bangabandhu Sheikh Mujibar Rahman and rescued the war-ravaged economy of the country. He was killed in Dhaka Central Jail by a faction of an unruly army group on 3rd November, 1975. LWM remembers Tajuddin Ahmed each year on 23 July."
+      },
+      {
+        title: "Hiroshima Day",
+        date: "06 August",
+        description: "LWM organizes Hiroshima Day every year. His Excellency, the Ambassador of Japan in Bangladesh or his representative attends in it and speaks highlighting the ravages to mankind caused by the atom bomb explosion on Hiroshima and Nagasaki and the painful sufferings of the people. Local children of the Dhaka schools also remember Sadako Sasaki, a young victim of Hiroshima."
+      },
+      {
+        title: "Father of the Nation Bangabandhu Sheikh Mujibur Rahman’s Death Anniversary",
+        date: "10–31 August",
+        description: "Bangabandhu Sheikh Mujibur Rahman is the founding father of Bangladesh. He was the Prime Minister of the first cabinet of Independent Bangladesh and subsequently became the President of Bangladesh. On 15 August 1975, he was brutally killed with his family members by a group of unruly soldiers at his own house. LWM remembers him every year as a part of the mourning day with a discussion meeting and a week long photo exhibition."
+      },
+      {
+        title: "World Non-Violence Day",
+        date: "02 October",
+        description: "On this day, Mahatma Gandhi, the founder of the non-violence movement and a leading figure of undivided India was born. His movement ultimately caused the end of British colonial rule in India and two independent nations India and Pakistan were born. LWM commemorates his birthday every year."
+      },
+      {
+        title: "Testimony of Sixty",
+        date: "21 October",
+        description: "On 21 October 1971, Oxfam published a booklet called the Testimony of Sixty. It was a compilation of appeals to world leaders to stop atrocities by the Pakistani Military Junta on Bangladeshi people and stop the enormous human sufferings and to help 10 million refugee peoples stranded on Indian soil. A total 60 appeals made by personalities such as Senator Edward Kennedy, Mother Teresa and HR activists, Journalists, NGO workers was published by Oxfam entitled ‘The Testimony Of Sixty: The crisis of Bengal’. LWM published its facsimile edition and brought it to the public in the year 2005. LWM organizes a discussion meeting followed by cultural program to commemorates the day."
+      },
+      {
+        title: "Observation of World Genocide Day",
+        date: "09 December",
+        description: "The museum has been observing Dec 9 as the World Genocide Day from 2016, the year in which the day was declared as World Genocide Day by the United Nations."
+      },
+      {
+        title: "Observation of Human Rights Day",
+        date: "10 December",
+        description: "On this day, LWM organizes discussion meeting and cultural programs to observe the World Human Rights Day."
+      },
+      {
+        title: "Victory Day Celebration",
+        date: "10–16 December",
+        description: "LWM organizes a weeklong Victory Day celebration from December 10 to December 16 with discussions, cultural programs, drama, folk music & theatrical events."
+      }
+    ],
+    featuredFestival: {
+      title: "Victory Festival (বিজয় উৎসব)",
+      dateBadge: "10–16 December (Annual Festival)",
+      description: "The Victory Festival (বিজয় উৎসব) is celebrated annually from 10 to 16 December with wide public participation. The weeklong festivities bring together thousands of citizens, students, and cultural practitioners across Bangladesh.",
+      subTitle: "Key Festival Features & Events:",
+      items: [
+        "Testimonies and interactive sessions with valiant Freedom Fighters",
+        "Choral renditions of Swadhin Bangla Betar Kendra songs and poetry recitals",
+        "Children & youth art competitions, workshops, and story-telling sessions",
+        "Open-air theatre performances, street drama, and documentary screenings",
+        "Special archival exhibitions and historical book stalls at the Museum premises"
+      ]
+    },
     blocks: [
       {
         title: 'Public Programs',
@@ -457,6 +581,19 @@ export const activitiesData = {
       }
     ]
   },
+  'exhibitions/liberation-docfest': {
+    title: 'Liberation Docfest Bangladesh',
+    desc: 'Our annual international documentary film festival highlighting liberation struggles, history, and human rights.',
+    blocks: [
+      {
+        title: 'Liberation Docfest Bangladesh',
+        paragraphs: [
+          "Liberation Docfest Bangladesh is a festival dedicated to documentary films, seeking to highlight the struggle for Liberation & Human Rights of people in various parts of the world. It seeks to uphold new forms of viewing the human struggle and suffering for justice in global perspective.. Liberation Docfest Bangladeshis usually held in April.",
+          "For more details please visit: <a href=\"https://liberationdocfestbd.org\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"inline-link\">liberationdocfestbd.org</a>"
+        ]
+      }
+    ]
+  },
   'publications/sultanas-dream': {
     title: "Sultana's Dream",
     desc: "A pioneering feminist science fiction novel authored by Rokeya S. Hossain, recognized in the UNESCO Memory of the World Asia-Pacific Register.",
@@ -508,14 +645,27 @@ export const activitiesData = {
     ]
   },
   'media/press-releases': {
-    title: 'Press Releases',
-    desc: 'Read the official statements, media advisories, and declarations issued by the Liberation War Museum.',
+    title: 'Press Coverage',
+    desc: 'Read the press coverage, media clippings, and official statements highlighting the Liberation War Museum.',
     blocks: [
       {
-        title: 'Official Press Announcements',
+        title: 'Press Coverage & Media Clippings',
         paragraphs: [
-          'The Liberation War Museum regularly issues press releases regarding national day observances, special lecture announcements, international collaborations, and historical preservation efforts.',
-          'These releases serve as the official record of the museum\'s public positions, statements on historical integrity, and responses to contemporary human rights issues in Bangladesh and abroad.'
+          'The Liberation War Museum regularly receives extensive press coverage and media attention regarding national day observances, special lecture announcements, international collaborations, and historical preservation efforts.',
+          'These records serve as the archive of the museum\'s media coverage, public positions, statements on historical integrity, and responses to contemporary human rights issues in Bangladesh and abroad.'
+        ]
+      }
+    ]
+  },
+  'media/press-coverage': {
+    title: 'Press Coverage',
+    desc: 'Read the press coverage, media clippings, and official statements highlighting the Liberation War Museum.',
+    blocks: [
+      {
+        title: 'Press Coverage & Media Clippings',
+        paragraphs: [
+          'The Liberation War Museum regularly receives extensive press coverage and media attention regarding national day observances, special lecture announcements, international collaborations, and historical preservation efforts.',
+          'These records serve as the archive of the museum\'s media coverage, public positions, statements on historical integrity, and responses to contemporary human rights issues in Bangladesh and abroad.'
         ]
       }
     ]
@@ -1198,14 +1348,6 @@ export const activitiesData = {
     paragraphs: [
       'The CSGJ Winter School is an annual residential training program attracting young scholars and professionals from South Asia and beyond. Participants undergo intensive training in genocide studies, international law, and human rights advocacy.',
       'The program combines academic lectures with field visits to killing fields, interactive group projects, and workshops on using new media platforms to raise awareness against atrocities.'
-    ],
-    pdfs: [
-      { id: 1, title: '1st Winter School brochure', url: '/assets/winter-school/pdf/1.pdf' },
-      { id: 2, title: '2nd Winter School brochure', url: '/assets/winter-school/pdf/2.pdf' },
-      { id: 3, title: '3rd Winter School brochure', url: '/assets/winter-school/pdf/3.pdf' },
-      { id: 4, title: '4th Winter School brochure', url: '/assets/winter-school/pdf/4.pdf' },
-      { id: 5, title: '5th Winter School brochure', url: '/assets/winter-school/pdf/5.pdf' },
-      { id: 6, title: '6th Winter School brochure', url: '/assets/winter-school/pdf/6.pdf' }
     ],
     images: [
       "/assets/winter-school/132243.jpg",

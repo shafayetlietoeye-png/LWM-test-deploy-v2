@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { oralHistoryData } from '../data/oralHistoryData';
+import Breadcrumb from '../components/Breadcrumb';
 
 const DISTRICTS = [
   { id: 'bagerhat', name: 'বাগেরহাট', nameEn: 'Bagerhat', storyCount: 4, active: true },
@@ -459,6 +460,7 @@ export default function OralHistory() {
       <main className="museum-story-content">
         <section className="block">
           <div className="separator"></div>
+          <Breadcrumb />
 
           {/* DISTRICT SELECTION VIEW */}
           <div className="block__cap">

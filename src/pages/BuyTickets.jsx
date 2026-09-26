@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Breadcrumb from '../components/Breadcrumb';
 
 export default function BuyTickets() {
     const [name, setName] = useState('');
@@ -41,7 +42,7 @@ export default function BuyTickets() {
             }}
         >
             <section className="block" style={{ width: '100%', maxWidth: '1200px', margin: '0 auto' }}>
-                
+                <Breadcrumb />
                 <div className="block__cap" style={{ marginBottom: '25px' }}>
                     <span className="cap__title" style={{ fontSize: '1.35rem', letterSpacing: '0.04em' }}>
                         eTicket Booking Portal
@@ -77,7 +78,7 @@ export default function BuyTickets() {
                                     ই-টিকিট পোর্টাল লগইন
                                 </h3>
                                 <span style={{
-                                    fontFamily: "'Roboto', sans-serif",
+                                    fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
                                     fontSize: '0.8rem',
                                     color: '#777',
                                     display: 'block',
@@ -91,7 +92,7 @@ export default function BuyTickets() {
                                 {!isSubmitted ? (
                                     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                                         <p style={{
-                                            fontFamily: "'Roboto', sans-serif",
+                                            fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
                                             fontSize: '0.85rem',
                                             color: '#666',
                                             lineHeight: '1.5',
@@ -109,7 +110,7 @@ export default function BuyTickets() {
                                                 textTransform: 'uppercase',
                                                 letterSpacing: '0.04em',
                                                 marginBottom: '4px',
-                                                fontFamily: "'Roboto', sans-serif"
+                                                fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif"
                                             }}>
                                                 Name / নাম
                                             </label>
@@ -125,7 +126,7 @@ export default function BuyTickets() {
                                                     fontSize: '0.9rem',
                                                     border: '1px solid #d4cbb3',
                                                     borderRadius: '3px',
-                                                    fontFamily: "'Roboto', sans-serif",
+                                                    fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
                                                     outline: 'none',
                                                     boxSizing: 'border-box',
                                                     backgroundColor: 'rgba(255,255,255,0.35)',
@@ -146,7 +147,7 @@ export default function BuyTickets() {
                                                 textTransform: 'uppercase',
                                                 letterSpacing: '0.04em',
                                                 marginBottom: '4px',
-                                                fontFamily: "'Roboto', sans-serif"
+                                                fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif"
                                             }}>
                                                 Phone or E-mail / ফোন বা ই-মেইল
                                             </label>
@@ -162,7 +163,7 @@ export default function BuyTickets() {
                                                     fontSize: '0.9rem',
                                                     border: '1px solid #d4cbb3',
                                                     borderRadius: '3px',
-                                                    fontFamily: "'Roboto', sans-serif",
+                                                    fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
                                                     outline: 'none',
                                                     boxSizing: 'border-box',
                                                     backgroundColor: 'rgba(255,255,255,0.35)',
@@ -185,7 +186,7 @@ export default function BuyTickets() {
                                                 fontWeight: '700',
                                                 borderRadius: '4px',
                                                 cursor: 'pointer',
-                                                fontFamily: "'Roboto', sans-serif",
+                                                fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
                                                 textTransform: 'uppercase',
                                                 letterSpacing: '0.06em',
                                                 marginTop: '6px',
@@ -208,7 +209,7 @@ export default function BuyTickets() {
                                         }}>
                                             Login Successful! / লগইন সফল হয়েছে!
                                         </h4>
-                                        <p style={{ fontFamily: "'Roboto', sans-serif", fontSize: '0.9rem', color: '#555', marginBottom: '20px', lineHeight: '1.5' }}>
+                                        <p style={{ fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif", fontSize: '0.9rem', color: '#555', marginBottom: '20px', lineHeight: '1.5' }}>
                                             Welcome, <strong>{name}</strong>. You can now select tickets and make payments.
                                         </p>
                                         <button
@@ -222,7 +223,7 @@ export default function BuyTickets() {
                                                 fontWeight: '700',
                                                 borderRadius: '4px',
                                                 cursor: 'pointer',
-                                                fontFamily: "'Roboto', sans-serif",
+                                                fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
                                                 textTransform: 'uppercase',
                                                 letterSpacing: '0.05em'
                                             }}
@@ -258,7 +259,7 @@ export default function BuyTickets() {
                                 <table style={{
                                     width: '100%',
                                     borderCollapse: 'collapse',
-                                    fontFamily: "'Roboto', sans-serif",
+                                    fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
                                     fontSize: '0.8rem',
                                     textAlign: 'left'
                                 }}>
@@ -314,7 +315,7 @@ export default function BuyTickets() {
                                 <table style={{
                                     width: '100%',
                                     borderCollapse: 'collapse',
-                                    fontFamily: "'Roboto', sans-serif",
+                                    fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
                                     fontSize: '0.8rem',
                                     textAlign: 'left'
                                 }}>

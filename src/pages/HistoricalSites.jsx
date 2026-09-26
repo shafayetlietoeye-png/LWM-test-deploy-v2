@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
+import Breadcrumb from '../components/Breadcrumb';
 
 const PHOTOS = [
     { src: '/assets/historical-site/jalladkhana-historical-site/143233.jpg', caption: 'Jalladkhana Memorial Site' },
@@ -171,6 +172,7 @@ export default function HistoricalSites() {
                 {/* TABS CONTAINER */}
                 <section className="block" style={{ paddingBottom: 0 }}>
                     <div className="separator"></div>
+                    <Breadcrumb />
                     <div className="historical-tabs">
                         <button
                             className={`historical-tab-btn ${activeTab === 'jalladkhana' ? 'historical-tab-btn--active' : ''}`}
@@ -249,7 +251,6 @@ export default function HistoricalSites() {
                                                 </span>
                                             </div>
                                         </div>
-                                        <div className="photo-archive-card__caption">{photo.caption}</div>
                                     </button>
                                 ))}
                             </div>

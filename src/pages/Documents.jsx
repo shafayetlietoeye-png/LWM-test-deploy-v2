@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
+import Breadcrumb from '../components/Breadcrumb';
 
 const PHOTOS = [
     { src: '/assets/documents/115132.jpg', caption: 'Historical Document — No. 1' },
@@ -258,9 +259,7 @@ export default function Documents() {
             <main className="museum-story-content">
                 <section className="block">
                     <div className="separator"></div>
-                    <div className="block__cap">
-                        <span className="cap__title">Documents</span>
-                    </div>
+                    <Breadcrumb />
                     <div className="block__content">
                         <p className="p">
                             The Liberation War Museum's Documents collection preserves rare historical papers, letters,
@@ -273,13 +272,7 @@ export default function Documents() {
                 <section className="block block--photo-archive block--newspaper-page">
                     {/* Vintage Newspaper Banner */}
                     <div className="newspaper-banner">
-                        <div className="newspaper-banner__meta">No. 1971 · DOCUMENTS COLLECTION</div>
                         <h1 className="newspaper-banner__title">Historical Documents</h1>
-                        <div className="newspaper-banner__strip">
-                            <span>Bangladesh</span>
-                            <span>Historical Preservation Record</span>
-                            <span>Price: Freedom</span>
-                        </div>
                     </div>
 
                     <div className="photo-archive-grid">

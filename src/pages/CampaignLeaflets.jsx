@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import Breadcrumb from '../components/Breadcrumb';
 
 export default function CampaignLeaflets() {
     useEffect(() => {
@@ -32,9 +33,7 @@ export default function CampaignLeaflets() {
             <main className="museum-story-content">
                 <section className="block">
                     <div className="separator"></div>
-                    <div className="block__cap">
-                        <span className="cap__title">Fund Collection Leaflet</span>
-                    </div>
+                    <Breadcrumb />
                     <div className="block__content">
                         <p className="p">
                             The Liberation War Museum publishes leaflets to inform the public about its preservation campaigns, fundraising drives, and traveling museum programs. Below is the museum's fund collection leaflet.
@@ -72,7 +71,7 @@ export default function CampaignLeaflets() {
                                         marginTop: '10px',
                                         fontSize: '0.88rem',
                                         color: '#888',
-                                        fontFamily: "'Roboto', sans-serif",
+                                        fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
                                         fontWeight: '500'
                                     }}>
                                         {leaflet.label}

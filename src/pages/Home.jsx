@@ -252,7 +252,7 @@ export default function Home() {
                         </div>
 
                         <div className="action-center">
-                            <a href="#" className="btn-dark-grunge">Buy Tickets</a>
+                            <Link to="/visit/ticket-information" className="btn-dark-grunge">Buy Tickets</Link>
                         </div>
                     </section>
 

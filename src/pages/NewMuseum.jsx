@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Breadcrumb from '../components/Breadcrumb';
 
 const galleryImages = [
     "/assets/about/Museum Story/new museum gallary/486684719_1397389161322901_924041236047675431_n.jpg",
@@ -117,6 +118,7 @@ export default function NewMuseum() {
             <main className="museum-story-content">
                 <section className="block">
                     <div className="separator"></div>
+                    <Breadcrumb />
                     <div className="block__cap">
                         <span className="cap__title">Establishment and Location</span>
                     </div>

@@ -5,6 +5,8 @@ import StrugglePictorial from './StrugglePictorial';
 import Documents from './Documents';
 import HistoricalSites from './HistoricalSites';
 import OralHistory from './OralHistory';
+import FacilitiesAmenities from './FacilitiesAmenities';
+import Breadcrumb from '../components/Breadcrumb';
 
 const PAGE_TITLES = {
     'gallery-1': 'Gallery 1: Heritage and Struggles',
@@ -20,6 +22,7 @@ const PAGE_TITLES = {
     'evolution-of-principles-1972': 'Evolution of Fundamental Principles of 1972',
     'concert-for-bangladesh': 'Concert for Bangladesh and other Cultural Activities',
     'museum-map': 'Museum Map',
+    'facilities-and-amenities': 'Facilities & Amenities',
     'library': 'Library',
     'kiosk': 'Kiosk',
     'exhibition-gallery': 'Exhibition Gallery',
@@ -41,6 +44,12 @@ export default function ExplorePage() {
     if (pageKey === 'documents') return <Documents />;
     if (pageKey === 'historical-sites') return <HistoricalSites />;
     if (pageKey === 'oral-history') return <OralHistory />;
+    if (pageKey === 'facilities-and-amenities' || pageKey === 'facilities-amenities') {
+        return <FacilitiesAmenities />;
+    }
+    if (pageKey === 'library' || pageKey === 'kiosk' || pageKey === 'exhibition-gallery' || pageKey === 'cafes') {
+        return <FacilitiesAmenities initialTab={pageKey} />;
+    }
 
     const title = PAGE_TITLES[pageKey] || 'Coming Soon';
 
@@ -70,9 +79,7 @@ export default function ExplorePage() {
             <main className="museum-story-content">
                 <section className="block">
                     <div className="separator"></div>
-                    <div className="block__cap">
-                        <span className="cap__title">{title}</span>
-                    </div>
+                    <Breadcrumb />
                     <div className="block__content">
                         <p className="p">
                             This section of the Liberation War Museum is dedicated to <strong>{title}</strong>.

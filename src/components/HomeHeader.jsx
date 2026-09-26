@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import { useSearch } from '../context/SearchContext.jsx';
 
 export default function HomeHeader() {
+    const { openSearch } = useSearch();
     return (
         <>
             {/* TOPBAR */}
@@ -51,8 +53,10 @@ export default function HomeHeader() {
                     {/* Desktop right nav */}
                     <div className="right right--desktop">
                         <div className="utility">
-                            <a className="uitem" href="#"><img src="/assets/icon/search-plus-svgrepo-com 1.png" className="uico" alt="search" />
-                                Search</a>
+                            <button type="button" className="uitem uitem--btn" onClick={openSearch} aria-label="Open search window">
+                                <img src="/assets/icon/search-plus-svgrepo-com 1.png" className="uico" alt="search" />
+                                Search
+                            </button>
                             <Link className="btn-donate" to="/donate">Donate</Link>
                         </div>
 
@@ -105,15 +109,7 @@ export default function HomeHeader() {
                                         <ul className="submenu-nested">
                                             <li><Link to="/virtual-tour">Virtual Tour</Link></li>
                                             <li><Link to="/explore/museum-map">Museum Map</Link></li>
-                                            <li className="has-nested">
-                                                <span className="submenu-nested-toggle">Facilities and Amenities <span className="arrow-right">›</span></span>
-                                                <ul className="submenu-nested">
-                                                    <li><a href="https://library.liberationwarmuseumbd.org/" target="_blank" rel="noopener noreferrer">Library</a></li>
-                                                    <li><Link to="/explore/kiosk">Kiosk</Link></li>
-                                                    <li><Link to="/explore/exhibition-gallery">Exhibition Gallery</Link></li>
-                                                    <li><Link to="/explore/cafes">Cafes</Link></li>
-                                                </ul>
-                                            </li>
+                                            <li><Link to="/explore/facilities-and-amenities">Facilities and Amenities</Link></li>
                                         </ul>
                                     </li>
                                     <li className="has-nested">
@@ -134,13 +130,7 @@ export default function HomeHeader() {
                             <div className="nav-item">
                                 <a href="#">Activities</a>
                                 <ul className="submenu submenu--explore">
-                                    <li className="has-nested">
-                                        <span className="submenu-nested-toggle">Events <span className="arrow-right">›</span></span>
-                                        <ul className="submenu-nested">
-                                            <li><Link to="/activities/events/upcoming">Upcoming</Link></li>
-                                            <li><Link to="/activities/events/past">Past</Link></li>
-                                        </ul>
-                                    </li>
+                                    <li><Link to="/activities/events">Events</Link></li>
                                     <li className="has-nested">
                                         <span className="submenu-nested-toggle">Programs &amp; Conferences <span className="arrow-right">›</span></span>
                                         <ul className="submenu-nested">
@@ -148,7 +138,6 @@ export default function HomeHeader() {
                                             <li><Link to="/activities/programs/school-programs">School Programs</Link></li>
                                             <li><Link to="/activities/programs/reachout-programs">Reachout Programs</Link></li>
                                             <li><Link to="/activities/programs/outreach-programs">Outreach Programs</Link></li>
-                                            <li><Link to="/activities/programs/liberation-docfest">Liberation Docfest Bangladesh</Link></li>
                                             <li><Link to="/activities/programs/international-conferences">International Conferences</Link></li>
                                         </ul>
                                     </li>
@@ -162,6 +151,7 @@ export default function HomeHeader() {
                                         <span className="submenu-nested-toggle">Exhibitions <span className="arrow-right">›</span></span>
                                         <ul className="submenu-nested">
                                             <li><Link to="/activities/exhibitions/digital-thread">Digital Thread Exhibit</Link></li>
+                                            <li><Link to="/activities/exhibitions/liberation-docfest">Liberation Docfest Bangladesh</Link></li>
                                         </ul>
                                     </li>
                                     <li className="has-nested">
@@ -175,7 +165,7 @@ export default function HomeHeader() {
                                         <span className="submenu-nested-toggle">Media <span className="arrow-right">›</span></span>
                                         <ul className="submenu-nested">
                                             <li><Link to="/activities/media/newsletters">Newsletters</Link></li>
-                                            <li><Link to="/activities/media/press-releases">Press Releases</Link></li>
+                                            <li><Link to="/activities/media/press-coverage">Press Coverage</Link></li>
                                             <li><Link to="/activities/media/advertisements">Audio Visual Archive</Link></li>
                                         </ul>
                                     </li>
@@ -220,13 +210,7 @@ export default function HomeHeader() {
                                     <li className="has-nested">
                                         <span className="submenu-nested-toggle">Campaigns <span className="arrow-right">›</span></span>
                                         <ul className="submenu-nested">
-                                            <li className="has-nested">
-                                                <span className="submenu-nested-toggle">Fund Collection Campaign <span className="arrow-right">›</span></span>
-                                                <ul className="submenu-nested">
-                                                    <li><Link to="/support/campaigns/leaflet">Leaflet</Link></li>
-                                                    <li><Link to="/support/campaigns/tvc">TVC</Link></li>
-                                                </ul>
-                                            </li>
+                                            <li><Link to="/support/campaigns/fund-collection-campaign">Fund Collection Campaign</Link></li>
                                         </ul>
                                     </li>
                                     <li className="has-nested">
@@ -240,17 +224,9 @@ export default function HomeHeader() {
                             <div className="nav-item">
                                 <a href="#">Visit</a>
                                 <ul className="submenu submenu--explore">
-                                    <li className="has-nested">
-                                        <span className="submenu-nested-toggle">Tickets <span className="arrow-right">›</span></span>
-                                        <ul className="submenu-nested">
-                                            <li><Link to="/visit/tickets/buy">Buy Tickets</Link></li>
-                                            <li><Link to="/visit/tickets/information">Ticket Information</Link></li>
-                                        </ul>
-                                    </li>
-                                    <li><Link to="/visit/opening-hours">Opening Hours</Link></li>
-                                    <li><Link to="/visit/visitor-guidelines">Visitor Guidelines</Link></li>
-                                    <li><Link to="/visit/maps-directions">Maps and Directions</Link></li>
-                                    <li><Link to="/visit/photography-filming">Photography and Filming</Link></li>
+                                    <li><Link to="/visit/ticket-information">Ticket Information</Link></li>
+                                    <li><Link to="/visit/plan-your-visit">Plan Your Visit</Link></li>
+                                    <li><Link to="/visit/maps-directions">Maps and Direction</Link></li>
                                 </ul>
                             </div>
 
@@ -274,6 +250,10 @@ export default function HomeHeader() {
                 <div className="mobile-nav">
                     <div className="mobile-nav__links">
                         <Link to="/">Home</Link>
+                        <button type="button" className="mobile-search-nav-item" onClick={openSearch}>
+                            <img src="/assets/icon/search-plus-svgrepo-com 1.png" alt="search" style={{ width: 14, height: 14, marginRight: 8, verticalAlign: 'middle' }} />
+                            Search
+                        </button>
                         <div className="mobile-submenu">
                             <a href="#" className="mobile-submenu__toggle">About <span className="mobile-submenu__arrow">{'\u203A'}</span></a>
                              <div className="mobile-submenu__content">
@@ -322,10 +302,7 @@ export default function HomeHeader() {
                                     <div className="mobile-accordion__panel">
                                         <Link to="/virtual-tour">Virtual Tour</Link>
                                         <Link to="/explore/museum-map">Museum Map</Link>
-                                        <a href="https://library.liberationwarmuseumbd.org/" target="_blank" rel="noopener noreferrer">Library</a>
-                                        <Link to="/explore/kiosk">Kiosk</Link>
-                                        <Link to="/explore/exhibition-gallery">Exhibition Gallery</Link>
-                                        <Link to="/explore/cafes">Cafes</Link>
+                                        <Link to="/explore/facilities-and-amenities">Facilities &amp; Amenities</Link>
                                     </div>
                                 </div>
                                 <div className="mobile-accordion">
@@ -346,13 +323,7 @@ export default function HomeHeader() {
                         <div className="mobile-submenu">
                             <a href="#" className="mobile-submenu__toggle">Activities <span className="mobile-submenu__arrow">{'›'}</span></a>
                             <div className="mobile-submenu__content">
-                                <div className="mobile-accordion">
-                                    <a href="#" className="mobile-accordion__toggle">Events <span className="mobile-accordion__arrow">{'›'}</span></a>
-                                    <div className="mobile-accordion__panel">
-                                        <Link to="/activities/events/upcoming">Upcoming</Link>
-                                        <Link to="/activities/events/past">Past</Link>
-                                    </div>
-                                </div>
+                                <Link to="/activities/events">Events</Link>
                                 <div className="mobile-accordion">
                                     <a href="#" className="mobile-accordion__toggle">Programs &amp; Conferences <span className="mobile-accordion__arrow">{'›'}</span></a>
                                     <div className="mobile-accordion__panel">
@@ -360,7 +331,6 @@ export default function HomeHeader() {
                                         <Link to="/activities/programs/school-programs">School Programs</Link>
                                         <Link to="/activities/programs/reachout-programs">Reachout Programs</Link>
                                         <Link to="/activities/programs/outreach-programs">Outreach Programs</Link>
-                                        <Link to="/activities/programs/liberation-docfest">Liberation Docfest Bangladesh</Link>
                                         <Link to="/activities/programs/international-conferences">International Conferences</Link>
                                     </div>
                                 </div>
@@ -374,6 +344,7 @@ export default function HomeHeader() {
                                     <a href="#" className="mobile-accordion__toggle">Exhibitions <span className="mobile-accordion__arrow">{'›'}</span></a>
                                     <div className="mobile-accordion__panel">
                                         <Link to="/activities/exhibitions/digital-thread">Digital Thread Exhibit</Link>
+                                        <Link to="/activities/exhibitions/liberation-docfest">Liberation Docfest Bangladesh</Link>
                                     </div>
                                 </div>
                                 <div className="mobile-accordion">
@@ -387,7 +358,7 @@ export default function HomeHeader() {
                                     <a href="#" className="mobile-accordion__toggle">Media <span className="mobile-accordion__arrow">{'›'}</span></a>
                                     <div className="mobile-accordion__panel">
                                         <Link to="/activities/media/newsletters">Newsletters</Link>
-                                        <Link to="/activities/media/press-releases">Press Releases</Link>
+                                        <Link to="/activities/media/press-coverage">Press Coverage</Link>
                                         <Link to="/activities/media/advertisements">Audio Visual Archive</Link>
                                     </div>
                                 </div>
@@ -432,13 +403,7 @@ export default function HomeHeader() {
                                 <div className="mobile-accordion">
                                     <a href="#" className="mobile-accordion__toggle">Campaigns <span className="mobile-accordion__arrow">{'›'}</span></a>
                                     <div className="mobile-accordion__panel">
-                                        <div className="mobile-accordion">
-                                            <a href="#" className="mobile-accordion__toggle">Fund Collection Campaign <span className="mobile-accordion__arrow">{'›'}</span></a>
-                                            <div className="mobile-accordion__panel">
-                                                <Link to="/support/campaigns/leaflet">Leaflet</Link>
-                                                <Link to="/support/campaigns/tvc">TVC</Link>
-                                            </div>
-                                        </div>
+                                        <Link to="/support/campaigns/fund-collection-campaign">Fund Collection Campaign</Link>
                                     </div>
                                 </div>
                                 <div className="mobile-accordion">
@@ -452,17 +417,9 @@ export default function HomeHeader() {
                         <div className="mobile-submenu">
                             <a href="#" className="mobile-submenu__toggle">Visit <span className="mobile-submenu__arrow">{'›'}</span></a>
                             <div className="mobile-submenu__content">
-                                <div className="mobile-accordion">
-                                    <a href="#" className="mobile-accordion__toggle">Tickets <span className="mobile-accordion__arrow">{'›'}</span></a>
-                                    <div className="mobile-accordion__panel">
-                                        <Link to="/visit/tickets/buy">Buy Tickets</Link>
-                                        <Link to="/visit/tickets/information">Ticket Information</Link>
-                                    </div>
-                                </div>
-                                <Link to="/visit/opening-hours">Opening Hours</Link>
-                                <Link to="/visit/visitor-guidelines">Visitor Guidelines</Link>
-                                <Link to="/visit/maps-directions">Maps and Directions</Link>
-                                <Link to="/visit/photography-filming">Photography and Filming</Link>
+                                <Link to="/visit/ticket-information">Ticket Information</Link>
+                                <Link to="/visit/plan-your-visit">Plan Your Visit</Link>
+                                <Link to="/visit/maps-directions">Maps and Direction</Link>
                             </div>
                         </div>
                     </div>

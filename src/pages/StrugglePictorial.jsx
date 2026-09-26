@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
+import Breadcrumb from '../components/Breadcrumb';
 
 const PHOTOS = [
     { src: '/assets/struggle-of-bangladesh-pictorial/113293.jpg', caption: 'Struggle of Bangladesh — Photo 1' },
@@ -254,9 +255,7 @@ export default function StrugglePictorial() {
             <main className="museum-story-content">
                 <section className="block">
                     <div className="separator"></div>
-                    <div className="block__cap">
-                        <span className="cap__title">Struggle of Bangladesh: Pictorial</span>
-                    </div>
+                    <Breadcrumb />
                     <div className="block__content">
                         <p className="p">
                             A historical record in pictures documenting the popular struggle, genocide, and eventual

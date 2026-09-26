@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import Breadcrumb from '../components/Breadcrumb';
 
 export default function InitialEfforts() {
     useEffect(() => {
@@ -93,6 +94,7 @@ export default function InitialEfforts() {
             <main className="museum-story-content">
                 <section className="block">
                     <div className="separator"></div>
+                    <Breadcrumb />
                     <div className="block__cap">
                         <span className="cap__title">Historical Milestones</span>
                     </div>

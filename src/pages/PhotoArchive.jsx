@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
+import Breadcrumb from '../components/Breadcrumb';
 
 const PHOTOS = [
     { src: '/assets/photo%20archive/207668.jpg', caption: 'Liberation War Archive — Photo 1' },
@@ -188,9 +189,7 @@ export default function PhotoArchive() {
             <main className="museum-story-content">
                 <section className="block">
                     <div className="separator"></div>
-                    <div className="block__cap">
-                        <span className="cap__title">Photo Archive</span>
-                    </div>
+                    <Breadcrumb />
                     <div className="block__content">
                         <p className="p">
                             The Liberation War Museum's Photo Archive holds an extensive collection of historical photographs

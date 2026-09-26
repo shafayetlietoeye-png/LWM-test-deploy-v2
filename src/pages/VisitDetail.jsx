@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { visitData } from '../data/visitData';
+import Breadcrumb from '../components/Breadcrumb';
+import { isRedundantBlockTitle } from '../utils/titleHelper';
 
 export default function VisitDetail({ category }) {
     const { item } = useParams();
@@ -59,19 +61,29 @@ export default function VisitDetail({ category }) {
 
             {/* CONTENT SECTION */}
             <main className="museum-story-content">
-                {data.blocks.map((block, index) => (
-                    <section className="block" key={index}>
-                        {index === 0 && <div className="separator"></div>}
-                        <div className="block__cap">
-                            <span className="cap__title">{block.title}</span>
-                        </div>
-                        <div className="block__content">
-                            {block.paragraphs.map((pText, pIndex) => (
-                                <p className="p" key={pIndex} dangerouslySetInnerHTML={{ __html: pText }} />
-                            ))}
-                        </div>
-                    </section>
-                ))}
+                {data.blocks.map((block, index) => {
+                    const isRedundant = isRedundantBlockTitle(data.title, block.title, index, data.blocks.length);
+                    return (
+                        <section className="block" key={index}>
+                            {index === 0 && (
+                                <>
+                                    <div className="separator"></div>
+                                    <Breadcrumb />
+                                </>
+                            )}
+                            {!isRedundant && block.title && (
+                                <div className="block__cap">
+                                    <span className="cap__title">{block.title}</span>
+                                </div>
+                            )}
+                            <div className="block__content">
+                                {block.paragraphs.map((pText, pIndex) => (
+                                    <p className="p" key={pIndex} dangerouslySetInnerHTML={{ __html: pText }} />
+                                ))}
+                            </div>
+                        </section>
+                    );
+                })}
             </main>
         </>
     );

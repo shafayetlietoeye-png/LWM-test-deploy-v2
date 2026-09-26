@@ -74,9 +74,6 @@ export default function Publications() {
             <main className="museum-story-content">
                 <section className="block">
                     <div className="separator"></div>
-                    <div className="block__cap">
-                        <span className="cap__title">Our Publications Gallery</span>
-                    </div>
 
                     <div className="block__content">
                         <div className="museum-gallery-grid">

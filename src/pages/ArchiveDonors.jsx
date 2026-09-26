@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
+import Breadcrumb from '../components/Breadcrumb';
 
 export default function ArchiveDonors() {
     useEffect(() => {
         document.body.classList.add('page-museum-story');
+        document.title = "Archive Donors | Liberation War Museum";
         return () => {
             document.body.classList.remove('page-museum-story');
         };
@@ -47,250 +49,198 @@ export default function ArchiveDonors() {
 
             {/* CONTENT SECTION */}
             <main className="museum-story-content">
-                
-                {/* 1. MR. ABDUL MATIN */}
+                {/* Block 1: Overview */}
                 <section className="block">
                     <div className="separator"></div>
+                    <Breadcrumb />
                     <div className="block__cap">
-                        <span className="cap__title">Mr. Abdul Matin Collection</span>
+                        <span className="cap__title">Archive Donors</span>
                     </div>
+
                     <div className="block__content">
                         <p className="p">
-                            During the 1940s, Mr. Abdul Matin was actively involved in the progressive political and cultural movements of Dhaka. He entered the field of journalism in the 1950s and migrated to London in the 60s. In 1971, he became deeply involved in the activities of the Liberation War. Beyond his engagement in multi-dimensional literature, he has authored several books documenting the crucial role of expatriate Bengalis in the independence struggle.
+                            The Liberation War Museum's archival collections are enriched by extraordinary personal endeavors of dedicated patriots, scholars, diplomats, and journalists. During and after the 1971 War of Liberation, these esteemed donors meticulously preserved wartime news reports, diplomatic dispatches, international broadcasts, and primary evidence from across the globe.
                         </p>
                         <p className="p">
-                            Self-motivated, Mr. Matin took upon himself the responsibility of recording the efforts of freedom-loving Bengalis. He painstakingly collected clippings of Liberation War news and observations published in various dailies and magazines across Europe and America. These clippings provide a comprehensive picture of the Liberation War as depicted in the global media, capturing the build-up of public opinion and the fighting spirit of Bengalis overseas. He compiled a micrograph of his collection and generously presented it to the Liberation War Museum.
+                            Their priceless donations form the bedrock of the Museum's research archives, providing historians, researchers, and future generations with indispensable primary records of Bangladesh's struggle for independence.
+                        </p>
+                    </div>
+                </section>
+
+                {/* Block 2: Major Archival Collections */}
+                <section className="block">
+                    <div className="block__cap">
+                        <span className="cap__title">Major Archival Collections</span>
+                    </div>
+
+                    <div className="block__content">
+                        <p className="p" style={{ marginBottom: '24px' }}>
+                            Explore the primary historical documentations, newspaper records, and collections preserved in the library and research centre of the Liberation War Museum:
                         </p>
 
-                        {/* Collection Sub-section */}
-                        <div style={{
-                            backgroundColor: '#fff',
-                            border: '1px solid #d4cbb3',
-                            borderTop: '3px solid #b38235',
-                            borderRadius: '6px',
-                            padding: '24px',
-                            marginTop: '25px',
-                            boxShadow: '0 4px 12px rgba(26,21,18,0.04)'
-                        }}>
-                            <h3 style={{ 
-                                fontSize: '1.25rem', 
-                                color: '#0d4228', 
-                                fontFamily: "'Roboto Slab', serif",
-                                marginBottom: '15px',
-                                borderBottom: '1px solid #e8e3d5',
-                                paddingBottom: '8px'
-                            }}>
-                                The Abdul Matin Collection (Newspapers & Magazines)
-                            </h3>
+                        <div className="archive-donors-grid">
                             
-                            {/* Newspapers Tag Grid */}
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '25px' }}>
-                                {abdulMatinPapers.map((paper, idx) => (
-                                    <span 
-                                        key={idx} 
-                                        style={{
-                                            fontSize: '0.88rem',
-                                            backgroundColor: 'rgba(197, 155, 39, 0.08)',
-                                            color: '#1a1512',
-                                            border: '1px solid rgba(197, 155, 39, 0.28)',
-                                            padding: '4px 10px',
-                                            borderRadius: '4px',
-                                            fontFamily: "'Roboto', sans-serif"
-                                        }}
-                                    >
-                                        {paper}
-                                    </span>
-                                ))}
-                            </div>
+                            {/* 1. MR. ABDUL MATIN */}
+                            <div className="facility-card archive-donor-card">
+                                <div className="facility-label">Mr. Abdul Matin</div>
+                                <div className="facility-value">
+                                    <p className="facility-desc">
+                                        During the 1940s Mr. Abdul Matin had been involved in the progressive political and cultural movement of Dhaka. He entered the field of journalism in the 1950s and in the 60s, he went to London. In 1971, he got deeply involved in the activities of the Liberation. Besides his engagement in multi-dimensional fields of literature, he has written many books on the role of expatriate Bengalis involved in the Liberation War. Self-motivated, he took the responsibility to note down the account of the different activities of the freedom loving Bengalis. In that context, he has collected clippings of Liberation War related news and news observations published in different dailies and magazines of Europe and America during the Liberation War. These clippings provide a comprehensive picture of the Liberation War as depicted in the global media, the gradual build-up of public opinion in favour of the War and account of the fighting-spirit of the freedom loving Bengalis despite their residence in a foreign land. He had formed a micrograph of his collection and presented that to the Liberation War Museum.
+                                    </p>
 
-                            <p className="p" style={{ fontSize: '0.96rem', color: '#555', marginBottom: '15px' }}>
-                                Considering the high research interest in these clippings, the Liberation War Museum photographed the microfilm using a special camera. The collection is bound into five volumes for preservation and library access:
-                            </p>
+                                    {/* The Abdul Matin Collection */}
+                                    <div className="facility-sub-items">
+                                        <div className="facility-sub-title">The Abdul Matin Collection</div>
+                                        <p className="facility-desc">
+                                            The newspaper-magazine from which Abdul Matin has collected the Liberation War related clippings are:
+                                        </p>
 
-                            {/* Volumes List */}
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                                {abdulMatinVolumes.map((vol, idx) => (
-                                    <div 
-                                        key={idx} 
-                                        style={{ 
-                                            display: 'flex', 
-                                            justifyContent: 'space-between', 
-                                            alignItems: 'center',
-                                            padding: '10px 15px',
-                                            backgroundColor: '#faf8f4',
-                                            borderLeft: '4px solid #8d2024',
-                                            borderRadius: '0 4px 4px 0',
-                                            fontSize: '0.96rem'
-                                        }}
-                                    >
-                                        <div>
-                                            <strong style={{ color: '#1a1512' }}>{vol.volume}</strong>
-                                            <span style={{ color: '#666', marginLeft: '10px' }}>({vol.period})</span>
+                                        {/* Publications Reference List (Clean non-clickable archival inventory) */}
+                                        <ul className="archive-bullet-list archive-bullet-list--cols">
+                                            {abdulMatinPapers.map((paper, idx) => (
+                                                <li key={idx}>
+                                                    <span className="archive-bullet-mark">▪</span>
+                                                    <span className="archive-paper-name">{paper}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+
+                                        <p className="facility-desc">
+                                            However, the opportunity to read from the micrograph of Abdul Matin's collection of news was limited. Considering the vast number of researchers interested in the clippings, the Liberation War Museum has photographed these clippings using a special camera. LWM has also divided and bound the above-mentioned copies of the newspaper-magazine clippings into five volumes for preservation. Following are the details of the volumes:
+                                        </p>
+
+                                        {/* Archival Volume Register: Seamless heritage parchment styling (Zero white background, non-clickable) */}
+                                        <div className="archive-register-container">
+                                            <div className="archive-register-header">
+                                                <span className="archive-col-vol">Volume</span>
+                                                <span className="archive-col-period">Preserved Period</span>
+                                                <span className="archive-col-pages">Page Count</span>
+                                            </div>
+                                            <div className="archive-register-list">
+                                                {abdulMatinVolumes.map((vol, idx) => (
+                                                    <div key={idx} className="archive-register-row">
+                                                        <span className="archive-reg-vol">{vol.volume}</span>
+                                                        <div className="archive-reg-period-wrap">
+                                                            <span className="archive-reg-period">{vol.period}</span>
+                                                            <span className="archive-reg-dots" aria-hidden="true"></span>
+                                                        </div>
+                                                        <span className="archive-reg-pages"><strong>{vol.pages}</strong> pages</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            <div className="archive-register-total">
+                                                <span className="archive-reg-total-label">
+                                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ color: '#8C1C19' }}>
+                                                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                                    </svg>
+                                                    <span>The total number of pages in the five volumes</span>
+                                                </span>
+                                                <span className="archive-reg-total-dots" aria-hidden="true"></span>
+                                                <span className="archive-reg-total-count">1379</span>
+                                            </div>
                                         </div>
-                                        <span style={{ color: '#8d2024', fontWeight: 'bold' }}>{vol.pages} pages</span>
+
+                                        <p className="facility-desc" style={{ marginTop: '14px' }}>
+                                            This collection of news-commentary in the global media is a priceless documentation of the Liberation War. Abdul Matin's collection can create a new field of historical-inquiry for researchers, journalists and readers. These volumes are preserved in the library and research centre of Liberation War Museum and researchers can use them as necessary.
+                                        </p>
                                     </div>
-                                ))}
+                                </div>
                             </div>
 
-                            <div style={{ 
-                                marginTop: '20px', 
-                                padding: '12px 15px', 
-                                backgroundColor: '#fdfbf7', 
-                                border: '1px dashed #d4cbb3', 
-                                borderRadius: '4px',
-                                fontSize: '0.92rem',
-                                color: '#666',
-                                textAlign: 'center',
-                                fontWeight: '500'
-                            }}>
-                                Total Pages: 1,379
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                            {/* 2. MR. ABUL MAAL ABDUL MUHIT */}
+                            <div className="facility-card archive-donor-card">
+                                <div className="facility-label">Mr. Abul Maal Abdul Muhit</div>
+                                <div className="facility-value">
+                                    <p className="facility-desc">
+                                        Mr. Abul Maal Abdul Muhit was born in 1934. He stood first class first in BA (Hons) English and got his MA from Dhaka University in 1955. While in college he was taken into police custody during the language movement of 1952, but released on bond. During government service he studied at Oxford University and also received his MPA degree from Harvard University in 1964.
+                                    </p>
+                                    <p className="facility-desc">
+                                        While working as an economic counselor he was the first diplomat in the Washington embassy of Pakistan to have declared his allegiance to the cause of Bangladesh in 1971.
+                                    </p>
+                                    <p className="facility-desc">
+                                        While working for the cause he amassed a huge quantity of reports, memorandums, articles published in newspapers and periodicals in USA and other countries and collated them into what is now preserved as the "Muhit Collection" at the Liberation War Museum. The collection is digitally stored.
+                                    </p>
 
-                {/* 2. MR. ABUL MAAL ABDUL MUHIT */}
-                <section className="block">
-                    <div className="block__cap">
-                        <span className="cap__title">Mr. Abul Maal Abdul Muhit Collection</span>
-                    </div>
-                    <div className="block__content">
-                        <p className="p">
-                            Born in 1934, Mr. Abul Maal Abdul Muhit graduated first class first in BA (Hons) English and completed his MA from Dhaka University in 1955. While a student, he was taken into police custody during the historic Language Movement of 1952. During his government service, he studied at Oxford University and received his MPA degree from Harvard University in 1964.
-                        </p>
-                        <p className="p">
-                            While working as an economic counselor in the Washington embassy of Pakistan, Mr. Muhit became the first diplomat to declare allegiance to the cause of Bangladesh in 1971. In Washington, he amassed a huge quantity of reports, memorandums, and articles published in American newspapers and periodicals. This valuable compilation is now preserved digitally as the "Muhit Collection" at the Liberation War Museum.
-                        </p>
+                                    {/* The A.M.A. Muhith Collection */}
+                                    <div className="facility-sub-items">
+                                        <div className="facility-sub-title">The A.M.A. Muhith Collection</div>
+                                        <p className="facility-desc">
+                                            The major portion of A.M.A. Muhith Collection consists of news items published in different newspapers around the world. He also preserved the US Congressional Records (April, May, June, July 1 – August 6, September 8 – November 11, November 16 – December 17 of 1971 and some of 1972) regarding the Liberation War of 1971 in different files.
+                                        </p>
 
-                        {/* Collection Sub-section */}
-                        <div style={{
-                            backgroundColor: '#fff',
-                            border: '1px solid #d4cbb3',
-                            borderTop: '3px solid #b38235',
-                            borderRadius: '6px',
-                            padding: '24px',
-                            marginTop: '25px',
-                            boxShadow: '0 4px 12px rgba(26,21,18,0.04)'
-                        }}>
-                            <h3 style={{ 
-                                fontSize: '1.25rem', 
-                                color: '#0d4228', 
-                                fontFamily: "'Roboto Slab', serif",
-                                marginBottom: '15px',
-                                borderBottom: '1px solid #e8e3d5',
-                                paddingBottom: '8px'
-                            }}>
-                                The A.M.A. Muhith Collection (2,907 Digital Items)
-                            </h3>
-                            
-                            <p className="p" style={{ fontSize: '0.96rem', color: '#555', marginBottom: '15px' }}>
-                                The major portion of this collection consists of news items from global newspapers, along with files containing the US Congressional Records (covering April to December 1971 and early 1972) regarding the Liberation War.
-                            </p>
+                                        <div className="archive-stat-callout">
+                                            In total there are <strong>2907 news items</strong> preserved in different files.
+                                        </div>
 
-                            <div style={{
-                                display: 'flex',
-                                flexWrap: 'wrap',
-                                gap: '8px',
-                                marginBottom: '20px'
-                            }}>
-                                {amaMuhithPapers.map((paper, idx) => (
-                                    <span 
-                                        key={idx} 
-                                        style={{
-                                            fontSize: '0.88rem',
-                                            backgroundColor: 'rgba(197, 155, 39, 0.08)',
-                                            color: '#1a1512',
-                                            border: '1px solid rgba(197, 155, 39, 0.28)',
-                                            padding: '4px 10px',
-                                            borderRadius: '4px',
-                                            fontFamily: "'Roboto', sans-serif"
-                                        }}
-                                    >
-                                        {paper}
-                                    </span>
-                                ))}
+                                        <p className="facility-desc">
+                                            All the news items have been digitalized and the Liberation War Museum has reprinted 17 files of the newspaper clippings for preservation.
+                                        </p>
+
+                                        <div className="archive-sub-label">
+                                            Reference Newspapers are:
+                                        </div>
+
+                                        {/* Reference Newspapers List (Clean non-clickable archival inventory) */}
+                                        <ul className="archive-bullet-list archive-bullet-list--cols">
+                                            {amaMuhithPapers.map((paper, idx) => (
+                                                <li key={idx}>
+                                                    <span className="archive-bullet-mark">▪</span>
+                                                    <span className="archive-paper-name">{paper}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div style={{ 
-                                padding: '12px 15px', 
-                                backgroundColor: '#fbf9f4', 
-                                border: '1px solid #e8e3d5', 
-                                borderRadius: '4px',
-                                fontSize: '0.96rem',
-                                color: '#1a1512'
-                            }}>
-                                <strong>Status:</strong> All 2,907 items have been fully digitized. LWM has reprinted 17 files of these newspaper clippings for physical preservation.
+                            {/* 3. SHEIKH AHMED JALAL */}
+                            <div className="facility-card archive-donor-card">
+                                <div className="facility-label">Sheikh Ahmed Jalal</div>
+                                <div className="facility-value">
+                                    <div className="archive-donor-badge">Diplomat, Freedom Fighter and Author</div>
+                                    
+                                    <p className="facility-desc">
+                                        Sheikh Ahmed (S.A.) Jalal studied in Japan in the 1960s, under the Japanese Government Scholarship. While studying in Tokyo he worked towards the introduction of Bengali programme in Japan Radio and became the first announcer of Radio Japan's Bengali Service. He wrote, produced and actively participated in all programmes of the Bangla Service.
+                                    </p>
+                                    <p className="facility-desc">
+                                        From the very beginning of the Liberation Struggle, S.A. Jalal initiated the solidarity campaign and organized various activities including the mobilization of public opinion in Japan in promoting the cause of Bangladesh. In 1972 Mr. Jalal was inducted into the Foreign Service of Bangladesh. He represented Bangladesh in the Special Political Committee of the United Nations General Assembly and also attended the SAARC summit as Director General for SAARC from Bangladesh.
+                                    </p>
+                                    <p className="facility-desc">
+                                        He embarked upon his passion for writing for children from the early 1980s and has written four children's books "Japanese Children's Stories and Rhymes."
+                                    </p>
+                                    <p className="facility-desc">
+                                        His book "Shundorboner Sonali Horin" was written with the goal of educating the children of Bangladesh and Japan about mythical tales that taught important lessons on how to interact with the environment. A translation of the book entitled "Kin Iro No Shikha" in Japanese has also been published. The other books "Dui Banglar Sera Shishu Sahitya" and "Ami Padmar Elish," his final children's book, dealt with the subject of river pollution, cultural rituals and religious celebrations in Bangladesh and West Bengal.
+                                    </p>
+                                    <p className="facility-desc">
+                                        Mr. Jalal was entrusted by the Japan Foundation Fellowship to write a book that would commemorate the 30 years of diplomatic recognition of Bangladesh by Japan. His book, "Japan's Contribution in the Independence of Bangladesh" is an invaluable historical document on Japan's political and economic support and assistance to Bangladesh during the War of Liberation in 1971.
+                                    </p>
+                                    <p className="facility-desc">
+                                        He amassed a valuable collection of important documents regarding the Liberation War. These authentic first edition volumes and newspaper articles were well preserved and documented in an orderly manner. After his passing away on 21st September 2003, his family is proud to make a contribution of these invaluable articles of history to the Liberation War Museum of Bangladesh, according to his last wish.
+                                    </p>
+
+                                    {/* The S.A. Jalal Collection */}
+                                    <div className="facility-sub-items">
+                                        <div className="facility-sub-title">The S.A. Jalal Collection</div>
+                                        <p className="facility-desc">
+                                            The major portion of the S. A. Jalal collection consists of news items published in different newspapers around the world.
+                                        </p>
+
+                                        {/* Records Bullet List */}
+                                        <ul className="archive-bullet-list" style={{ margin: '14px 0' }}>
+                                            <li>
+                                                <span className="archive-bullet-mark">▪</span>
+                                                <span>There are <strong>3416 newspaper items</strong>, preserved in 20 volumes and the other <strong>8 volumes</strong> contain valuable documents regarding the Liberation War.</span>
+                                            </li>
+                                        </ul>
+
+                                        <p className="facility-desc">
+                                            All the news items have been digitalized to facilitate their search by historians and researchers through the webpage access.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </section>
 
-                {/* 3. SHEIKH AHMED JALAL */}
-                <section className="block">
-                    <div className="block__cap">
-                        <span className="cap__title">Sheikh Ahmed Jalal Collection</span>
-                    </div>
-                    <div className="block__content">
-                        <p className="p" style={{ fontWeight: '600', color: '#8d2024', fontSize: '1.05rem', marginBottom: '12px' }}>
-                            Diplomat, Freedom Fighter, and Author
-                        </p>
-                        <p className="p">
-                            Sheikh Ahmed (S.A.) Jalal studied in Japan in the 1960s under a Japanese Government Scholarship. While in Tokyo, he pioneered the introduction of the Bengali programme on Radio Japan, becoming its first announcer. He wrote, produced, and participated actively in all Bangla Service programmes.
-                        </p>
-                        <p className="p">
-                            From the inception of the liberation struggle, S.A. Jalal initiated solidarity campaigns and organized public opinion drives in Japan to promote the cause of Bangladesh. In 1972, he was inducted into the Foreign Service of Bangladesh. He later represented Bangladesh in the Special Political Committee of the UN General Assembly and served as Director General for SAARC.
-                        </p>
-                        <p className="p">
-                            Starting in the 1980s, he pursued a passion for children's literature, authoring four children's books, including "Japanese Children's Stories and Rhymes". His book "Shundorboner Sonali Horin" (translated in Japanese as "Kin Iro No Shikha") educated children in both nations on ecological lessons through myth. His final children's books, "Dui Banglar Sera Shishu Sahitya" and "Ami Padmar Elish", raised awareness on river pollution, cultural rituals, and shared regional heritage.
-                        </p>
-                        <p className="p">
-                            Awarded the Japan Foundation Fellowship, he authored "Japan's Contribution in the Independence of Bangladesh", an invaluable historical document detailing Japan's political and economic support in 1971. S.A. Jalal amassed a pristine, orderly collection of newspapers, books, and first-edition volumes. Following his passing on September 21, 2003, his family donated this archive to the Liberation War Museum in accordance with his wishes.
-                        </p>
-
-                        {/* Collection Sub-section */}
-                        <div style={{
-                            backgroundColor: '#fff',
-                            border: '1px solid #d4cbb3',
-                            borderTop: '3px solid #b38235',
-                            borderRadius: '6px',
-                            padding: '24px',
-                            marginTop: '25px',
-                            boxShadow: '0 4px 12px rgba(26,21,18,0.04)'
-                        }}>
-                            <h3 style={{ 
-                                fontSize: '1.25rem', 
-                                color: '#0d4228', 
-                                fontFamily: "'Roboto Slab', serif",
-                                marginBottom: '15px',
-                                borderBottom: '1px solid #e8e3d5',
-                                paddingBottom: '8px'
-                            }}>
-                                The S.A. Jalal Collection (3,416 Items)
-                            </h3>
-                            
-                            <ul style={{ listStyle: 'none', paddingLeft: 0, margin: '0 0 20px 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                                <li style={{ fontSize: '0.96rem', paddingLeft: '15px', position: 'relative' }}>
-                                    <span style={{ position: 'absolute', left: 0, color: '#8d2024' }}>•</span>
-                                    <strong>3,416 newspaper items</strong> preserved across 20 structured volumes.
-                                </li>
-                                <li style={{ fontSize: '0.96rem', paddingLeft: '15px', position: 'relative' }}>
-                                    <span style={{ position: 'absolute', left: 0, color: '#8d2024' }}>•</span>
-                                    <strong>8 additional volumes</strong> containing highly valuable primary documents from the 1971 struggle.
-                                </li>
-                            </ul>
-
-                            <div style={{ 
-                                padding: '12px 15px', 
-                                backgroundColor: '#fdfbf7', 
-                                border: '1px dashed #d4cbb3', 
-                                borderRadius: '4px',
-                                fontSize: '0.94rem',
-                                color: '#666',
-                                textAlign: 'center',
-                                fontWeight: '500'
-                            }}>
-                                Status: Digitized and fully accessible via the webpage database to facilitate research by historians.
-                            </div>
                         </div>
                     </div>
                 </section>

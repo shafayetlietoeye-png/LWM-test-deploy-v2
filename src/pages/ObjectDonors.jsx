@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { objectDonorsData } from '../data/objectDonorsData';
+import Breadcrumb from '../components/Breadcrumb';
 
 export default function ObjectDonors() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -69,6 +70,7 @@ export default function ObjectDonors() {
             <main className="museum-story-content">
                 <section className="block">
                     <div className="separator"></div>
+                    <Breadcrumb />
                     
                     {/* Search and Filters Bar */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '40px' }}>
@@ -205,7 +207,7 @@ export default function ObjectDonors() {
                                                                 lineHeight: '1.6',
                                                                 paddingLeft: '20px',
                                                                 position: 'relative',
-                                                                fontFamily: "'Roboto', sans-serif"
+                                                                fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif"
                                                             }}
                                                         >
                                                             <span style={{ position: 'absolute', left: 0, color: '#8d2024', fontWeight: 'bold' }}>•</span>
@@ -250,7 +252,7 @@ export default function ObjectDonors() {
                     padding: '10px 6px',
                     boxShadow: '0 4px 12px rgba(26,21,18,0.1)',
                     zIndex: 100,
-                    fontFamily: "'Roboto', sans-serif",
+                    fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
                     transition: 'opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease'
                 }}
             >

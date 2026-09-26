@@ -6,9 +6,15 @@ export default defineConfig({
   plugins: [react()],
   server: {
     watch: {
-      // Only ignore the 'photo archive' folder (has a space in the name which
-      // causes Windows EBUSY errors). All other public/ folders are watched normally.
-      ignored: (filePath) => filePath.includes('photo archive'),
+      ignored: [
+        '**/public/**',
+        '**/*.docx',
+        '**/*.doc',
+        '**/*.zip',
+        '**/*.tar.gz',
+        '**/*.rar',
+        '**/.git/**',
+      ],
     },
   },
 })

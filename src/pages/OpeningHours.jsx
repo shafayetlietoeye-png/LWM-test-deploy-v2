@@ -26,9 +26,6 @@ export default function OpeningHours() {
             <main className="museum-story-content">
                 <section className="block">
                     <div className="separator"></div>
-                    <div className="block__cap">
-                        <span className="cap__title">Visiting Hours</span>
-                    </div>
                     <div className="block__content">
                         <p className="p">
                             The museum is open on all weekdays except Sunday. Visiting hours vary by season to accommodate daylight changes.
@@ -38,7 +35,7 @@ export default function OpeningHours() {
                             <table style={{
                                 width: '100%',
                                 borderCollapse: 'collapse',
-                                fontFamily: "'Roboto', sans-serif",
+                                fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
                                 fontSize: '0.95rem'
                             }}>
                                 <thead>

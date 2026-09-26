@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Breadcrumb from '../components/Breadcrumb';
 
 export default function VirtualTour() {
     useEffect(() => {
@@ -27,9 +28,7 @@ export default function VirtualTour() {
             <main className="virtual-tour-content">
                 <section className="block">
                     <div className="separator"></div>
-                    <div className="block__cap">
-                        <span className="cap__title">VIRTUAL TOUR</span>
-                    </div>
+                    <Breadcrumb />
 
                     <div className="vt-video-box">
                         <p className="vt-instruction">If you are facing any difficulty in getting this virtual museum experience,

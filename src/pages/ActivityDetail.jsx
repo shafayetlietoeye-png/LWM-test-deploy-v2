@@ -1,6 +1,9 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { activitiesData } from '../data/activitiesData';
+import Breadcrumb from '../components/Breadcrumb';
+import { isRedundantBlockTitle } from '../utils/titleHelper';
+import WinterSchoolSection from '../components/WinterSchoolSection';
 
 const PUBLIC_PROGRAM_PHOTOS = [
     { src: '/assets/regular-public-programs/242120.jpg', caption: 'Program Photo 01' },
@@ -237,7 +240,7 @@ export default function ActivityDetail() {
     const isSultanasDream = pageKey === 'publications/sultanas-dream';
     const isOtherPublications = pageKey === 'publications/other-publications';
     const isNewsletters = pageKey === 'media/newsletters';
-    const isPressReleases = pageKey === 'media/press-releases';
+    const isPressReleases = pageKey === 'media/press-releases' || pageKey === 'media/press-coverage';
     const isAudioVisualArchive = pageKey === 'media/advertisements';
     const isCsgjAbout = pageKey === 'csgj/about';
     const isCsgjSeminars = pageKey === 'csgj/seminars';
@@ -575,40 +578,50 @@ export default function ActivityDetail() {
                 <main className="museum-story-content">
                     <section className="block">
                         <div className="separator"></div>
-                        <div className="block__content" style={{ marginBottom: '30px' }}>
-                            <p className="p" style={{ fontSize: '1.25rem', lineHeight: '1.8', color: '#2c1e16', borderLeft: '4px solid #a62024', paddingLeft: '20px', background: '#fdfaf2', padding: '18px 24px', borderRadius: '6px', border: '1px solid #e3dec9', borderLeftWidth: '4px', textAlign: 'justify' }}>
+                        <Breadcrumb />
+
+                        {/* INTRODUCTION CALLOUT */}
+                        <div className="award-intro-banner">
+                            <p className="award-intro-p">
                                 {data.introduction}
                             </p>
                         </div>
-                    </section>
 
-                    {/* TABS NAVIGATION */}
-                    <section className="block" style={{ paddingTop: 0, paddingBottom: 0 }}>
+                        {/* TABS NAVIGATION */}
                         <div className="awards-tabs-nav">
                             <button 
                                 className={`awards-tab-btn ${activeAwardTab === 'intro' ? 'active' : ''}`}
                                 onClick={() => setActiveAwardTab('intro')}
                             >
-                                পরিচিতি ও পটভূমি
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                    <circle cx="12" cy="7" r="4" />
+                                </svg>
+                                <span>পরিচিতি ও পটভূমি</span>
                             </button>
                             <button 
                                 className={`awards-tab-btn ${activeAwardTab === 'jury' ? 'active' : ''}`}
                                 onClick={() => setActiveAwardTab('jury')}
                             >
-                                জুরি বোর্ড ও নীতিমালা
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg>
+                                <span>জুরি বোর্ড ও নীতিমালা</span>
                             </button>
                             <button 
                                 className={`awards-tab-btn ${activeAwardTab === 'awardees' ? 'active' : ''}`}
                                 onClick={() => setActiveAwardTab('awardees')}
                             >
-                                পদকপ্রাপ্তদের তালিকা ({data.winners.length} বছর)
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                    <circle cx="12" cy="8" r="7" />
+                                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                                </svg>
+                                <span>পদকপ্রাপ্তদের তালিকা ({data.winners.length} বছর)</span>
                             </button>
                         </div>
-                    </section>
 
-                    {/* TAB CONTENTS */}
-                    {activeAwardTab === 'intro' && (
-                        <section className="block" style={{ paddingTop: '20px' }}>
+                        {/* TAB CONTENTS */}
+                        {activeAwardTab === 'intro' && (
                             <div className="bio-grid">
                                 <div className="bio-grid__image-pane">
                                     <div className="award-bio-card">
@@ -619,94 +632,92 @@ export default function ActivityDetail() {
                                     </div>
                                 </div>
                                 <div className="bio-grid__text-pane">
-                                    <h3 className="award-section-title" style={{ marginTop: 0 }}>{data.biography.title}</h3>
+                                    <h3 className="award-section-title">{data.biography.title}</h3>
                                     {data.biography.paragraphs.map((p, idx) => (
-                                        <p key={idx} className="p" style={{ marginBottom: '15px', textAlign: 'justify' }}>{p}</p>
+                                        <p key={idx} className="p">{p}</p>
                                     ))}
                                     
-                                    <h3 className="award-section-title" style={{ marginTop: '35px' }}>{data.inception.title}</h3>
-                                    <p className="p" style={{ textAlign: 'justify' }}>{data.inception.text}</p>
+                                    <h3 className="award-section-title" style={{ marginTop: '24px' }}>{data.inception.title}</h3>
+                                    <p className="p">{data.inception.text}</p>
                                 </div>
                             </div>
-                        </section>
-                    )}
+                        )}
 
-                    {activeAwardTab === 'jury' && (
-                        <section className="block" style={{ paddingTop: '20px' }}>
-                            <div className="jury-intro-section" style={{ marginBottom: '40px' }}>
-                                <h3 className="award-section-title" style={{ marginTop: 0 }}>{data.juryBoard.title}</h3>
-                                {data.juryBoard.paragraphs && data.juryBoard.paragraphs.map((p, idx) => (
-                                    <p key={idx} className="p" style={{ marginBottom: '15px', textAlign: 'justify' }}>{p}</p>
-                                ))}
-                                
-                                <div className="members-grid">
-                                    {data.juryBoard.initialMembers && (
-                                        <div style={{ background: '#fdfcf7', padding: '24px', borderRadius: '8px', border: '1px solid #e3dec9' }}>
-                                            <h4 style={{ color: '#a62024', fontFamily: "'Noto Sans Bengali', sans-serif", fontSize: '1.25rem', marginBottom: '16px', borderBottom: '1px solid #e3dec9', paddingBottom: '8px' }}>গঠনকালীন জুরি বোর্ড সদস্যবৃন্দ</h4>
-                                            <ul style={{ paddingLeft: '20px', color: '#2c2015', lineHeight: '1.8' }}>
-                                                {data.juryBoard.initialMembers.map((member, idx) => (
-                                                    <li key={idx} style={{ marginBottom: '6px' }}>{member}</li>
+                        {activeAwardTab === 'jury' && (
+                            <div className="jury-tab-content">
+                                <div className="jury-intro-section" style={{ marginBottom: '22px' }}>
+                                    <h3 className="award-section-title">{data.juryBoard.title}</h3>
+                                    {data.juryBoard.paragraphs && data.juryBoard.paragraphs.map((p, idx) => (
+                                        <p key={idx} className="p" style={{ marginBottom: '12px', textAlign: 'justify' }}>{p}</p>
+                                    ))}
+                                    
+                                    <div className="members-grid">
+                                        {data.juryBoard.initialMembers && (
+                                            <div style={{ background: '#fdfcf7', padding: '18px 20px', borderRadius: '6px', border: '1px solid #e3dec9' }}>
+                                                <h4 style={{ color: '#8c1c19', fontFamily: "'Noto Serif Bengali', 'Roboto Slab', serif", fontSize: '1.15rem', marginTop: 0, marginBottom: '12px', borderBottom: '1px solid #e3dec9', paddingBottom: '8px', fontWeight: '700' }}>গঠনকালীন জুরি বোর্ড সদস্যবৃন্দ</h4>
+                                                <ul style={{ paddingLeft: '20px', margin: 0, color: '#2c2015', lineHeight: '1.75' }}>
+                                                    {data.juryBoard.initialMembers.map((member, idx) => (
+                                                        <li key={idx} style={{ marginBottom: '5px' }}>{member}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
+
+                                        {data.juryBoard.reconstitutedMembers && (
+                                            <div style={{ background: '#fdfaf2', padding: '18px 20px', borderRadius: '6px', border: '1px solid #cdb66c', borderLeft: '4px solid #8c1c19', height: 'fit-content' }}>
+                                                <h4 style={{ color: '#8c1c19', fontFamily: "'Noto Serif Bengali', 'Roboto Slab', serif", fontSize: '1.15rem', marginTop: 0, marginBottom: '12px', borderBottom: '1px solid #cdb66c', paddingBottom: '8px', fontWeight: '700' }}>পুনর্গঠিত জুরি বোর্ড সদস্যবৃন্দ</h4>
+                                                <ul style={{ paddingLeft: '20px', margin: 0, color: '#2c2015', lineHeight: '1.75' }}>
+                                                    {data.juryBoard.reconstitutedMembers.map((member, idx) => (
+                                                        <li key={idx} style={{ marginBottom: '5px' }}><strong>{member}</strong></li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+
+                                <div style={{ borderTop: '1px solid #e3dec9', margin: '24px 0' }}></div>
+
+                                <div className="policy-section">
+                                    <h3 className="award-section-title">{data.policy.title}</h3>
+                                    {data.policy.intro && (
+                                        <p className="p" style={{ marginBottom: '18px', textAlign: 'justify' }}>{data.policy.intro}</p>
+                                    )}
+
+                                    <div className="policy-grid">
+                                        <div>
+                                            <h4 style={{ color: '#1a1512', fontFamily: "'Noto Serif Bengali', 'Roboto Slab', serif", fontSize: '1.15rem', marginTop: 0, marginBottom: '14px', fontWeight: '700' }}>বিচার মানদণ্ড</h4>
+                                            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                                <div style={{ background: '#f8faf7', border: '1px solid #c5dec7', borderLeft: '4px solid #2e7d32', borderRadius: '6px', padding: '14px 18px' }}>
+                                                    <h5 style={{ color: '#2e7d32', margin: '0 0 6px 0', fontSize: '1.02rem', fontWeight: '700' }}>প্রিন্ট ও অনলাইন মিডিয়া</h5>
+                                                    <p style={{ margin: 0, color: '#1b5e20', fontSize: '0.94rem', lineHeight: '1.6' }}>{data.policy.criteriaPrint}</p>
+                                                </div>
+                                                <div style={{ background: '#f5f9fd', border: '1px solid #c2d6ec', borderLeft: '4px solid #1565c0', borderRadius: '6px', padding: '14px 18px' }}>
+                                                    <h5 style={{ color: '#1565c0', margin: '0 0 6px 0', fontSize: '1.02rem', fontWeight: '700' }}>ইলেকট্রনিকস মিডিয়া</h5>
+                                                    <p style={{ margin: 0, color: '#0d47a1', fontSize: '0.94rem', lineHeight: '1.6' }}>{data.policy.criteriaElectronic}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <h4 style={{ color: '#1a1512', fontFamily: "'Noto Serif Bengali', 'Roboto Slab', serif", fontSize: '1.15rem', marginTop: 0, marginBottom: '14px', fontWeight: '700' }}>মূল্যায়ন প্রক্রিয়া ও নীতিমালা</h4>
+                                            <ul style={{ paddingLeft: '20px', margin: 0, color: '#2c2015', lineHeight: '1.75' }}>
+                                                {data.policy.rules && data.policy.rules.map((rule, idx) => (
+                                                    <li key={idx} style={{ marginBottom: '8px', textAlign: 'justify' }}>{rule}</li>
                                                 ))}
                                             </ul>
                                         </div>
-                                    )}
-
-                                    {data.juryBoard.reconstitutedMembers && (
-                                        <div style={{ background: '#fdfaf2', padding: '24px', borderRadius: '8px', border: '1px solid #cdb66c', height: 'fit-content' }}>
-                                            <h4 style={{ color: '#a62024', fontFamily: "'Noto Sans Bengali', sans-serif", fontSize: '1.25rem', marginBottom: '16px', borderBottom: '1px solid #cdb66c', paddingBottom: '8px' }}>পুনর্গঠিত জুরি বোর্ড সদস্যবৃন্দ</h4>
-                                            <ul style={{ paddingLeft: '20px', color: '#2c2015', lineHeight: '1.8' }}>
-                                                {data.juryBoard.reconstitutedMembers.map((member, idx) => (
-                                                    <li key={idx} style={{ marginBottom: '6px' }}><strong>{member}</strong></li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-
-                            <div style={{ borderTop: '1px solid #e3dec9', margin: '40px 0' }}></div>
-
-                            <div className="policy-section">
-                                <h3 className="award-section-title" style={{ marginTop: 0 }}>{data.policy.title}</h3>
-                                {data.policy.intro && (
-                                    <p className="p" style={{ marginBottom: '25px', textAlign: 'justify' }}>{data.policy.intro}</p>
-                                )}
-
-                                <div className="policy-grid">
-                                    <div>
-                                        <h4 style={{ color: '#1a1512', fontFamily: "'Noto Sans Bengali', sans-serif", fontSize: '1.25rem', marginBottom: '16px' }}>বিচার মানদণ্ড</h4>
-                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                                            <div style={{ background: '#e8f5e9', border: '1px solid #c8e6c9', borderRadius: '8px', padding: '20px' }}>
-                                                <h5 style={{ color: '#2e7d32', margin: '0 0 8px 0', fontSize: '1.1rem', fontWeight: 'bold' }}>প্রিন্ট ও অনলাইন মিডিয়া</h5>
-                                                <p style={{ margin: 0, color: '#1b5e20', fontSize: '0.98rem', lineHeight: '1.6' }}>{data.policy.criteriaPrint}</p>
-                                            </div>
-                                            <div style={{ background: '#e3f2fd', border: '1px solid #bbdefb', borderRadius: '8px', padding: '20px' }}>
-                                                <h5 style={{ color: '#1565c0', margin: '0 0 8px 0', fontSize: '1.1rem', fontWeight: 'bold' }}>ইলেকট্রনিকস মিডিয়া</h5>
-                                                <p style={{ margin: 0, color: '#0d47a1', fontSize: '0.98rem', lineHeight: '1.6' }}>{data.policy.criteriaElectronic}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <h4 style={{ color: '#1a1512', fontFamily: "'Noto Sans Bengali', sans-serif", fontSize: '1.25rem', marginBottom: '16px' }}>মূল্যায়ন প্রক্রিয়া ও নীতিমালা</h4>
-                                        <ul style={{ paddingLeft: '20px', color: '#2c2015', lineHeight: '1.85' }}>
-                                            {data.policy.rules && data.policy.rules.map((rule, idx) => (
-                                                <li key={idx} style={{ marginBottom: '10px', textAlign: 'justify' }}>{rule}</li>
-                                            ))}
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                        </section>
-                    )}
+                        )}
 
-                    {activeAwardTab === 'awardees' && (
-                        <section className="block" style={{ paddingTop: '20px' }}>
-                            <div className="block__content" style={{ marginBottom: '25px' }}>
-                                <div style={{ background: '#fdfcf7', borderLeft: '4px solid #a62024', border: '1px solid #e3dec9', borderLeftWidth: '4px', padding: '20px 24px', borderRadius: '6px', marginBottom: '25px' }}>
-                                    <h4 style={{ color: '#a62024', fontFamily: "'Noto Sans Bengali', sans-serif", fontSize: '1.3rem', marginTop: 0, marginBottom: '10px' }}>পুরস্কারপ্রাপ্ত সাংবাদিকদের পটভূমি ও পরিচিতি</h4>
+                        {activeAwardTab === 'awardees' && (
+                            <div className="awardees-tab-content">
+                                <div style={{ background: '#fdfcf7', border: '1px solid #e3dec9', borderLeft: '4px solid #8c1c19', padding: '16px 20px', borderRadius: '6px', marginBottom: '18px' }}>
+                                    <h4 style={{ color: '#8c1c19', fontFamily: "'Noto Serif Bengali', 'Roboto Slab', serif", fontSize: '1.2rem', marginTop: 0, marginBottom: '8px', fontWeight: '700' }}>পুরস্কারপ্রাপ্ত সাংবাদিকদের পটভূমি ও পরিচিতি</h4>
                                     {data.winnersListDescription.split('\n\n').map((paragraph, idx) => (
-                                        <p key={idx} className="p" style={{ fontSize: '1.02rem', color: '#2c2015', lineHeight: '1.75', marginBottom: idx === data.winnersListDescription.split('\n\n').length - 1 ? 0 : '14px', textAlign: 'justify' }}>
+                                        <p key={idx} className="p" style={{ fontSize: '0.96rem', color: '#2c2015', lineHeight: '1.7', marginBottom: idx === data.winnersListDescription.split('\n\n').length - 1 ? 0 : '10px', textAlign: 'justify' }}>
                                             {paragraph}
                                         </p>
                                     ))}
@@ -715,7 +726,7 @@ export default function ActivityDetail() {
                                 {/* DIRECTORY CONTROLS */}
                                 <div className="directory-controls">
                                     <div className="search-box-wrapper">
-                                        <svg className="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <svg className="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                             <circle cx="11" cy="11" r="8" />
                                             <line x1="21" y1="21" x2="16.65" y2="16.65" />
                                         </svg>
@@ -730,6 +741,7 @@ export default function ActivityDetail() {
                                             <button 
                                                 className="clear-search-btn"
                                                 onClick={() => setAwardSearchQuery('')}
+                                                aria-label="Clear Search"
                                             >
                                                 ✕
                                             </button>
@@ -763,17 +775,17 @@ export default function ActivityDetail() {
                                         <thead>
                                             <tr>
                                                 <th style={{ width: '8%' }}>বছর</th>
-                                                <th style={{ width: '22%' }}>ক্যাটাগরি</th>
+                                                <th style={{ width: '20%' }}>ক্যাটাগরি</th>
                                                 <th style={{ width: '25%' }}>পদকপ্রাপ্ত সাংবাদিক</th>
                                                 <th style={{ width: '20%' }}>প্রচার মাধ্যম (মিডিয়া)</th>
-                                                <th style={{ width: '25%' }}>প্রতিবেদন / ফিচারের বিষয়</th>
+                                                <th style={{ width: '27%' }}>প্রতিবেদন / ফিচারের বিষয়</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {filteredWinners.length > 0 ? (
                                                 filteredWinners.map((winner, index) => (
                                                     <tr key={index}>
-                                                        <td className="year-cell"><strong>{winner.year}</strong></td>
+                                                        <td className="year-cell">{winner.year}</td>
                                                         <td className="cat-cell"><span className={`cat-tag cat-tag--${winner.categoryKey}`}>{winner.categoryKey === 'print' ? 'প্রিন্ট ও অনলাইন' : 'ইলেকট্রনিক মিডিয়া'}</span></td>
                                                         <td className="recipient-cell">{winner.recipient}</td>
                                                         <td className="media-cell"><em>{winner.media}</em></td>
@@ -791,26 +803,26 @@ export default function ActivityDetail() {
                                     </table>
                                 </div>
                             </div>
-                        </section>
-                    )}
+                        )}
 
-                    {/* TROPHY SHOWCASE */}
-                    <section className="block" style={{ borderTop: '1px solid #e3dec9', paddingTop: '40px', marginTop: '40px' }}>
-                        <div className="block__cap">
-                            <span className="cap__title">পদক ও সম্মাননা ট্রফি</span>
-                        </div>
-                        <div className="award-trophy-showcase">
-                            <div className="award-trophy-img-frame">
-                                <img src="/assets/Bajlur-Rahman-Smritipodok-Poriciti/891175.png" alt="Bazlur Rahman Smriti Padak Trophy" className="award-trophy-img" />
-                                <div className="award-trophy-caption">Figure 1: বজলুর রহমান স্মৃতিপদক ট্রফি</div>
+                        {/* TROPHY SHOWCASE */}
+                        <div className="award-trophy-wrapper" style={{ marginTop: '28px', borderTop: '1px solid #e3dec9', paddingTop: '22px' }}>
+                            <div className="block__cap" style={{ marginBottom: '14px' }}>
+                                <span className="cap__title">পদক ও সম্মাননা ট্রফি</span>
                             </div>
-                            <div className="award-trophy-details">
-                                <p className="p" style={{ fontSize: '1.1rem', lineHeight: '1.7', color: '#2c2015' }}>
-                                    বজলুর রহমান স্মৃতিপদক বিজয়ী সাংবাদিকদের একটি বিশেষ ধাতুনির্মিত স্মৃতিপদক, সম্মাননা সনদ ও সম্মাননা মূল্য প্রদান করা হয়। 
-                                </p>
-                                <p className="p" style={{ fontSize: '1.05rem', lineHeight: '1.7', color: '#4a3f35', marginTop: '15px', fontStyle: 'italic' }}>
-                                    এই ট্রফিটি ঢাকা বিশ্ববিদ্যালয়ের চারুকলা ইনস্টিটিউটের বিশিষ্ট ভাস্কর দ্বারা ডিজাইনকৃত, যা বাংলাদেশের মুক্তিযুদ্ধের চেতনা, প্রগতিশীল সাংবাদিকতা এবং সমাজ পরিবর্তনের লড়াইয়ের এক প্রতীকী স্মারক।
-                                </p>
+                            <div className="award-trophy-showcase">
+                                <div className="award-trophy-img-frame">
+                                    <img src="/assets/Bajlur-Rahman-Smritipodok-Poriciti/891175.png" alt="বজলুর রহমান স্মৃতিপদক ট্রফি" className="award-trophy-img" />
+                                    <div className="award-trophy-caption">বজলুর রহমান স্মৃতিপদক ট্রফি</div>
+                                </div>
+                                <div className="award-trophy-details">
+                                    <p className="p" style={{ fontSize: '1.02rem', lineHeight: '1.7', color: '#2c2015', margin: 0, textAlign: 'justify' }}>
+                                        বজলুর রহমান স্মৃতিপদক বিজয়ী সাংবাদিকদের একটি বিশেষ ধাতুনির্মিত স্মৃতিপদক, সম্মাননা সনদ ও সম্মাননা মূল্য প্রদান করা হয়। 
+                                    </p>
+                                    <p className="p" style={{ fontSize: '0.95rem', lineHeight: '1.7', color: '#5c4f43', marginTop: '10px', marginBottom: 0, fontStyle: 'italic', textAlign: 'justify' }}>
+                                        এই ট্রফিটি ঢাকা বিশ্ববিদ্যালয়ের চারুকলা ইনস্টিটিউটের বিশিষ্ট ভাস্কর দ্বারা ডিজাইনকৃত, যা বাংলাদেশের মুক্তিযুদ্ধের চেতনা, প্রগতিশীল সাংবাদিকতা এবং সমাজ পরিবর্তনের লড়াইয়ের এক প্রতীকী স্মারক।
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -836,36 +848,143 @@ export default function ActivityDetail() {
                 <main className="museum-story-content">
                     <section className="block">
                         <div className="separator"></div>
+                        <Breadcrumb />
                         
-                        {/* Centered Museum Exhibition Poster Container */}
-                        <div className="sd-poster-container">
-                            <div className="sd-poster-frame">
-                                <div className="sd-poster-header">
-                                    <span className="sd-poster-subtitle">UNESCO Memory of the World Register</span>
-                                    <h2 className="sd-poster-title">{data.title}</h2>
-                                    <div className="sd-poster-divider"></div>
+                        {/* Modern Two-Column Editorial Showcase */}
+                        <div className="sd-editorial-showcase">
+                            {/* Left Column: Monograph & Book Showcase */}
+                            <aside className="sd-sidebar-card">
+                                <div className="sd-unesco-badge">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                                        <path d="M2 12h20" />
+                                    </svg>
+                                    <span>UNESCO Register</span>
                                 </div>
-                                
-                                <div className="sd-poster-image-wrapper">
-                                    <img src={data.image} alt={data.title} className="sd-poster-img" />
-                                    <div className="sd-poster-caption">{data.imageCaption}</div>
+
+                                <div className="sd-book-frame">
+                                    <img src={data.image} alt={data.title} className="sd-book-cover" />
+                                    <div className="sd-book-caption">{data.imageCaption}</div>
                                 </div>
-                                
-                                <div className="sd-poster-body">
-                                    <p className="sd-poster-paragraph">
-                                        {data.introduction}
-                                    </p>
-                                    
-                                    <div className="sd-poster-details">
-                                        <p className="sd-poster-paragraph">
-                                            <strong>Women's Liberation:</strong> Sultana's Dream and Rokeya Sakhawat Hossain have become synonymous with women's liberation in the subcontinent and beyond. Rokeya pioneered education as a vital tool to liberate Bengal's oppressed women.
-                                        </p>
-                                        <p className="sd-poster-paragraph">
-                                            <strong>Vision for the Future:</strong> As a pioneer in Bengali Muslim education, Rokeya recognized women's inherent strength. Her ambition was that women would reach the highest positions of society through education and science.
-                                        </p>
-                                        <p className="sd-poster-paragraph">
-                                            <strong>UNESCO Recognition:</strong> First published in 1905, Sultana’s Dream achieved prestigious global recognition in 2024 by being inscribed in the UNESCO Memory of the World Asia-Pacific Register.
-                                        </p>
+
+                                <div className="sd-meta-list">
+                                    <div className="sd-meta-row">
+                                        <span className="sd-meta-label">Author</span>
+                                        <span className="sd-meta-val">Rokeya Sakhawat Hossain</span>
+                                    </div>
+                                    <div className="sd-meta-row">
+                                        <span className="sd-meta-label">First Published</span>
+                                        <span className="sd-meta-val">1905 (Madras)</span>
+                                    </div>
+                                    <div className="sd-meta-row">
+                                        <span className="sd-meta-label">Recognition</span>
+                                        <span className="sd-meta-val">UNESCO Memory of the World (2024)</span>
+                                    </div>
+                                    <div className="sd-meta-row">
+                                        <span className="sd-meta-label">Genre</span>
+                                        <span className="sd-meta-val">Feminist Science Fiction</span>
+                                    </div>
+                                </div>
+
+                                <div className="sd-sidebar-actions">
+                                    <button 
+                                        type="button" 
+                                        className="sd-jump-btn sd-jump-btn--primary"
+                                        onClick={() => {
+                                            setActiveSultanaTab('english');
+                                            document.getElementById('sd-media-hub')?.scrollIntoView({ behavior: 'smooth' });
+                                        }}
+                                    >
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                                        </svg>
+                                        <span>Read English Edition</span>
+                                    </button>
+                                    <button 
+                                        type="button" 
+                                        className="sd-jump-btn sd-jump-btn--secondary"
+                                        onClick={() => {
+                                            setActiveSultanaTab('bangla');
+                                            document.getElementById('sd-media-hub')?.scrollIntoView({ behavior: 'smooth' });
+                                        }}
+                                    >
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                            <path d="M19 10v1a7 7 0 0 1-14 0v-1M12 19v4M8 23h8"/>
+                                        </svg>
+                                        <span>বাংলা সংস্করণ ও শ্রুতিগ্রন্থ</span>
+                                    </button>
+                                </div>
+                            </aside>
+
+                            {/* Right Column: Narrative & Thematic Cards */}
+                            <div className="sd-main-pane">
+                                <span className="sd-kicker-tag">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <circle cx="12" cy="8" r="6" />
+                                        <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
+                                    </svg>
+                                    UNESCO Memory of the World Register
+                                </span>
+
+                                <h2 className="sd-heading-title">{data.title}</h2>
+
+                                <p className="sd-lead-p">
+                                    {data.introduction}
+                                </p>
+
+                                <div className="sd-features-grid">
+                                    <div className="sd-feature-card">
+                                        <div className="sd-feature-icon-box">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                                <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07" />
+                                            </svg>
+                                        </div>
+                                        <div className="sd-feature-content">
+                                            <h3 className="sd-feature-title">Women's Liberation</h3>
+                                            <p className="sd-feature-text">
+                                                Sultana's Dream and Rokeya Sakhawat Hossain have become synonymous with women's liberation in the subcontinent and beyond. Rokeya pioneered education as a vital tool to liberate Bengal's oppressed women.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="sd-feature-card">
+                                        <div className="sd-feature-icon-box">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                                <circle cx="12" cy="12" r="5" />
+                                                <line x1="12" y1="1" x2="12" y2="3" />
+                                                <line x1="12" y1="21" x2="12" y2="23" />
+                                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                                                <line x1="1" y1="12" x2="3" y2="12" />
+                                                <line x1="21" y1="12" x2="23" y2="12" />
+                                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                                            </svg>
+                                        </div>
+                                        <div className="sd-feature-content">
+                                            <h3 className="sd-feature-title">Vision for the Future</h3>
+                                            <p className="sd-feature-text">
+                                                As a pioneer in Bengali Muslim education, Rokeya recognized women's inherent strength. Her ambition was that women would reach the highest positions of society through education and science.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="sd-feature-card">
+                                        <div className="sd-feature-icon-box">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                                <circle cx="12" cy="8" r="7" />
+                                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                                            </svg>
+                                        </div>
+                                        <div className="sd-feature-content">
+                                            <h3 className="sd-feature-title">UNESCO Recognition</h3>
+                                            <p className="sd-feature-text">
+                                                First published in 1905, Sultana’s Dream achieved prestigious global recognition in 2024 by being inscribed in the UNESCO Memory of the World Asia-Pacific Register.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -873,9 +992,9 @@ export default function ActivityDetail() {
                     </section>
 
                     {/* RESOURCE DASHBOARD SECTION */}
-                    <section className="block" style={{ borderTop: '1px solid #e3dec9', paddingTop: '40px', marginTop: '40px' }}>
+                    <section className="block sd-hub-section" id="sd-media-hub">
                         <div className="block__cap">
-                            <span className="cap__title">eBooks & Audiobooks (ই-বুক ও শ্রুতিগ্রন্থ)</span>
+                            <span className="cap__title">eBooks &amp; Audiobooks (ই-বুক ও শ্রুতিগ্রন্থ)</span>
                         </div>
                         
                         {/* Selector Tabs */}
@@ -884,44 +1003,59 @@ export default function ActivityDetail() {
                                 className={`sd-heritage-tab-btn ${activeSultanaTab === 'english' ? 'sd-heritage-tab-btn--active' : ''}`}
                                 onClick={() => setActiveSultanaTab('english')}
                             >
-                                English Edition
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="2" y1="12" x2="22" y2="12" />
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                                </svg>
+                                <span>English Edition</span>
                             </button>
                             <button 
                                 className={`sd-heritage-tab-btn ${activeSultanaTab === 'bangla' ? 'sd-heritage-tab-btn--active' : ''}`}
                                 onClick={() => setActiveSultanaTab('bangla')}
                             >
-                                বাংলা সংস্করণ
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                                </svg>
+                                <span>বাংলা সংস্করণ</span>
                             </button>
                         </div>
 
                         {activeSultanaTab === 'english' ? (
-                            <div className="sd-heritage-panel-grid">
-                                {/* ENGLISH EDITION EBOOK */}
-                                <div className="sd-heritage-resource-card">
-                                    <h4 className="sd-heritage-resource-title">
-                                        eBook (Digital Copy)
-                                    </h4>
-                                    
-                                    <blockquote className="sd-heritage-quote">
-                                        "Ladyland is a land of peace, where women run the affairs of the state, travel by helicopter, and harness the power of the sun."
-                                        <span className="sd-heritage-quote-author">— Begum Rokeya, 1905</span>
-                                    </blockquote>
-                                    
-                                    {/* EBOOK DOWNLOAD CARD */}
-                                    <div className="sd-heritage-ebook-meta">
-                                        <div className="sd-heritage-ebook-icon">
-                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <div className="sd-media-hub-card">
+                                {/* LEFT: eBook column */}
+                                <div className="sd-hub-ebook-col">
+                                    <div className="sd-hub-col-header">
+                                        <span className="sd-hub-col-icon sd-hub-col-icon--red">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                                                 <polyline points="14 2 14 8 20 8" />
                                                 <line x1="16" y1="13" x2="8" y2="13" />
                                                 <line x1="16" y1="17" x2="8" y2="17" />
                                             </svg>
+                                        </span>
+                                        <span className="sd-hub-col-title">eBook (Digital Copy)</span>
+                                    </div>
+
+                                    <blockquote className="sd-hub-quote">
+                                        <span className="sd-hub-quote-mark">&ldquo;</span>
+                                        Ladyland is a land of peace, where women run the affairs of the state, travel by helicopter, and harness the power of the sun.
+                                        <cite className="sd-hub-quote-cite">— Begum Rokeya, 1905</cite>
+                                    </blockquote>
+
+                                    <div className="sd-hub-file-row">
+                                        <div className="sd-hub-file-thumb">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                                <polyline points="14 2 14 8 20 8" />
+                                            </svg>
                                         </div>
-                                        <div className="sd-heritage-ebook-details">
-                                            <div className="sd-heritage-ebook-title">Sultana's Dream eBook</div>
-                                            <div className="sd-heritage-ebook-specs">Format: PDF | Size: {data.resources.english.pdfSize}</div>
+                                        <div className="sd-hub-file-info">
+                                            <div className="sd-hub-file-name">Sultana's Dream eBook</div>
+                                            <div className="sd-hub-file-meta">PDF &bull; {data.resources.english.pdfSize}</div>
                                         </div>
-                                        <div className="sd-heritage-ebook-actions">
+                                        <div className="sd-hub-file-btns">
                                             <button 
                                                 onClick={() => openPdfViewer({
                                                     isBinary: true,
@@ -929,26 +1063,34 @@ export default function ActivityDetail() {
                                                     displayTitle: "Sultana's Dream (English Edition)",
                                                     pages: 1
                                                 })}
-                                                className="sd-heritage-button sd-heritage-button--primary"
+                                                className="sd-hub-btn sd-hub-btn--read"
                                             >
+                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                                                 Read
                                             </button>
-                                            <a href={data.resources.english.pdf} download className="sd-heritage-button sd-heritage-button--secondary">Download</a>
+                                            <a href={data.resources.english.pdf} download className="sd-hub-btn sd-hub-btn--dl">
+                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                                Download
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
 
-                                {/* ENGLISH EDITION AUDIOBOOK */}
-                                <div className="sd-heritage-video-card">
-                                    <h5 className="sd-heritage-video-title">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle' }}>
-                                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-                                            <path d="M19 10v1a7 7 0 0 1-14 0v-1M12 19v4M8 23h8" />
-                                        </svg>
-                                        Audiobook (English Listening Edition)
-                                    </h5>
-                                    <div className="sd-heritage-video-frame">
-                                        <div className="sd-heritage-video-container">
+                                <div className="sd-hub-divider"></div>
+
+                                {/* RIGHT: Audiobook column */}
+                                <div className="sd-hub-audio-col">
+                                    <div className="sd-hub-col-header">
+                                        <span className="sd-hub-col-icon sd-hub-col-icon--green">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                                <path d="M19 10v1a7 7 0 0 1-14 0v-1M12 19v4M8 23h8"/>
+                                            </svg>
+                                        </span>
+                                        <span className="sd-hub-col-title">Audiobook (English Listening Edition)</span>
+                                    </div>
+                                    <div className="sd-hub-video-frame">
+                                        <div className="sd-hub-video-container">
                                             <iframe 
                                                 key="sultana-audiobook-en"
                                                 src={`https://www.youtube.com/embed/${data.resources.english.audiobookYoutubeId}`} 
@@ -961,65 +1103,75 @@ export default function ActivityDetail() {
                                 </div>
                             </div>
                         ) : (
-                            <div className="sd-heritage-panel-grid">
-                                {/* BANGLA EDITION EBOOK */}
-                                <div className="sd-heritage-resource-card sd-heritage-resource-card--bangla">
-                                    <h4 className="sd-heritage-resource-title">
-                                        ই-বুক (ডিজিটাল সংস্করণ)
-                                    </h4>
-                                    
-                                    <blockquote className="sd-heritage-quote">
-                                        "লেডিল্যান্ডে শান্তি বিরাজ করে, যেখানে নারীরা রাজ্য শাসন করে, আকাশে উড়ে বেড়ায় এবং সূর্যের শক্তিকে কাজে লাগায়।"
-                                        <span className="sd-heritage-quote-author">— বেগম রোকেয়া, ১৯০৫</span>
-                                    </blockquote>
-                                    
-                                    {/* EBOOK DOWNLOAD CARD */}
-                                    <div className="sd-heritage-ebook-meta">
-                                        <div className="sd-heritage-ebook-icon">
-                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <div className="sd-media-hub-card sd-media-hub-card--bangla">
+                                {/* LEFT: Bangla eBook column */}
+                                <div className="sd-hub-ebook-col">
+                                    <div className="sd-hub-col-header">
+                                        <span className="sd-hub-col-icon sd-hub-col-icon--gold">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                                                 <polyline points="14 2 14 8 20 8" />
                                                 <line x1="16" y1="13" x2="8" y2="13" />
                                                 <line x1="16" y1="17" x2="8" y2="17" />
                                             </svg>
+                                        </span>
+                                        <span className="sd-hub-col-title">ই-বুক (ডিজিটাল সংস্করণ)</span>
+                                    </div>
+                                    <blockquote className="sd-hub-quote sd-hub-quote--bangla">
+                                        <span className="sd-hub-quote-mark">&ldquo;</span>
+                                        লেডিল্যান্ডে শান্তি বিরাজ করে, যেখানে নারীরা রাজ্য শাসন করে, আকাশে উড়ে বেড়ায় এবং সূর্যের শক্তিকে কাজে লাগায়।
+                                        <cite className="sd-hub-quote-cite">— বেগম রোকেয়া, ১৯০৫</cite>
+                                    </blockquote>
+                                    <div className="sd-hub-file-row">
+                                        <div className="sd-hub-file-thumb sd-hub-file-thumb--gold">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                                <polyline points="14 2 14 8 20 8" />
+                                            </svg>
                                         </div>
-                                        <div className="sd-heritage-ebook-details">
-                                            <div className="sd-heritage-ebook-title">সুলতানার স্বপ্ন ই-বুক</div>
-                                            <div className="sd-heritage-ebook-specs">ফরম্যাট: PDF | সাইজ: {data.resources.bangla.pdfSize}</div>
+                                        <div className="sd-hub-file-info">
+                                            <div className="sd-hub-file-name">সুলতানার স্বপ্ন ই-বুক</div>
+                                            <div className="sd-hub-file-meta">PDF &bull; {data.resources.bangla.pdfSize}</div>
                                         </div>
-                                        <div className="sd-heritage-ebook-actions">
-                                            <button 
+                                        <div className="sd-hub-file-btns">
+                                            <button
                                                 onClick={() => openPdfViewer({
                                                     isBinary: true,
                                                     pdfUrl: data.resources.bangla.pdf,
                                                     displayTitle: "সুলতানার স্বপ্ন (বাংলা সংস্করণ)",
                                                     pages: 1
                                                 })}
-                                                className="sd-heritage-button sd-heritage-button--primary"
+                                                className="sd-hub-btn sd-hub-btn--read"
                                             >
+                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                                                 পড়ুন
                                             </button>
-                                            <a href={data.resources.bangla.pdf} download className="sd-heritage-button sd-heritage-button--secondary">ডাউনলোড</a>
+                                            <a href={data.resources.bangla.pdf} download className="sd-hub-btn sd-hub-btn--dl sd-hub-btn--dl-gold">
+                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                                ডাউনলোড
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
-
-                                {/* BANGLA EDITION AUDIOBOOK */}
-                                <div className="sd-heritage-video-card sd-heritage-video-card--bangla">
-                                    <h5 className="sd-heritage-video-title">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle' }}>
-                                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-                                            <path d="M19 10v1a7 7 0 0 1-14 0v-1M12 19v4M8 23h8" />
-                                        </svg>
-                                        শ্রুতিগ্রন্থ (বাংলা সংস্করণ)
-                                    </h5>
-                                    <div className="sd-heritage-video-frame">
-                                        <div className="sd-heritage-video-container">
-                                            <iframe 
+                                <div className="sd-hub-divider sd-hub-divider--gold"></div>
+                                {/* RIGHT: Bangla Audiobook column */}
+                                <div className="sd-hub-audio-col">
+                                    <div className="sd-hub-col-header">
+                                        <span className="sd-hub-col-icon sd-hub-col-icon--gold">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                                <path d="M19 10v1a7 7 0 0 1-14 0v-1M12 19v4M8 23h8"/>
+                                            </svg>
+                                        </span>
+                                        <span className="sd-hub-col-title">শ্রুতিগ্রন্থ (বাংলা সংস্করণ)</span>
+                                    </div>
+                                    <div className="sd-hub-video-frame sd-hub-video-frame--gold">
+                                        <div className="sd-hub-video-container">
+                                            <iframe
                                                 key="sultana-audiobook-bn"
-                                                src={`https://www.youtube.com/embed/${data.resources.bangla.audiobookYoutubeId}`} 
-                                                title="Sultana's Dream Bangla Audiobook" 
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                src={`https://www.youtube.com/embed/${data.resources.bangla.audiobookYoutubeId}`}
+                                                title="Sultana's Dream Bangla Audiobook"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                                 allowFullScreen
                                             ></iframe>
                                         </div>
@@ -1078,22 +1230,128 @@ export default function ActivityDetail() {
 
             {/* CONTENT SECTION */}
             <main className="museum-story-content">
-                {isNewsletters || isAudioVisualArchive || isCsgjAbout || isCsgjSeminars || isCsgjResearch || isCsgjCertificateCourse || isCsgjExchangeProgram || isCsgjVolunteer || isCsgjWinterSchool ? (
-                    <div className="separator"></div>
+                {isPublicPrograms || isNewsletters || isAudioVisualArchive || isCsgjAbout || isCsgjSeminars || isCsgjResearch || isCsgjCertificateCourse || isCsgjExchangeProgram || isCsgjVolunteer || isCsgjWinterSchool ? (
+                    <>
+                        <div className="separator"></div>
+                        <Breadcrumb />
+                    </>
                 ) : (
-                    data.blocks.map((block, index) => (
-                        <section className="block" key={index}>
-                            {index === 0 && <div className="separator"></div>}
+                    data.blocks.map((block, index) => {
+                        const isRedundant = isRedundantBlockTitle(data.title, block.title, index, data.blocks.length);
+                        return (
+                            <section className="block" key={index}>
+                                {index === 0 && (
+                                    <>
+                                        <div className="separator"></div>
+                                        <Breadcrumb />
+                                    </>
+                                )}
+                                {!isRedundant && block.title && (
+                                    <div className="block__cap">
+                                        <span className="cap__title">{block.title}</span>
+                                    </div>
+                                )}
+                                <div className="block__content">
+                                    {block.paragraphs.map((pText, pIndex) => (
+                                        <p className="p" key={pIndex} dangerouslySetInnerHTML={{ __html: pText }} />
+                                    ))}
+                                </div>
+                            </section>
+                        );
+                    })
+                )}
+
+                {/* REGULAR PUBLIC PROGRAMS REDESIGNED (ACCREDITATIONS & AFFILIATIONS CARD STYLE) */}
+                {isPublicPrograms && (
+                    <div className="public-programs-container">
+                        <section className="block" style={{ paddingTop: 0 }}>
                             <div className="block__cap">
-                                <span className="cap__title">{block.title}</span>
+                                <span className="cap__title">Program Overview</span>
                             </div>
                             <div className="block__content">
-                                {block.paragraphs.map((pText, pIndex) => (
-                                    <p className="p" key={pIndex} dangerouslySetInnerHTML={{ __html: pText }} />
-                                ))}
+                                {data.overview ? (
+                                    data.overview.map((para, idx) => (
+                                        <p className="p" key={idx} style={{ textAlign: 'justify' }}>{para}</p>
+                                    ))
+                                ) : (
+                                    <p className="p" style={{ textAlign: 'justify' }}>
+                                        The Liberation War Museum holds public programs throughout the year to connect the memory of 1971 with contemporary social consciousness, education, and civic engagement. Some programs are observed as regular annual events commemorating historic milestones, while others are organized as special commemorative forums, festivals, and cultural gatherings.
+                                    </p>
+                                )}
                             </div>
                         </section>
-                    ))
+
+                        <section className="block">
+                            <div className="block__cap">
+                                <span className="cap__title">Annual Observances & Public Programs</span>
+                            </div>
+                            <div className="block__content">
+                                <p className="p" style={{ marginBottom: '24px' }}>
+                                    The Museum maintains an active calendar of annual commemorations, youth initiatives, and cultural observances:
+                                </p>
+
+                                <div className="facilities-grid facilities-grid--accred">
+                                    {data.programs && data.programs.map((prog, idx) => (
+                                        <div key={idx} className="facility-card">
+                                            <div className="public-program-card__header">
+                                                <div className="facility-label">{prog.title}</div>
+                                                {prog.date && (
+                                                    <div className="public-program-card__badge">
+                                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                                                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                                                        </svg>
+                                                        <span>{prog.date}</span>
+                                                    </div>
+                                                )}
+                                            </div>
+                                            <div className="facility-value">
+                                                <p className="facility-desc" style={{ textAlign: 'justify' }}>{prog.description}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+
+                                    {/* Featured Annual Victory Festival Card */}
+                                    {data.featuredFestival && (
+                                        <div className="facility-card facility-card--featured-accred">
+                                            <div className="public-program-card__header">
+                                                <div className="facility-label">{data.featuredFestival.title}</div>
+                                                <div className="public-program-card__badge public-program-card__badge--featured">
+                                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                                    </svg>
+                                                    <span>{data.featuredFestival.dateBadge}</span>
+                                                </div>
+                                            </div>
+                                            <div className="facility-value">
+                                                <p className="facility-desc" style={{ textAlign: 'justify' }}>{data.featuredFestival.description}</p>
+                                                {data.featuredFestival.items && (
+                                                    <div className="facility-sub-items">
+                                                        <div className="facility-sub-title">{data.featuredFestival.subTitle}</div>
+                                                        <ul className="facility-sub-list">
+                                                            {data.featuredFestival.items.map((subItem, sIdx) => (
+                                                                <li key={sIdx}>
+                                                                    <svg className="facility-sub-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                                                    </svg>
+                                                                    <span>{subItem}</span>
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        </section>
+                    </div>
                 )}
 
                 {/* CSGJ ABOUT DETAILED SECTIONS */}
@@ -2013,195 +2271,9 @@ export default function ActivityDetail() {
                     </div>
                 )}
 
-                {/* CSGJ WINTER SCHOOL SECTIONS (Prologue Minimal Layout) */}
+                {/* CSGJ WINTER SCHOOL SECTION (Full Documentation & Image Archive) */}
                 {isCsgjWinterSchool && (
-                    <div className="csgj-winter-school-container-minimal">
-                        <section className="block" style={{ paddingTop: 0, marginBottom: '40px' }}>
-                            <div className="block__cap">
-                                <span className="cap__title" style={{ fontSize: '1.25rem', fontFamily: 'Roboto Slab, serif', textTransform: 'none' }}>
-                                    Program Overview
-                                </span>
-                            </div>
-                            <div className="block__content">
-                                {data.paragraphs && data.paragraphs.map((para, paraIdx) => (
-                                    <p key={paraIdx} className="p" style={{ textAlign: 'justify', marginBottom: '15px' }}>
-                                        {para}
-                                    </p>
-                                ))}
-                            </div>
-                        </section>
-
-                        {/* 1. WINTER SCHOOL BROCHURES */}
-                        <div className="block" style={{ paddingBottom: '10px' }}>
-                            <div className="block__cap" style={{ marginBottom: '25px' }}>
-                                <span className="cap__title" style={{ fontSize: '1.8rem', color: '#1a1512', fontFamily: 'Roboto Slab, serif', textTransform: 'none' }}>Winter School Brochures</span>
-                            </div>
-                        </div>
-
-                        <section className="block" style={{ paddingTop: 0, marginBottom: '45px' }}>
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '25px' }}>
-                                {data.pdfs && data.pdfs.map((pdf) => (
-                                    <div 
-                                        key={pdf.id}
-                                        style={{ 
-                                            padding: '24px', 
-                                            backgroundColor: '#fff', 
-                                            border: '1px solid #e8e3d5', 
-                                            borderRadius: '6px',
-                                            boxShadow: '0 4px 12px rgba(26, 21, 18, 0.04)',
-                                            display: 'flex',
-                                            flexDirection: 'column',
-                                            justifyContent: 'space-between',
-                                            gap: '20px',
-                                            position: 'relative',
-                                            overflow: 'hidden'
-                                        }}
-                                        className="csgj-pdf-card"
-                                    >
-                                        {/* Top red accent line */}
-                                        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', backgroundColor: '#8d2024' }}></div>
-
-                                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
-                                            {/* PDF File Icon with Folded Corner */}
-                                            <div style={{ 
-                                                position: 'relative', 
-                                                width: '40px', 
-                                                height: '52px', 
-                                                backgroundColor: '#fcfbf7', 
-                                                border: '1px solid #d4cbb3', 
-                                                borderRadius: '3px',
-                                                flexShrink: 0,
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'center',
-                                                marginTop: '2px'
-                                            }}>
-                                                {/* Folded corner */}
-                                                <div style={{
-                                                    position: 'absolute',
-                                                    top: -1,
-                                                    right: -1,
-                                                    width: '12px',
-                                                    height: '12px',
-                                                    backgroundColor: '#fff',
-                                                    borderLeft: '1px solid #d4cbb3',
-                                                    borderBottom: '1px solid #d4cbb3',
-                                                    borderBottomLeftRadius: '3px'
-                                                }}></div>
-                                                {/* PDF tag */}
-                                                <span style={{ fontSize: '0.7rem', fontWeight: 'bold', color: '#8d2024', fontFamily: 'monospace', marginTop: '12px' }}>PDF</span>
-                                            </div>
-
-                                            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                                                <span style={{ fontFamily: 'Roboto Slab, serif', fontSize: '1.05rem', color: '#1a1a1a', fontWeight: 'bold', lineHeight: '1.4' }}>
-                                                    {pdf.title}
-                                                </span>
-                                                <span style={{ fontSize: '0.8rem', color: '#666' }}>Document Brochure</span>
-                                            </div>
-                                        </div>
-
-                                        <div style={{ display: 'flex', gap: '10px' }}>
-                                            {/* Open inside the same page modal */}
-                                            <button
-                                                onClick={() => setActivePdf({ displayTitle: pdf.title, pdfUrl: pdf.url, isBinary: true })}
-                                                className="btn btn--secondary"
-                                                style={{ 
-                                                    flex: 1,
-                                                    display: 'inline-flex', 
-                                                    alignItems: 'center', 
-                                                    justifyContent: 'center',
-                                                    gap: '6px', 
-                                                    textDecoration: 'none', 
-                                                    color: '#8d2024', 
-                                                    fontWeight: 'bold', 
-                                                    border: '1px solid #8d2024', 
-                                                    padding: '8px 12px', 
-                                                    borderRadius: '4px', 
-                                                    backgroundColor: '#fff', 
-                                                    cursor: 'pointer',
-                                                    fontSize: '0.88rem'
-                                                }}
-                                            >
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                                                    <circle cx="12" cy="12" r="3" />
-                                                </svg>
-                                                View Form
-                                            </button>
-
-                                            {/* Download button */}
-                                            <a
-                                                href={pdf.url}
-                                                download={pdf.url.split('/').pop()}
-                                                className="btn btn--primary"
-                                                style={{ 
-                                                    flex: 1,
-                                                    display: 'inline-flex', 
-                                                    alignItems: 'center', 
-                                                    justifyContent: 'center',
-                                                    gap: '6px', 
-                                                    textDecoration: 'none', 
-                                                    color: '#fff', 
-                                                    fontWeight: 'bold', 
-                                                    backgroundColor: '#8d2024', 
-                                                    padding: '8px 12px', 
-                                                    borderRadius: '4px', 
-                                                    cursor: 'pointer',
-                                                    fontSize: '0.88rem'
-                                                }}
-                                            >
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                                                    <polyline points="7 10 12 15 17 10" />
-                                                    <line x1="12" y1="15" x2="12" y2="3" />
-                                                </svg>
-                                                Download
-                                            </a>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </section>
-
-                        {/* 2. GALLERY */}
-                        <div className="block" style={{ paddingTop: '20px', paddingBottom: '10px' }}>
-                            <div className="block__cap" style={{ marginBottom: '25px' }}>
-                                <span className="cap__title" style={{ fontSize: '1.8rem', color: '#1a1512', fontFamily: 'Roboto Slab, serif', textTransform: 'none' }}>Gallery</span>
-                            </div>
-                        </div>
-
-                        <section className="block" style={{ paddingTop: 0 }}>
-                            <div className="photo-archive-grid">
-                                {data.images && data.images.map((imgSrc, imgIdx) => (
-                                    <button 
-                                        key={imgSrc} 
-                                        className="photo-archive-card"
-                                        onClick={() => openLightbox(imgIdx)}
-                                        aria-label={`Open Winter School Photo ${imgIdx + 1}`}
-                                    >
-                                        <div className="photo-archive-card__frame">
-                                            <img 
-                                                src={imgSrc} 
-                                                alt={`Winter School Photo ${imgIdx + 1}`} 
-                                                className="photo-archive-card__img"
-                                                loading="lazy"
-                                            />
-                                            <div className="photo-archive-card__overlay">
-                                                <span className="photo-archive-card__zoom-icon">
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                                        <circle cx="11" cy="11" r="8" />
-                                                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                                                        <line x1="11" y1="8" x2="11" y2="14" />
-                                                        <line x1="8" y1="11" x2="14" y2="11" />
-                                                    </svg>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </button>
-                                ))}
-                            </div>
-                        </section>
-                    </div>
+                    <WinterSchoolSection />
                 )}
 
                 {/* AUDIO VISUAL ARCHIVE FILM STRIP REEL */}
@@ -2298,7 +2370,7 @@ export default function ActivityDetail() {
                                 {isOtherPublications 
                                     ? "Publications Cover Gallery" 
                                     : (isPressReleases 
-                                        ? "Press Release Archive (Newspaper Clippings)" 
+                                        ? "Press Coverage Archive (Newspaper Clippings)" 
                                         : (isCsgjAbout ? "Gallery" : "Photographic Record"))}
                             </span>
                         </div>
@@ -2308,14 +2380,14 @@ export default function ActivityDetail() {
                                     key={photo.src}
                                     className={isPressReleases ? "photo-archive-card sd-news-cutting-card" : "photo-archive-card"}
                                     onClick={() => openLightbox(index)}
-                                    aria-label={`Open ${photo.caption}`}
+                                    aria-label={isPublicPrograms ? `Program photo ${index + 1}` : `Open ${photo.caption}`}
                                 >
                                     <div className={isOtherPublications 
                                         ? "sd-publication-cover-frame" 
                                         : (isPressReleases ? "sd-news-cutting-frame" : "photo-archive-card__frame")}>
                                         <img
                                             src={photo.src}
-                                            alt={photo.caption}
+                                            alt={isPublicPrograms ? `Liberation War Museum Program Photo ${index + 1}` : photo.caption}
                                             className={isOtherPublications 
                                                 ? "sd-publication-cover-img" 
                                                 : (isPressReleases ? "sd-news-cutting-img" : "photo-archive-card__img")}
@@ -2332,7 +2404,7 @@ export default function ActivityDetail() {
                                             </span>
                                         </div>
                                     </div>
-                                    {(!isOtherPublications && !isPressReleases) && (
+                                    {(!isOtherPublications && !isPressReleases && !isPublicPrograms) && (
                                         <div className="photo-archive-card__caption">{photo.caption}</div>
                                     )}
                                 </button>
@@ -2457,9 +2529,11 @@ export default function ActivityDetail() {
                                     transition: 'height 0.15s ease'
                                 }}
                             />
-                            <div className="lightbox-modal__caption" style={{ marginTop: '15px' }}>
-                                {activePhotos[lightboxIndex].caption}
-                            </div>
+                            {(!isPublicPrograms && activePhotos[lightboxIndex]?.caption) && (
+                                <div className="lightbox-modal__caption" style={{ marginTop: '15px' }}>
+                                    {activePhotos[lightboxIndex].caption}
+                                </div>
+                            )}
                         </div>
                     </div>
 

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import Breadcrumb from '../components/Breadcrumb';
 
 const tvcs = [
     {
@@ -37,9 +38,7 @@ export default function CampaignTVC() {
             <main className="museum-story-content">
                 <section className="block">
                     <div className="separator"></div>
-                    <div className="block__cap">
-                        <span className="cap__title">TV Commercials</span>
-                    </div>
+                    <Breadcrumb />
                     <div className="block__content">
                         <p className="p">
                             The Liberation War Museum produces television commercials and digital video campaigns to appeal for public support, artifact donations, and volunteer engagement. These campaigns feature testimonies of freedom fighters and highlights of our educational initiatives.
