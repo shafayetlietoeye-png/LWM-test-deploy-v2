@@ -24,7 +24,7 @@ export const winterSchoolEditions = [
             "type": "images",
             "images": [
               {
-                "src": "/assets/Winter School/Winter school images/6th/img11.jpg",
+                "src": "/assets/winter-school/156552.jpg",
                 "caption": "6th Winter School — Inaugural Ceremony"
               }
             ]
@@ -37,7 +37,7 @@ export const winterSchoolEditions = [
             "type": "images",
             "images": [
               {
-                "src": "/assets/Winter School/Winter school images/6th/img12.jpg",
+                "src": "/assets/winter-school/211115.jpg",
                 "caption": "6th Winter School — Inaugural Ceremony"
               }
             ]
@@ -72,7 +72,7 @@ export const winterSchoolEditions = [
             "type": "images",
             "images": [
               {
-                "src": "/assets/Winter School/Winter school images/6th/img25.jpg",
+                "src": "/assets/winter-school/225477.jpg",
                 "caption": "6th Winter School — Ice breaking"
               }
             ]
@@ -85,7 +85,7 @@ export const winterSchoolEditions = [
             "type": "images",
             "images": [
               {
-                "src": "/assets/Winter School/Winter school images/6th/img26.jpg",
+                "src": "/assets/winter-school/236350.jpg",
                 "caption": "6th Winter School — Ice breaking"
               }
             ]
@@ -124,7 +124,7 @@ export const winterSchoolEditions = [
             "type": "images",
             "images": [
               {
-                "src": "/assets/Winter School/Winter school images/6th/img32.jpg",
+                "src": "/assets/winter-school/286066.jpg",
                 "caption": "6th Winter School — Day 2 (18.01.2020)"
               }
             ]
@@ -244,7 +244,7 @@ export const winterSchoolEditions = [
             "type": "images",
             "images": [
               {
-                "src": "/assets/Winter School/Winter school images/6th/img50.jpg",
+                "src": "/assets/winter-school/609971.jpg",
                 "caption": "6th Winter School — Day 4 (20.01.2020)"
               }
             ]
@@ -265,15 +265,15 @@ export const winterSchoolEditions = [
             "type": "images",
             "images": [
               {
-                "src": "/assets/Winter School/Winter school images/6th/img53.jpg",
+                "src": "/assets/winter-school/473577.jpg",
                 "caption": "6th Winter School — Day 4 (20.01.2020)"
               },
               {
-                "src": "/assets/Winter School/Winter school images/6th/img54.jpg",
+                "src": "/assets/winter-school/539970.jpg",
                 "caption": "6th Winter School — Day 4 (20.01.2020)"
               },
               {
-                "src": "/assets/Winter School/Winter school images/6th/img57.jpg",
+                "src": "/assets/winter-school/566475.jpg",
                 "caption": "6th Winter School — Day 4 (20.01.2020)"
               }
             ]
@@ -291,7 +291,7 @@ export const winterSchoolEditions = [
             "type": "images",
             "images": [
               {
-                "src": "/assets/Winter School/Winter school images/6th/img58.jpg",
+                "src": "/assets/winter-school/336159.jpg",
                 "caption": "6th Winter School — Day 05 (21.01.2020)"
               }
             ]
@@ -782,7 +782,7 @@ export const winterSchoolEditions = [
             "type": "images",
             "images": [
               {
-                "src": "/assets/Winter School/Winter school images/4th/img9.jpg",
+                "src": "/assets/winter-school/132243.jpg",
                 "caption": "4th Winter School — Opening Ceremony"
               }
             ]
@@ -895,11 +895,11 @@ export const winterSchoolEditions = [
             "type": "images",
             "images": [
               {
-                "src": "/assets/Winter School/Winter school images/4th/img35.jpg",
+                "src": "/assets/winter-school/341773.jpg",
                 "caption": "4th Winter School — Day 2 (14.01.2018)"
               },
               {
-                "src": "/assets/Winter School/Winter school images/4th/img36.jpg",
+                "src": "/assets/winter-school/319350.jpg",
                 "caption": "4th Winter School — Day 2 (14.01.2018)"
               }
             ]
@@ -938,7 +938,7 @@ export const winterSchoolEditions = [
             "type": "images",
             "images": [
               {
-                "src": "/assets/Winter School/Winter school images/4th/img42.jpg",
+                "src": "/assets/winter-school/414128.jpg",
                 "caption": "4th Winter School — Day 3 (15.01.2018)"
               }
             ]
@@ -951,7 +951,7 @@ export const winterSchoolEditions = [
             "type": "images",
             "images": [
               {
-                "src": "/assets/Winter School/Winter school images/4th/img43.jpg",
+                "src": "/assets/winter-school/336159.jpg",
                 "caption": "4th Winter School — Day 3 (15.01.2018)"
               }
             ]
@@ -1129,7 +1129,7 @@ export const winterSchoolEditions = [
             "type": "images",
             "images": [
               {
-                "src": "/assets/Winter School/Winter school images/4th/img71.jpg",
+                "src": "/assets/winter-school/674336.jpg",
                 "caption": "4th Winter School — Day 5 (17.01.2018)"
               }
             ]
@@ -1210,7 +1210,7 @@ export const winterSchoolEditions = [
             "type": "images",
             "images": [
               {
-                "src": "/assets/Winter School/Winter school images/4th/img79.jpg",
+                "src": "/assets/winter-school/796705.jpg",
                 "caption": "4th Winter School — Closing Ceremony and Cultural Function"
               }
             ]
@@ -1232,7 +1232,7 @@ export const winterSchoolEditions = [
             "type": "images",
             "images": [
               {
-                "src": "/assets/Winter School/Winter school images/4th/img80.jpg",
+                "src": "/assets/winter-school/968641.jpg",
                 "caption": "4th Winter School — Day 8 (20.01.2018)"
               }
             ]
@@ -1725,11 +1725,11 @@ export const winterSchoolEditions = [
             "type": "images",
             "images": [
               {
-                "src": "/assets/Winter School/Winter school images/2nd/img15.jpg",
+                "src": "/assets/winter-school/342831.jpg",
                 "caption": "2nd Winter School — Eminent Resource Persons"
               },
               {
-                "src": "/assets/Winter School/Winter school images/2nd/img16.jpg",
+                "src": "/assets/winter-school/393137.jpg",
                 "caption": "2nd Winter School — Eminent Resource Persons"
               }
             ]
@@ -1747,11 +1747,11 @@ export const winterSchoolEditions = [
             "type": "images",
             "images": [
               {
-                "src": "/assets/Winter School/Winter school images/2nd/img21.jpg",
+                "src": "/assets/winter-school/236350.jpg",
                 "caption": "2nd Winter School — Thematic Focus & Transitional Justice"
               },
               {
-                "src": "/assets/Winter School/Winter school images/2nd/img22.jpg",
+                "src": "/assets/winter-school/286066.jpg",
                 "caption": "2nd Winter School — Thematic Focus & Transitional Justice"
               }
             ]
@@ -1764,11 +1764,11 @@ export const winterSchoolEditions = [
             "type": "images",
             "images": [
               {
-                "src": "/assets/Winter School/Winter school images/2nd/img23.jpg",
+                "src": "/assets/winter-school/802726.jpg",
                 "caption": "2nd Winter School — Thematic Focus & Transitional Justice"
               },
               {
-                "src": "/assets/Winter School/Winter school images/2nd/img24.jpg",
+                "src": "/assets/winter-school/844562.jpg",
                 "caption": "2nd Winter School — Thematic Focus & Transitional Justice"
               }
             ]
@@ -1795,7 +1795,7 @@ export const winterSchoolEditions = [
             "type": "images",
             "images": [
               {
-                "src": "/assets/Winter School/Winter school images/2nd/img27.jpg",
+                "src": "/assets/winter-school/973546.jpg",
                 "caption": "2nd Winter School — Closing Ceremony & Awards"
               },
               {

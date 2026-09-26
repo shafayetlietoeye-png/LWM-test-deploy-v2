@@ -7963,15 +7963,16 @@ body.header-is-sticky .topbar {
   text-align: justify;
 }
 
+.museum-story-content h3.award-section-title,
 .award-section-title {
-  font-family: 'Noto Serif Bengali', 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
+  font-family: 'Noto Serif Bengali', 'Roboto Slab', 'Noto Sans Bengali', sans-serif !important;
   font-size: 1.38rem;
   font-weight: 700;
   color: #8C1C19;
+  margin-top: 0;
   margin-bottom: 12px;
   border-bottom: 1.5px solid #cdb66c;
   padding-bottom: 6px;
-  margin-top: 0;
 }
 
 .members-grid {

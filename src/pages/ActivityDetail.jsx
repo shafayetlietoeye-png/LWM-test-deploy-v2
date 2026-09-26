@@ -632,7 +632,7 @@ export default function ActivityDetail() {
                                     </div>
                                 </div>
                                 <div className="bio-grid__text-pane">
-                                    <h3 className="award-section-title">{data.biography.title}</h3>
+                                    <h3 className="award-section-title" style={{ marginTop: 0 }}>{data.biography.title}</h3>
                                     {data.biography.paragraphs.map((p, idx) => (
                                         <p key={idx} className="p">{p}</p>
                                     ))}
@@ -646,7 +646,7 @@ export default function ActivityDetail() {
                         {activeAwardTab === 'jury' && (
                             <div className="jury-tab-content">
                                 <div className="jury-intro-section" style={{ marginBottom: '22px' }}>
-                                    <h3 className="award-section-title">{data.juryBoard.title}</h3>
+                                    <h3 className="award-section-title" style={{ marginTop: 0 }}>{data.juryBoard.title}</h3>
                                     {data.juryBoard.paragraphs && data.juryBoard.paragraphs.map((p, idx) => (
                                         <p key={idx} className="p" style={{ marginBottom: '12px', textAlign: 'justify' }}>{p}</p>
                                     ))}
@@ -679,7 +679,7 @@ export default function ActivityDetail() {
                                 <div style={{ borderTop: '1px solid #e3dec9', margin: '24px 0' }}></div>
 
                                 <div className="policy-section">
-                                    <h3 className="award-section-title">{data.policy.title}</h3>
+                                    <h3 className="award-section-title" style={{ marginTop: 0 }}>{data.policy.title}</h3>
                                     {data.policy.intro && (
                                         <p className="p" style={{ marginBottom: '18px', textAlign: 'justify' }}>{data.policy.intro}</p>
                                     )}
@@ -1219,7 +1219,7 @@ export default function ActivityDetail() {
     return (
         <>
             {/* HERO SECTION */}
-            <section className="hero hero--museum-story">
+            <section className={`hero ${isCsgjWinterSchool ? 'hero--accreditations' : 'hero--museum-story'}`}>
                 <div className="hero__inner hero__inner--bottom-left">
                     <div className="hero-card hero-card--dark-brush hero-card--wide">
                         <div className="hero-card__title">{data.title}</div>
