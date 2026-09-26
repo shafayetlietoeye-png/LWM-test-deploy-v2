@@ -47,7 +47,7 @@ export default function CampaignTVC() {
                         {/* Video Grid */}
                         <div style={{
                             display: 'grid',
-                            gridTemplateColumns: 'repeat(auto-fill, minmax(440px, 1fr))',
+                            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))',
                             gap: '30px',
                             marginTop: '35px'
                         }}>

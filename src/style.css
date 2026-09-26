@@ -234,9 +234,13 @@ td {
   font-family: 'Roboto Slab', 'Noto Sans Bengali', serif;
 }
 
+html,
 body {
   background: #111;
   color: #111;
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
 }
 
 /* =========================================================
@@ -17179,6 +17183,340 @@ button.uitem--btn {
   font-size: 0.92rem;
   color: #44372C;
   line-height: 1.6;
+}
+
+/* ==========================================================================
+   MASTER RESPONSIVE SYSTEM: ACROSS ALL DEVICES, VIEWPORTS & PARTICLES
+   Ensures seamless adaptability on mobile (320px–480px), tablet (768px–1024px),
+   and desktop viewports with zero horizontal overflow and flawless touch targets.
+   ========================================================================== */
+
+/* 1. Global Viewport & Media Fluidity */
+img,
+video,
+iframe,
+canvas,
+svg,
+embed,
+object {
+  max-width: 100%;
+}
+
+table {
+  max-width: 100%;
+}
+
+.table-responsive,
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 2. Newspaper Page Multi-Column Responsive Grid */
+@media (max-width: 1100px) {
+  .block--newspaper-page .photo-archive-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .block--newspaper-page .photo-archive-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .block--newspaper-page .photo-archive-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+}
+
+/* 3. Academic PDF Grid Fluidity */
+@media (max-width: 640px) {
+  .pdf-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .pdf-card {
+    padding: 16px !important;
+  }
+}
+
+/* 4. Speech Monograph & Archival Records Responsive */
+@media (max-width: 640px) {
+  .speech-monograph__header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+  .speech-monograph__series-title {
+    font-size: 1.2rem !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .speech-monograph__meta-bar {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    padding: 10px 12px !important;
+  }
+}
+
+/* 5. Footer Quick Links Fluidity */
+@media (max-width: 480px) {
+  .footer-links-grid {
+    grid-template-columns: 1fr !important;
+    row-gap: 10px !important;
+  }
+  .footer-links-grid a {
+    font-size: 15px !important;
+  }
+}
+
+/* 6. Maps & Directions Interactive Layout */
+@media (max-width: 680px) {
+  .map-page-header {
+    padding: 16px 18px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+  .map-page-actions {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  .map-action-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 11px 16px !important;
+  }
+  .map-iframe-container {
+    height: 320px !important;
+  }
+}
+
+/* 7. Hero Cards, Kickers, Titles & Hero Buttons Across Devices */
+@media (max-width: 768px) {
+  .hero-card,
+  .hero-card--wide,
+  .hero-card--dark-brush {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-card__kicker,
+  .hero-card__title {
+    white-space: normal !important;
+    word-break: break-word !important;
+    display: block !important;
+  }
+  .hero-card {
+    padding: 28px 16px 24px !important;
+  }
+  .hero-card--wide {
+    padding: 30px 16px 26px !important;
+  }
+  .hero-card--dark-brush {
+    padding: 22px 14px 18px !important;
+  }
+  .hero-card__title {
+    font-size: 1.45rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 8px !important;
+  }
+  .hero-card__kicker {
+    font-size: 1.12rem !important;
+    margin-bottom: 4px !important;
+  }
+  .hero-card__desc {
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 1rem !important;
+  }
+  .hero-card__btn {
+    width: 100% !important;
+    padding: 11px 16px !important;
+    font-size: 0.85rem !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* 8. Universal Touch Targets & Button Responsive Padding */
+@media (max-width: 768px) {
+  button,
+  .btn,
+  .btn-dark,
+  .btn-beige,
+  .btn-dark-grunge,
+  .map-action-btn,
+  .filter-btn,
+  .pyv-tab-btn,
+  .facilities-tab-btn,
+  .awards-tab-btn {
+    min-height: 42px;
+    box-sizing: border-box;
+    touch-action: manipulation;
+  }
+}
+
+/* 9. Awards Tabs & Bio Grid Responsive */
+@media (max-width: 560px) {
+  .awards-tabs-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 6px !important;
+  }
+  .awards-tab-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    border-radius: 4px !important;
+    padding: 10px 14px !important;
+    margin-bottom: 0 !important;
+  }
+  .bio-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+}
+
+/* 10. Plan Your Visit & Facilities Tab Buttons on Small Phones */
+@media (max-width: 540px) {
+  .pyv-tab-btn {
+    padding: 12px 14px !important;
+    gap: 10px !important;
+  }
+  .pyv-tab-btn__title {
+    font-size: 0.98rem !important;
+  }
+  .pyv-tab-btn__sub {
+    font-size: 0.72rem !important;
+  }
+  .facilities-tab-btn {
+    padding: 12px 14px !important;
+    gap: 10px !important;
+  }
+  .facilities-tab-btn__title {
+    font-size: 0.98rem !important;
+  }
+  .facilities-tab-btn__sub {
+    font-size: 0.72rem !important;
+  }
+}
+
+/* 11. Mobile Header & Burger on Narrow Screens (<= 380px) */
+@media (max-width: 380px) {
+  .mbar {
+    padding: 8px 10px !important;
+  }
+  .mbar__logo {
+    height: 42px !important;
+    margin-top: 0 !important;
+  }
+  .mbar__text .mbrand__bn {
+    font-size: 14.5px !important;
+  }
+  .mbar__text .mbrand__en {
+    font-size: 9px !important;
+  }
+  .mbar__burger {
+    width: 30px !important;
+    height: 22px !important;
+  }
+}
+
+/* 12. Inputs and Form Controls (Prevents iOS Auto-Zoom) */
+@media (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="search"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+/* 13. Content Blocks & Margin Controls for Narrow Screens */
+@media (max-width: 480px) {
+  .museum-story-content,
+  .content {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  .block {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+  }
+  .facility-card {
+    padding: 16px 14px !important;
+  }
+  .facility-sub-list {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 14. Lightbox Modals & Touch Controls on Mobile (<= 600px) */
+@media (max-width: 600px) {
+  .ws-lightbox-backdrop button[aria-label="Previous Photo"],
+  .lightbox-modal__prev {
+    left: 6px !important;
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 1.1rem !important;
+  }
+  .ws-lightbox-backdrop button[aria-label="Next Photo"],
+  .lightbox-modal__next {
+    right: 6px !important;
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 1.1rem !important;
+  }
+  .ws-lightbox-backdrop button[aria-label="Close Lightbox"],
+  .lightbox-modal__close {
+    top: 8px !important;
+    right: 10px !important;
+    font-size: 1.5rem !important;
+    padding: 8px !important;
+  }
+  .lightbox-zoom-controls {
+    bottom: 12px !important;
+    padding: 4px 10px !important;
+  }
+}
+
+/* 15. Homepage History Section on Small Mobile */
+@media (max-width: 480px) {
+  .history {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .history__right {
+    order: -1 !important;
+    padding-top: 0 !important;
+  }
+  .sketch {
+    max-width: 160px !important;
+    margin: 0 auto !important;
+  }
 }
 
 
