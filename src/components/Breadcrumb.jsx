@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 // Fallback category destinations for any breadcrumb trail
 export const DEFAULT_CATEGORY_LINKS = {
@@ -1151,67 +1151,50 @@ export default function Breadcrumb({ items, customTrail, className = '' }) {
   const currentPath = (location.pathname || '').replace(/\/$/, '') || '/';
 
   // Use explicitly passed trail, or look up in BREADCRUMB_MAP
-  const trail = customTrail || items || BREADCRUMB_MAP[currentPath];
+  const rawTrail = customTrail || items || BREADCRUMB_MAP[currentPath];
 
   // If this page is not registered in breadcrumb map, render nothing
-  if (!trail || !Array.isArray(trail) || trail.length === 0) {
+  if (!rawTrail || !Array.isArray(rawTrail) || rawTrail.length === 0) {
+    return null;
+  }
+
+  // Filter out any "Home" item so Home never appears in breadcrumbs on any page
+  const trail = rawTrail.filter((item) => {
+    const label = (typeof item === 'string' ? item : item?.label || '').trim().toLowerCase();
+    return label !== 'home' && label !== '';
+  });
+
+  if (trail.length === 0) {
     return null;
   }
 
   return (
     <nav className={`lwm-breadcrumb-container ${className}`} aria-label="Breadcrumb navigation">
       <ol className="lwm-breadcrumb-list">
-        {/* Always start with Home */}
-        <li className="lwm-breadcrumb-crumb">
-          <Link
-            to="/"
-            className="lwm-breadcrumb-link lwm-breadcrumb-link--home"
-            title="Go to Liberation War Museum Home"
-          >
-            <svg
-              className="lwm-breadcrumb-home-icon"
-              width="13"
-              height="13"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M3 9.5L12 3l9 6.5V20a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 13 20v-5h-2v5a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 3 20V9.5z" />
-            </svg>
-            <span>Home</span>
-          </Link>
-        </li>
-
         {trail.map((item, idx) => {
           const isLast = idx === trail.length - 1;
-          const targetUrl = item.to || (isLast ? currentPath : DEFAULT_CATEGORY_LINKS[item.label]);
+          const label = typeof item === 'string' ? item : item?.label || '';
 
           return (
             <React.Fragment key={idx}>
-              <li className="lwm-breadcrumb-divider" aria-hidden="true">
-                ›
-              </li>
+              {idx > 0 && (
+                <li className="lwm-breadcrumb-divider" aria-hidden="true">
+                  ›
+                </li>
+              )}
               <li
                 className={`lwm-breadcrumb-crumb ${isLast ? 'lwm-breadcrumb-crumb--current' : ''}`}
                 aria-current={isLast ? 'page' : undefined}
               >
-                {targetUrl ? (
-                  <Link
-                    to={targetUrl}
-                    className={`lwm-breadcrumb-link ${isLast ? 'lwm-breadcrumb-link--current' : ''}`}
-                    title={isLast ? `Current page: ${item.label}` : `Go to ${item.label}`}
-                  >
-                    {item.label}
-                  </Link>
-                ) : (
-                  <span className={isLast ? 'lwm-breadcrumb-active' : 'lwm-breadcrumb-category'}>
-                    {item.label}
-                  </span>
-                )}
+                <span
+                  className={
+                    isLast
+                      ? 'lwm-breadcrumb-active lwm-breadcrumb-text--current'
+                      : 'lwm-breadcrumb-category lwm-breadcrumb-text'
+                  }
+                >
+                  {label}
+                </span>
               </li>
             </React.Fragment>
           );

@@ -356,16 +356,16 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                The Liberation War Museum houses a dedicated 300 square meter library and research centre on the 5th floor of the Agargaon complex. Serving as one of the country's most authoritative public repositories for historical literature, declassified documentation, and academic studies concerning the 1971 Genocide and Bangladesh Liberation War.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <div className="facility-sub-title">Core Facilities &amp; Resources:</div>
                                                 <ul className="facility-sub-list">
-                                                    <SubItem>300 sqm dedicated quiet reading and research carrels</SubItem>
-                                                    <SubItem>Integrated Koha Automated Digital Library Catalogue (OPAC)</SubItem>
-                                                    <SubItem>5 bound preservation volumes of photographed newspaper microfilms</SubItem>
-                                                    <SubItem>Specialized collection on 1971 Genocide &amp; Constitutional Evolution</SubItem>
-                                                    <SubItem>Academic wing supporting CSGJ and Institute for Liberation War Studies</SubItem>
+                                                    <SubItem>Lorem ipsum dolor sit amet consectetur adipiscing elit</SubItem>
+                                                    <SubItem>Vestibulum lacinia arcu eget nulla imperdiet cursus ante</SubItem>
+                                                    <SubItem>Curabitur sodales ligula in libero sed dignissim lacinia nunc</SubItem>
+                                                    <SubItem>Pellentesque habitant morbi tristique senectus et netus</SubItem>
+                                                    <SubItem>Maecenas mattis sed convallis tristique sem proin ut ligula</SubItem>
                                                 </ul>
                                             </div>
                                         </div>
@@ -379,15 +379,15 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                Over 5,000 reference monographs, historical publications, doctoral dissertations, journals, and memoirs detailing the political evolution, military campaigns, atrocities, and foreign relations of 1971.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <div className="facility-sub-title">Key Holdings:</div>
                                                 <ul className="facility-sub-list">
-                                                    <SubItem>Rare wartime periodicals &amp; underground leaflets</SubItem>
-                                                    <SubItem>Declassified diplomatic cables and media reports</SubItem>
-                                                    <SubItem>Oral history transcripts of freedom fighters</SubItem>
-                                                    <SubItem>International Genocide Studies literature</SubItem>
+                                                    <SubItem>Lorem ipsum dolor sit amet consectetur</SubItem>
+                                                    <SubItem>Duis sagittis ipsum praesent mauris fusce nec</SubItem>
+                                                    <SubItem>Vestibulum lacinia arcu eget nulla imperdiet</SubItem>
+                                                    <SubItem>Curabitur sodales ligula in libero dignissim</SubItem>
                                                 </ul>
                                             </div>
                                         </div>
@@ -401,12 +401,12 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                The library maintains an automated digital catalogue (Koha OPAC) that allows researchers worldwide to search for bibliographic records, call numbers, and shelf availability.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <div className="facility-sub-title">Digital Portal:</div>
                                                 <p className="facility-desc" style={{ marginBottom: '12px' }}>
-                                                    Access the online search catalogue to reserve books and browse call numbers before visiting the museum reading room.
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus ante dapibus diam sed nisi nulla quis sem.
                                                 </p>
                                                 <ActionLink href="https://library.liberationwarmuseumbd.org/" isExternal>
                                                     Open Digital Library Portal
@@ -423,14 +423,14 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                The library directly supports the research fellows and academic programs of the <strong>Center for the Study of Genocide and Justice (CSGJ)</strong> and the <strong>Institute for Liberation War Studies</strong>, providing vital historical documentation for legal research.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris massa vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <div className="facility-sub-title">Academic Support:</div>
                                                 <ul className="facility-sub-list">
-                                                    <SubItem>Certificate courses on Genocide &amp; Justice</SubItem>
-                                                    <SubItem>Postgraduate researchers and legal scholars</SubItem>
-                                                    <SubItem>Archives of the International Crimes Tribunal</SubItem>
+                                                    <SubItem>Lorem ipsum dolor sit amet consectetur</SubItem>
+                                                    <SubItem>Curabitur sodales ligula in libero dignissim</SubItem>
+                                                    <SubItem>Pellentesque habitant morbi tristique senectus</SubItem>
                                                 </ul>
                                             </div>
                                         </div>
@@ -444,14 +444,14 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                Open for reference reading to all scholars, historians, university students, and citizens upon entry registration at the reception desk.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nisi nulla quis sem at nibh elementum imperdiet duis sagittis ipsum.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <div className="facility-sub-title">Visiting Details:</div>
                                                 <ul className="facility-sub-list">
-                                                    <SubItem><strong>Location:</strong> 5th Floor, LWM Complex, Agargaon</SubItem>
-                                                    <SubItem><strong>Hours:</strong> Mon – Sat: 10:00 AM – 5:00 PM (Closed Sundays)</SubItem>
-                                                    <SubItem><strong>Services:</strong> Reading room, Wi-Fi, reference consultation</SubItem>
+                                                    <SubItem><strong>Lorem:</strong> Ipsum dolor sit amet, consectetur adipiscing</SubItem>
+                                                    <SubItem><strong>Tempus:</strong> Consectetur adipiscing elit, sed do eiusmod</SubItem>
+                                                    <SubItem><strong>Officia:</strong> Duis aute irure dolor in reprehenderit</SubItem>
                                                 </ul>
                                             </div>
                                         </div>
@@ -476,16 +476,16 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                Located at the ground-floor concourse, the Museum Kiosk provides visitors an opportunity to acquire official publications, commemorative memorabilia, archival document reprints, and souvenirs. Every purchase directly supports the museum’s educational outreach programs for school children across all 64 districts of Bangladesh.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <div className="facility-sub-title">Featured Offerings:</div>
                                                 <ul className="facility-sub-list">
-                                                    <SubItem>Official Liberation War Museum publications and research monographs</SubItem>
-                                                    <SubItem>Commemorative museum crests, brass pins, badges, and metallic bookmarks</SubItem>
-                                                    <SubItem>High-resolution reproduction prints of historic 1971 photographs</SubItem>
-                                                    <SubItem>CD/DVD releases of wartime songs and documentary films</SubItem>
-                                                    <SubItem>Organic canvas tote bags, notebooks, postcards, and stationery</SubItem>
+                                                    <SubItem>Lorem ipsum dolor sit amet, consectetur adipiscing elit</SubItem>
+                                                    <SubItem>Vestibulum lacinia arcu eget nulla imperdiet cursus ante</SubItem>
+                                                    <SubItem>Curabitur sodales ligula in libero sed dignissim lacinia nunc</SubItem>
+                                                    <SubItem>Pellentesque habitant morbi tristique senectus et netus</SubItem>
+                                                    <SubItem>Maecenas mattis sed convallis tristique sem proin ut ligula</SubItem>
                                                 </ul>
                                             </div>
                                         </div>
@@ -499,15 +499,15 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                Browse dozens of specialized research books, exhibition catalogues, historical accounts, and academic compilations published under the banner of Muktijuddha Jadughar.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <div className="facility-sub-title">Key Publications:</div>
                                                 <ul className="facility-sub-list">
-                                                    <SubItem>Annual Memorial Lecture Series compendiums</SubItem>
-                                                    <SubItem>Struggle of Bangladesh pictorial chronicles</SubItem>
-                                                    <SubItem>International conference proceedings on Genocide</SubItem>
-                                                    <SubItem>Illustrated history books for young readers</SubItem>
+                                                    <SubItem>Lorem ipsum dolor sit amet compendiums</SubItem>
+                                                    <SubItem>Vestibulum lacinia arcu eget nulla chronicles</SubItem>
+                                                    <SubItem>Curabitur sodales ligula in libero proceedings</SubItem>
+                                                    <SubItem>Pellentesque habitant morbi tristique illustrated</SubItem>
                                                 </ul>
                                                 <div style={{ marginTop: '12px' }}>
                                                     <ActionLink to="/publications">
@@ -526,15 +526,15 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                Take home authentic commemorative keepsakes celebrating Bangladesh’s heritage, the heroic liberation struggle, and the historic founding values of 1971.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris massa vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <div className="facility-sub-title">Popular Items:</div>
                                                 <ul className="facility-sub-list">
-                                                    <SubItem>Official Liberation War Museum brass crests</SubItem>
-                                                    <SubItem>Commemorative lapel pins &amp; keychains</SubItem>
-                                                    <SubItem>Struggle pictorial posters &amp; postage stamps</SubItem>
-                                                    <SubItem>Museum-branded canvas tote bags and badges</SubItem>
+                                                    <SubItem>Lorem ipsum dolor sit amet crests</SubItem>
+                                                    <SubItem>Vestibulum lacinia arcu lapel pins</SubItem>
+                                                    <SubItem>Curabitur sodales ligula posters</SubItem>
+                                                    <SubItem>Pellentesque habitant morbi souvenir badges</SubItem>
                                                 </ul>
                                             </div>
                                         </div>
@@ -548,14 +548,14 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                Archival documentary films on DVD from the Liberation Docfest Bangladesh, as well as recorded musical compilations of wartime patriotic broadcasts from Swadhin Bangla Betar Kendra.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <div className="facility-sub-title">Media Compilations:</div>
                                                 <ul className="facility-sub-list">
-                                                    <SubItem>Liberation Docfest winning films on DVD</SubItem>
-                                                    <SubItem>Swadhin Bangla Betar Kendra songs on CD</SubItem>
-                                                    <SubItem>Oral history video excerpts and documentaries</SubItem>
+                                                    <SubItem>Lorem ipsum dolor sit amet documentary media</SubItem>
+                                                    <SubItem>Vestibulum lacinia arcu audio recordings</SubItem>
+                                                    <SubItem>Curabitur sodales ligula video archives</SubItem>
                                                 </ul>
                                             </div>
                                         </div>
@@ -569,15 +569,15 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                Conveniently situated adjacent to the ticket counter and main reception desk on the ground floor.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero sed cursus ante dapibus diam sed nisi nulla.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <div className="facility-sub-title">Visiting Details:</div>
                                                 <ul className="facility-sub-list">
-                                                    <SubItem><strong>Location:</strong> Ground Floor Concourse (near entrance)</SubItem>
-                                                    <SubItem><strong>Hours:</strong> Open during all museum visiting hours</SubItem>
-                                                    <SubItem><strong>Payment:</strong> Cash, bKash, and major Debit/Credit Cards</SubItem>
-                                                    <SubItem><strong>Community:</strong> 100% of proceeds fund student reach-out buses</SubItem>
+                                                    <SubItem><strong>Lorem:</strong> Ipsum dolor sit amet, consectetur adipiscing</SubItem>
+                                                    <SubItem><strong>Tempus:</strong> Consectetur adipiscing elit, sed do eiusmod</SubItem>
+                                                    <SubItem><strong>Officia:</strong> Duis aute irure dolor in reprehenderit</SubItem>
+                                                    <SubItem><strong>Societas:</strong> Integer nec odio praesent libero cursus</SubItem>
                                                 </ul>
                                             </div>
                                         </div>
@@ -602,16 +602,16 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                The Liberation War Museum complex encompasses 3,500 square meters of permanent gallery space and a 500-square-meter international-standard temporary exhibition hall. Through over 21,000 collection items and 1,300 physical relics on public display, visitors walk through an immersive, chronological journey of Bangladesh’s birth.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <div className="facility-sub-title">Gallery Complex Specifications:</div>
                                                 <ul className="facility-sub-list">
-                                                    <SubItem>4 permanent exhibition galleries chronologically curated (3,500 sqm)</SubItem>
-                                                    <SubItem>500 sqm climate-controlled temporary exhibition hall</SubItem>
-                                                    <SubItem>Over 1,300 rare physical relics and martyr belongings on display</SubItem>
-                                                    <SubItem>Specialized UV-filtered LED illumination and microclimate vitrines</SubItem>
-                                                    <SubItem>Full accessibility with wheelchair ramps and passenger elevators</SubItem>
+                                                    <SubItem>Lorem ipsum dolor sit amet, consectetur adipiscing elit</SubItem>
+                                                    <SubItem>Vestibulum lacinia arcu eget nulla imperdiet cursus ante</SubItem>
+                                                    <SubItem>Curabitur sodales ligula in libero sed dignissim lacinia nunc</SubItem>
+                                                    <SubItem>Pellentesque habitant morbi tristique senectus et netus</SubItem>
+                                                    <SubItem>Maecenas mattis sed convallis tristique sem proin ut ligula</SubItem>
                                                 </ul>
                                             </div>
                                         </div>
@@ -625,7 +625,7 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                Traces the early historical, archaeological, and cultural roots of Bengal, British colonial domination, the 1947 partition, the historic 1952 Language Movement, and the landslide election victory of 1970.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <ActionLink to="/explore/gallery-1">
@@ -643,7 +643,7 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                Covers Operation Searchlight, the systematic genocide unleashed on March 25, 1971, Bangabandhu's declaration of independence, the plight of 10 million refugees in India, and the formation of the Mujibnagar Government.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris massa vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <ActionLink to="/explore/gallery-2">
@@ -661,7 +661,7 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                Focuses on the armed resistance of the Mukti Bahini across 11 military sectors, guerrilla operations, the air and naval forces, the Concert for Bangladesh, and global humanitarian solidarity.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <ActionLink to="/explore/gallery-3">
@@ -679,7 +679,7 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                Chronicles the final joint allied offensive, the historic Pakistani surrender on December 16, 1971, the fundamental constitutional principles of 1972, and the continuing pursuit of accountability.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis ipsum praesent mauris fusce nec tellus sed augue semper porta vestibulum lacinia arcu.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <ActionLink to="/explore/gallery-4">
@@ -697,14 +697,14 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                A flexible, state-of-the-art exhibition hall hosting visiting international photography, docfest screenings, contemporary memorial art, and special thematic exhibits on universal human rights.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <div className="facility-sub-title">Space Features:</div>
                                                 <ul className="facility-sub-list">
-                                                    <SubItem>Modular partition walls and hanging systems</SubItem>
-                                                    <SubItem>Dedicated projection and digital media setups</SubItem>
-                                                    <SubItem>Hosts Liberation Docfest photographic exhibits</SubItem>
+                                                    <SubItem>Lorem ipsum dolor sit amet modular partition systems</SubItem>
+                                                    <SubItem>Vestibulum lacinia arcu digital media setups</SubItem>
+                                                    <SubItem>Curabitur sodales ligula special thematic exhibits</SubItem>
                                                 </ul>
                                             </div>
                                         </div>
@@ -718,7 +718,7 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                Can't visit in person today? Explore our interactive high-definition 360-degree virtual tour of all four permanent galleries with embedded audio-visual guides and item descriptions.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus ante dapibus diam sed nisi nulla quis sem at nibh elementum imperdiet duis sagittis ipsum.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <ActionLink to="/virtual-tour">
@@ -747,16 +747,16 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                Designed to complement the emotional journey through the museum, the open-air and sheltered cafeteria offers a serene space for contemplation, conversation, and refreshment. Situated alongside the central courtyard and water reflection pool, it preserves the authentic Bengali tradition of informal intellectual gathering ('Adda').
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <div className="facility-sub-title">Café Highlights &amp; Setting:</div>
                                                 <ul className="facility-sub-list">
-                                                    <SubItem>Shaded outdoor seating facing the architectural water reflection pool</SubItem>
-                                                    <SubItem>Freshly brewed traditional tea, coffee, seasonal juices, and light meals</SubItem>
-                                                    <SubItem>Pre-ordered group meal arrangements for school tours &amp; delegations</SubItem>
-                                                    <SubItem>Strict ecological sustainability standards with biodegradable packaging</SubItem>
-                                                    <SubItem>Wheelchair accessible ground floor location</SubItem>
+                                                    <SubItem>Lorem ipsum dolor sit amet, consectetur adipiscing elit</SubItem>
+                                                    <SubItem>Vestibulum lacinia arcu eget nulla imperdiet cursus ante</SubItem>
+                                                    <SubItem>Curabitur sodales ligula in libero sed dignissim lacinia nunc</SubItem>
+                                                    <SubItem>Pellentesque habitant morbi tristique senectus et netus</SubItem>
+                                                    <SubItem>Maecenas mattis sed convallis tristique sem proin ut ligula</SubItem>
                                                 </ul>
                                             </div>
                                         </div>
@@ -770,15 +770,15 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                Enjoy freshly prepared, hygienic snacks and beverages during your museum visit:
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero sed cursus ante dapibus diam:
                                             </p>
                                             <div className="facility-sub-items">
                                                 <div className="facility-sub-title">Menu Selections:</div>
                                                 <ul className="facility-sub-list">
-                                                    <SubItem>Traditional freshly brewed tea (Dudh Cha &amp; Rong Cha)</SubItem>
-                                                    <SubItem>Hot espresso, cappuccino &amp; iced coffee</SubItem>
-                                                    <SubItem>Fresh bakery patties, singara, and vegetable samosas</SubItem>
-                                                    <SubItem>Bottled mineral water &amp; pure natural juices</SubItem>
+                                                    <SubItem>Lorem ipsum dolor sit amet traditional selections</SubItem>
+                                                    <SubItem>Vestibulum lacinia arcu hot and cold beverages</SubItem>
+                                                    <SubItem>Curabitur sodales ligula freshly prepared snacks</SubItem>
+                                                    <SubItem>Pellentesque habitant morbi mineral water and juices</SubItem>
                                                 </ul>
                                             </div>
                                         </div>
@@ -792,14 +792,14 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                "Adda" is a cherished tradition of thoughtful conversation and fellowship. The courtyard seating provides an unhurried, peaceful atmosphere for veterans, researchers, and students to reflect on the exhibits and share memories.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris massa vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <div className="facility-sub-title">Atmosphere Highlights:</div>
                                                 <ul className="facility-sub-list">
-                                                    <SubItem>Lush open-air courtyard alongside the reflection pool</SubItem>
-                                                    <SubItem>Adjacent to the outdoor amphitheatre for cultural gatherings</SubItem>
-                                                    <SubItem>Shaded benches and comfortable group seating</SubItem>
+                                                    <SubItem>Lorem ipsum dolor sit amet courtyard seating</SubItem>
+                                                    <SubItem>Vestibulum lacinia arcu open amphitheatre view</SubItem>
+                                                    <SubItem>Curabitur sodales ligula peaceful gathering atmosphere</SubItem>
                                                 </ul>
                                             </div>
                                         </div>
@@ -813,14 +813,14 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                In alignment with the museum’s eco-friendly architecture, the café strictly enforces waste segregation, uses biodegradable paper cups and containers, and participates in building water conservation practices.
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
                                             </p>
                                             <div className="facility-sub-items">
                                                 <div className="facility-sub-title">Ecological Practices:</div>
                                                 <ul className="facility-sub-list">
-                                                    <SubItem>Zero single-use plastic cups policy</SubItem>
-                                                    <SubItem>Biodegradable paper napkins &amp; takeaway packaging</SubItem>
-                                                    <SubItem>Segregated recycling bins throughout the courtyard</SubItem>
+                                                    <SubItem>Lorem ipsum dolor sit amet ecological policies</SubItem>
+                                                    <SubItem>Vestibulum lacinia arcu biodegradable packaging</SubItem>
+                                                    <SubItem>Curabitur sodales ligula segregated waste recycling</SubItem>
                                                 </ul>
                                             </div>
                                         </div>
@@ -834,14 +834,14 @@ export default function FacilitiesAmenities({ initialTab }) {
                                         </div>
                                         <div className="facility-value">
                                             <p className="facility-desc">
-                                                Essential information for all museum visitors:
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus ante dapibus diam sed nisi nulla quis sem:
                                             </p>
                                             <div className="facility-sub-items">
                                                 <div className="facility-sub-title">Operating Info:</div>
                                                 <ul className="facility-sub-list">
-                                                    <SubItem><strong>Location:</strong> Ground floor, adjacent to assembly plaza &amp; pool</SubItem>
-                                                    <SubItem><strong>Hours:</strong> 10:00 AM – 5:30 PM (Mon – Sat)</SubItem>
-                                                    <SubItem><strong>Gallery Policy:</strong> Food and drinks are strictly prohibited inside galleries</SubItem>
+                                                    <SubItem><strong>Lorem:</strong> Ipsum dolor sit amet, consectetur adipiscing</SubItem>
+                                                    <SubItem><strong>Tempus:</strong> Consectetur adipiscing elit, sed do eiusmod</SubItem>
+                                                    <SubItem><strong>Officia:</strong> Duis aute irure dolor in reprehenderit</SubItem>
                                                 </ul>
                                             </div>
                                         </div>
