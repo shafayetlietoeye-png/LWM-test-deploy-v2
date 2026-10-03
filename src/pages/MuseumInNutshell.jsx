@@ -57,8 +57,8 @@ export default function MuseumInNutshell() {
             <main className="museum-story-content nutshell-page-content">
                 <section className="block">
                     {/* The brush divider line: exactly once at the top */}
-                    <div className="separator"></div>
                     <Breadcrumb />
+                    <div className="separator"></div>
 
                     {/* 1. TIMELINE SECTION */}
                     <div className="nutshell-sec">

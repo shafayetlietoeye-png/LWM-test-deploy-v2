@@ -71,8 +71,8 @@ export default function Donate() {
                 
                 {/* 1. OVERVIEW & CALL TO ACTION */}
                 <section className="block">
-                    <div className="separator"></div>
                     <Breadcrumb />
+                    <div className="separator"></div>
                     <div className="block__cap">
                         <span className="cap__title" style={{ fontSize: '1.8rem', color: '#1a1512', fontFamily: "'Noto Sans Bengali', sans-serif", textTransform: 'none' }}>
                             গড়তে হবে স্থায়ী তহবিল

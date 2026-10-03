@@ -416,7 +416,7 @@ export default function WinterSchoolSection() {
                         </div>
                         <div style={{
                           fontSize: '0.76rem',
-                          fontFamily: "'Roboto', sans-serif",
+                          fontFamily: "'Roboto Slab', serif",
                           color: isSelected ? '#CDB66C' : '#6B5E51',
                           textTransform: 'uppercase',
                           letterSpacing: '0.04em',
@@ -520,7 +520,7 @@ export default function WinterSchoolSection() {
             <span style={{
               fontSize: '0.82rem',
               color: '#6B5E51',
-              fontFamily: "'Roboto', sans-serif"
+              fontFamily: "'Roboto Slab', serif"
             }}>
               {selectedEdition.sections.length} Academic Sessions
             </span>

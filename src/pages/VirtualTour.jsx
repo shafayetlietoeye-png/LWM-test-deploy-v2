@@ -27,8 +27,8 @@ export default function VirtualTour() {
             {/* CONTENT SECTION (Video Tutorial) */}
             <main className="virtual-tour-content">
                 <section className="block">
-                    <div className="separator"></div>
                     <Breadcrumb />
+                    <div className="separator"></div>
 
                     <div className="vt-video-box">
                         <p className="vt-instruction">If you are facing any difficulty in getting this virtual museum experience,

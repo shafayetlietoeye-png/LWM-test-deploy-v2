@@ -171,8 +171,8 @@ export default function HistoricalSites() {
             <main className="museum-story-content">
                 {/* TABS CONTAINER */}
                 <section className="block" style={{ paddingBottom: 0 }}>
-                    <div className="separator"></div>
                     <Breadcrumb />
+                    <div className="separator"></div>
                     <div className="historical-tabs">
                         <button
                             className={`historical-tab-btn ${activeTab === 'jalladkhana' ? 'historical-tab-btn--active' : ''}`}

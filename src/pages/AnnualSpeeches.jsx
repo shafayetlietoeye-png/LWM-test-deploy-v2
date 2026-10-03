@@ -85,8 +85,8 @@ export default function AnnualSpeeches() {
             {/* CONTENT */}
             <main className="museum-story-content">
                 <section className="block">
-                    <div className="separator"></div>
                     <Breadcrumb />
+                    <div className="separator"></div>
                     <div className="block__cap">
                         <span className="cap__title">Speeches Archive</span>
                     </div>

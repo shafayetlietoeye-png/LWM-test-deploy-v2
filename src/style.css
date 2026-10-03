@@ -204,7 +204,7 @@ html {
 *,
 *::before,
 *::after {
-  font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
+  font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif !important;
 }
 
 html,
@@ -231,7 +231,7 @@ label,
 table,
 th,
 td {
-  font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
+  font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif !important;
 }
 
 html,
@@ -531,15 +531,16 @@ body {
 .nav a {
   color: #F3EBD0;
   text-decoration: none;
-  padding-bottom: 3px;
-  border-bottom: 3px solid transparent;
-  transition: all 0.2s ease;
+  padding-bottom: 4px;
+  position: relative;
+  border-bottom: none !important;
+  transition: color 0.2s ease;
 }
 
 .nav a:hover,
 .nav a:active,
 .nav a.active {
-  border-bottom-color: var(--heritage-red-hover);
+  border-bottom: none !important;
   color: #ffffff;
 }
 
@@ -1298,8 +1299,7 @@ body {
 .separator {
   height: 6px;
   background: url("/assets/section divide line.png") center/100% 100% no-repeat;
-  margin: 60px auto 10px auto;
-  /* Reduced bottom margin */
+  margin: 40px auto 25px auto;
   width: 100%;
   max-width: 1400px;
 }
@@ -1309,19 +1309,15 @@ body {
 }
 
 /* ==========================================================================
-   BREADCRUMB STYLING (Nested Submenus)
+   BREADCRUMB STYLING (Hidden as requested)
    ========================================================================== */
 .lwm-breadcrumb-container {
-  width: 100%;
-  max-width: 1400px;
-  margin: 4px auto 22px auto;
-  padding: 0 4px;
-  box-sizing: border-box;
+  display: none !important;
 }
 
 .lwm-breadcrumb-list {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   flex-wrap: wrap;
   gap: 5px 8px;
   list-style: none;
@@ -1334,23 +1330,35 @@ body {
 
 .lwm-breadcrumb-crumb {
   display: inline-flex;
-  align-items: center;
+  align-items: baseline;
   gap: 6px;
   cursor: default;
+  margin: 0;
+  padding: 0;
+}
+
+.lwm-breadcrumb-text,
+.lwm-breadcrumb-category,
+.lwm-breadcrumb-link,
+.lwm-breadcrumb-active,
+.lwm-breadcrumb-text--current,
+.lwm-breadcrumb-link--current {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  line-height: 1.4;
+  vertical-align: baseline;
+  text-decoration: none !important;
+  cursor: default !important;
+  user-select: text;
+  pointer-events: none;
 }
 
 .lwm-breadcrumb-text,
 .lwm-breadcrumb-category,
 .lwm-breadcrumb-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
   color: #0A3822;
-  text-decoration: none !important;
   font-weight: 500;
-  cursor: default !important;
-  user-select: text;
-  pointer-events: none;
 }
 
 .lwm-breadcrumb-active,
@@ -1359,24 +1367,28 @@ body {
   color: #8C1C19;
   font-weight: 700;
   letter-spacing: 0.01em;
-  text-decoration: none !important;
-  cursor: default !important;
-  user-select: text;
-  pointer-events: none;
 }
 
 .lwm-breadcrumb-divider {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
   color: #B4A590;
   font-size: 0.88rem;
   font-weight: 400;
   user-select: none;
   margin: 0 2px;
+  line-height: 1;
 }
 
 @media (max-width: 768px) {
   .lwm-breadcrumb-container {
-    margin: 4px auto 16px auto;
+    margin: 18px auto 10px auto;
     padding: 0 8px;
+  }
+  .lwm-breadcrumb-container + .separator,
+  .block > .lwm-breadcrumb-container + .separator {
+    margin: 10px auto 20px auto;
   }
   .lwm-breadcrumb-list {
     font-size: 0.78rem;
@@ -2175,17 +2187,41 @@ body {
 }
 
 .nav-item>a {
+  position: relative;
   display: inline-block;
-  padding-bottom: 3px;
+  padding-bottom: 4px;
   text-decoration: none;
   background: transparent;
-  border-bottom: 3px solid transparent;
+  border-bottom: none !important;
+  transition: color 0.2s ease;
 }
 
-/* Active Parent Underline */
-.nav-item:hover>a {
+.nav-item>a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #E63531;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Active / Hover Parent Underline - Animated Left to Right */
+.nav-item:hover>a,
+.nav-item.active>a,
+.nav-item>a.active {
   text-decoration: none;
-  border-bottom: 3px solid #E63531;
+  border-bottom: none !important;
+  color: #ffffff;
+}
+
+.nav-item:hover>a::after,
+.nav-item.active>a::after,
+.nav-item>a.active::after {
+  transform: scaleX(1);
 }
 
 /* Submenu Container */
@@ -2245,20 +2281,46 @@ body {
   font-weight: 600;
   color: #F3EBD0;
   text-decoration: none;
+  position: relative;
   display: inline-block;
   width: max-content;
   max-width: 100%;
   /* Prevent overflow */
-  padding-bottom: 2px;
-  border-bottom: 3px solid transparent;
+  padding-bottom: 3px;
+  border-bottom: none !important;
   cursor: pointer;
+  transition: color 0.2s ease;
 }
 
-/* Submenu Item Hover Underline */
+.submenu li a::after,
+.submenu-nested-toggle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2.5px;
+  background-color: #E63531;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Submenu Item Hover & Active Underline - Animated Left to Right */
 .submenu li a:hover,
-.submenu-nested-toggle:hover {
+.submenu-nested-toggle:hover,
+.submenu li a.active,
+.submenu-nested-toggle.active {
   text-decoration: none;
-  border-bottom: 3px solid #E63531;
+  border-bottom: none !important;
+  color: #ffffff;
+}
+
+.submenu li a:hover::after,
+.submenu-nested-toggle:hover::after,
+.submenu li a.active::after,
+.submenu-nested-toggle.active::after {
+  transform: scaleX(1);
 }
 
 /* Nested Submenu Items - Flyout Panel (Positioned completely on Left without overlap) */
@@ -2336,26 +2398,58 @@ body {
   font-size: 0.95rem;
   font-weight: 600;
   color: #F3EBD0;
-  padding-bottom: 2px;
+  padding-bottom: 3px;
+  position: relative;
   display: inline-block;
   text-decoration: none;
-  border-bottom: 3px solid transparent;
+  border-bottom: none !important;
   white-space: normal;
   max-width: 320px;
   line-height: 1.35;
   cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.submenu-nested li a::after,
+.submenu-nested li .submenu-nested-toggle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2.5px;
+  background-color: #E63531;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.submenu-nested li a:hover,
+.submenu-nested li .submenu-nested-toggle:hover,
+.submenu-nested li a.active,
+.submenu-nested li .submenu-nested-toggle.active {
+  text-decoration: none;
+  border-bottom: none !important;
+  color: #ffffff;
+}
+
+.submenu-nested li a:hover::after,
+.submenu-nested li .submenu-nested-toggle:hover::after,
+.submenu-nested li a.active::after,
+.submenu-nested li .submenu-nested-toggle.active::after {
+  transform: scaleX(1);
 }
 
 /* Specific Strokes for Explore Submenu */
 /* Main headers in Explore */
 .submenu>li>a:hover {
-  border-bottom: 3px solid #E63531 !important;
+  border-bottom: none !important;
   background: none !important;
 }
 
 /* Nested items in Explore */
 .submenu-nested li a:hover {
-  border-bottom: 3px solid #E63531 !important;
+  border-bottom: none !important;
   background: none !important;
 }
 
@@ -2364,7 +2458,7 @@ body {
   background: linear-gradient(180deg, #072818 0%, #051d11 100%);
   border-top: 3px solid var(--antique-gold);
   color: #F3EBD0;
-  padding: 80px 0 30px;
+  padding: 55px 0 28px;
   margin-top: 0;
   box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.35);
 }
@@ -2372,43 +2466,47 @@ body {
 .footer-grid {
   display: grid;
   grid-template-columns: 1.2fr 1.2fr 1fr;
-  gap: 40px;
-  margin-bottom: 60px;
+  gap: 35px;
+  margin-bottom: 45px;
 }
 
 .footer-head {
   font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
   font-weight: 700;
-  font-size: 36px;
+  font-size: 22px;
   color: #f7eed7;
-  margin-bottom: 25px;
+  margin-bottom: 18px;
   position: relative;
   display: inline-block;
+  letter-spacing: 0.5px;
 }
 
 .footer-head::after {
   content: "";
   display: block;
-  width: 46px;
-  height: 3px;
+  width: 36px;
+  height: 2px;
   background: var(--antique-gold);
-  margin-top: 8px;
+  margin-top: 6px;
   border-radius: 2px;
 }
 
 .f-arrow {
-  width: 14px;
+  width: 12px;
   height: auto;
-  margin-right: 10px;
+  margin-right: 8px;
+  margin-top: 3px;
+  flex-shrink: 0;
   /* Corrected filter for #F3EBD0 */
   filter: brightness(0) saturate(100%) invert(88%) sepia(18%) saturate(348%) hue-rotate(345deg) brightness(98%) contrast(90%);
 }
 
 .f-icon {
-  width: 20px;
+  width: 18px;
   height: auto;
-  margin-right: 15px;
-  margin-top: 4px;
+  margin-right: 12px;
+  margin-top: 2px;
+  flex-shrink: 0;
   /* Corrected filter for #F3EBD0 */
   filter: brightness(0) saturate(100%) invert(88%) sepia(18%) saturate(348%) hue-rotate(345deg) brightness(98%) contrast(90%);
 }
@@ -2426,7 +2524,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 20px;
-  row-gap: 15px;
+  row-gap: 11px;
 }
 
 .footer-links-grid li {
@@ -2436,11 +2534,12 @@ body {
 
 .footer-links-grid a {
   font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
-  font-weight: 300;
-  font-style: italic;
-  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
   color: #F3EBD0;
   text-decoration: none;
+  line-height: 1.5;
   transition: all 0.2s;
 }
 
@@ -2456,7 +2555,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 14px;
 }
 
 .news-list li {
@@ -2465,18 +2564,22 @@ body {
 }
 
 .news-list .f-arrow {
-  margin-top: 8px;
+  margin-top: 5px;
   flex-shrink: 0;
 }
 
 .news-list a {
   font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
-  font-weight: 300;
-  font-style: italic;
-  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
   color: #F3EBD0;
   text-decoration: none;
-  line-height: 1.4;
+  line-height: 1.5;
+}
+
+.news-list a:hover {
+  color: var(--gold-light);
 }
 
 /* Contact List */
@@ -2486,24 +2589,24 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 14px;
 }
 
 .contact-list li {
   display: flex;
   align-items: flex-start;
   font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
-  font-weight: 300;
-  font-style: italic;
-  font-size: 18px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
   color: #F3EBD0;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 /* Footer Bottom */
 .footer-bottom {
   border-top: 1px solid rgba(243, 235, 208, 0.1);
-  padding-top: 30px;
+  padding-top: 22px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2513,7 +2616,7 @@ body {
 .powered {
   font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 14px;
   color: #F3EBD0;
 }
 
@@ -3864,8 +3967,13 @@ body.header-is-sticky .topbar {
   }
 
   .mobile-nav a:hover,
-  .mobile-nav a:active {
-    color: var(--heritage-red-hover);
+  .mobile-nav a:active,
+  .mobile-nav a.active,
+  .mobile-submenu.active > .mobile-submenu__toggle,
+  .mobile-submenu__toggle.active,
+  .mobile-accordion.active > .mobile-accordion__toggle,
+  .mobile-accordion__toggle.active {
+    color: #E63531 !important;
   }
 
   /* Mobile Explore Submenu */
@@ -4058,36 +4166,67 @@ body.header-is-sticky .topbar {
 /* Responsive Footer Font Fix -- Cleaned */
 @media (max-width: 768px) {
   .main-footer {
-    padding: 40px 0 20px;
+    padding: 38px 20px 22px;
+  }
+
+  .footer-grid {
+    gap: 30px;
+    margin-bottom: 28px;
   }
 
   .footer-head {
-    font-size: 24px;
-    /* Reduced from 36px */
-    margin-bottom: 20px;
-    /* User requested default alignment (left) */
+    font-size: 19px;
+    margin-bottom: 14px;
+  }
+
+  .footer-head::after {
+    width: 32px;
+    height: 2px;
+    margin-top: 5px;
   }
 
   .footer-links-grid {
     column-gap: 15px;
-    row-gap: 10px;
+    row-gap: 9px;
   }
 
   .footer-links-grid a {
-    font-size: 16px;
-    /* Reduced from 20px */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.45;
+  }
+
+  .news-list {
+    gap: 12px;
   }
 
   .news-list a {
-    font-size: 16px;
-    /* Reduced from 20px */
-    line-height: 1.4;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.45;
+  }
+
+  .contact-list {
+    gap: 12px;
   }
 
   .contact-list li {
-    font-size: 15px;
-    /* Reduced from 18px */
-    line-height: 1.4;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.45;
+  }
+
+  .footer-bottom {
+    padding-top: 16px;
+    gap: 12px;
+  }
+
+  .copyright,
+  .powered {
+    font-size: 12.5px;
   }
 
   /* Logo Link Resets */
@@ -4242,7 +4381,7 @@ body.header-is-sticky .topbar {
   background: rgba(0, 0, 0, 0.5);
   padding: 8px 15px;
   border-radius: 8px;
-  font-family: 'Roboto Slab', Arial, sans-serif;
+  font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
   font-weight: bold;
 }
 
@@ -7887,7 +8026,7 @@ body.header-is-sticky .topbar {
   border: 1px solid #dcd4bf;
   border-bottom: none;
   color: #5c4f43;
-  font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
+  font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
   font-size: 0.96rem;
   font-weight: 600;
   padding: 10px 20px;
@@ -17084,101 +17223,16 @@ button.uitem--btn {
   }
 }
 
-/* Maps and Direction Card & Layout */
-.map-page-card {
-  background: #FDFBF7;
-  border: 1px solid #D4CBB3;
-  border-radius: 6px;
-  box-shadow: 0 4px 20px rgba(26, 21, 18, 0.08);
-  overflow: hidden;
-  margin-bottom: 36px;
-}
-
-.map-page-header {
-  padding: 22px 28px;
-  background: #FAF7EF;
-  border-bottom: 1.5px solid #D4CBB3;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.map-page-header-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.map-page-title {
-  font-family: 'Roboto Slab', serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #1A1512;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.map-page-address {
-  font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
-  font-size: 0.92rem;
-  color: #555;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.map-page-actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.map-action-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 9px 16px;
-  border-radius: 4px;
-  font-family: 'Roboto Slab', serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.map-action-btn--primary {
-  background: #8C1C19;
-  color: #FFFFFF !important;
-  border: 1px solid #8C1C19;
-}
-
-.map-action-btn--primary:hover {
-  background: #A3221E;
-  box-shadow: 0 4px 12px rgba(140, 28, 25, 0.35);
-}
-
-.map-action-btn--secondary {
-  background: #FAF7EF;
-  color: #1A1512 !important;
-  border: 1px solid #CDB66C;
-}
-
-.map-action-btn--secondary:hover {
-  background: #F5E8CE;
-  border-color: #8C1C19;
-  color: #8C1C19 !important;
-}
-
+/* Maps and Direction Clean Transparent Container */
 .map-iframe-container {
   width: 100%;
   height: 480px;
   position: relative;
-  background: #E8E3D5;
+  background: transparent !important;
+  border: 1px solid #DCD5C5;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: none;
 }
 
 .map-iframe-container iframe {
@@ -17186,62 +17240,520 @@ button.uitem--btn {
   height: 100%;
   border: none;
   display: block;
+  background: transparent;
 }
 
-.transit-grid {
+/* ===================================================
+   BRITISH MUSEUM STYLE 2-COLUMN GETTING HERE SECTION
+=================================================== */
+.bm-getting-here-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1.25fr 1fr;
+  gap: 36px;
+  align-items: start;
+  margin: 20px 0 35px 0;
+  width: 100%;
+}
+
+.bm-getting-here-map {
+  width: 100%;
+  height: 380px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #DCD5C5;
+  background: transparent !important;
+}
+
+.bm-getting-here-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  background: transparent;
+}
+
+.bm-getting-here-details {
+  display: flex;
+  flex-direction: column;
   gap: 22px;
-  margin-top: 24px;
+  font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
 }
 
-.transit-card {
-  background: #FDFBF7;
-  border: 1px solid #D4CBB3;
-  border-top: 3.5px solid #8C1C19;
-  border-radius: 4px;
-  padding: 22px;
-  box-shadow: 0 2px 8px rgba(26, 21, 18, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.transit-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 16px rgba(26, 21, 18, 0.09);
-}
-
-.transit-card__header {
+.bm-detail-block {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.transit-card__icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 4px;
-  background: rgba(140, 28, 25, 0.08);
-  color: #8C1C19;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.transit-card__title {
+.bm-detail-label {
   font-family: 'Roboto Slab', serif;
-  font-size: 1.08rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #1A1512;
   margin: 0;
 }
 
-.transit-card__body {
+.bm-detail-text {
+  font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+  margin: 0;
+}
+
+.bm-detail-text strong {
+  color: #1A1512;
+  font-weight: 700;
+}
+
+.bm-detail-coords {
+  color: #666666;
+  font-size: 0.88rem;
+  margin-top: 3px;
+  display: block;
+}
+
+.bm-detail-subtext {
+  font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #555555;
+  margin: 5px 0 0 0;
+}
+
+.bm-detail-recommendation {
   font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
   font-size: 0.92rem;
-  color: #44372C;
-  line-height: 1.6;
+  line-height: 1.55;
+  color: #444444;
+  margin: 0;
+  padding-top: 8px;
+  border-top: 1px dashed #DCD5C5;
+}
+
+@media (max-width: 900px) {
+  .bm-getting-here-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .bm-getting-here-map {
+    height: 320px;
+  }
+}
+
+/* ===================================================
+   GETTING TO THE MUSEUM - BRITISH MUSEUM STYLE ACCORDION
+=================================================== */
+.getting-here-section {
+  margin-top: 36px;
+  width: 100%;
+}
+
+.getting-here-accordion,
+.plan-visit-accordion,
+.ticket-info-accordion {
+  width: 100%;
+  max-width: 100%;
+  margin: 24px 0 50px 0;
+  border-bottom: 1px solid #DCD5C5;
+}
+
+.getting-here-item,
+.plan-visit-item,
+.ticket-info-item {
+  width: 100%;
+  border-top: 1px solid #DCD5C5;
+  transition: background-color 0.2s ease;
+}
+
+.getting-here-item:hover,
+.plan-visit-item:hover,
+.ticket-info-item:hover {
+  background-color: rgba(250, 247, 239, 0.45);
+}
+
+.getting-here-trigger,
+.plan-visit-trigger,
+.ticket-info-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.getting-here-icon,
+.plan-visit-icon,
+.ticket-info-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #141414;
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin: 0 !important;
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.getting-here-item.is-open .getting-here-icon,
+.plan-visit-item.is-open .plan-visit-icon,
+.ticket-info-item.is-open .ticket-info-icon {
+  background: #8C1C19;
+}
+
+.getting-here-trigger:hover .getting-here-icon,
+.plan-visit-trigger:hover .plan-visit-icon,
+.ticket-info-trigger:hover .ticket-info-icon {
+  background: #8C1C19;
+  transform: scale(1.08);
+}
+
+.getting-here-title,
+.plan-visit-title,
+.ticket-info-title,
+.museum-story-content h3.getting-here-title,
+.museum-story-content h3.plan-visit-title,
+.museum-story-content h3.ticket-info-title,
+.getting-here-trigger h3,
+.plan-visit-trigger h3,
+.ticket-info-trigger h3 {
+  position: relative;
+  display: inline-block;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.25 !important;
+  color: #1A1512;
+  margin: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  letter-spacing: -0.01em;
+  text-decoration: none !important;
+  transition: color 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Smooth Left-to-Right Animated Underline (British Museum Style) */
+.getting-here-title::after,
+.plan-visit-title::after,
+.ticket-info-title::after,
+.museum-story-content h3.getting-here-title::after,
+.museum-story-content h3.plan-visit-title::after,
+.museum-story-content h3.ticket-info-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: #8C1C19;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.getting-here-trigger:hover .getting-here-title,
+.plan-visit-trigger:hover .plan-visit-title,
+.ticket-info-trigger:hover .ticket-info-title {
+  color: #8C1C19;
+}
+
+.getting-here-trigger:hover .getting-here-title::after,
+.plan-visit-trigger:hover .plan-visit-title::after,
+.ticket-info-trigger:hover .ticket-info-title::after {
+  transform: scaleX(1);
+}
+
+.getting-here-item.is-open .getting-here-title,
+.plan-visit-item.is-open .plan-visit-title,
+.ticket-info-item.is-open .ticket-info-title {
+  color: #8C1C19;
+  text-decoration: none !important;
+}
+
+.getting-here-item.is-open .getting-here-title::after,
+.plan-visit-item.is-open .plan-visit-title::after,
+.ticket-info-item.is-open .ticket-info-title::after {
+  transform: scaleX(1);
+}
+
+.getting-here-content,
+.plan-visit-content,
+.ticket-info-content {
+  padding: 0 8px 30px 56px;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.getting-here-list,
+.plan-visit-list,
+.ticket-info-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.getting-here-list li,
+.plan-visit-list li,
+.ticket-info-list li {
+  font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #333333;
+}
+
+.getting-here-list li strong,
+.plan-visit-list li strong {
+  color: #1A1512;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .getting-here-trigger,
+  .plan-visit-trigger,
+  .ticket-info-trigger {
+    padding: 18px 4px;
+    gap: 14px;
+  }
+
+  .getting-here-icon,
+  .plan-visit-icon,
+  .ticket-info-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .getting-here-title,
+  .plan-visit-title,
+  .ticket-info-title {
+    font-size: 1.12rem;
+  }
+
+  .getting-here-content,
+  .plan-visit-content,
+  .ticket-info-content {
+    padding: 0 4px 22px 44px;
+  }
+
+  .getting-here-list,
+  .plan-visit-list,
+  .ticket-info-list {
+    gap: 11px;
+  }
+
+  .getting-here-list li,
+  .plan-visit-list li,
+  .ticket-info-list li {
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+}
+
+/* ===================================================
+   BUY ETICKET FORM & CARD (MATCHING USER SCREENSHOT)
+=================================================== */
+.eticket-card {
+  width: 100%;
+  border: 1.5px solid #8b181e;
+  border-radius: 4px;
+  background: #FFFFFF;
+  overflow: hidden;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 16px rgba(139, 24, 30, 0.08);
+}
+
+.eticket-card__header {
+  background: linear-gradient(180deg, #8b181e 0%, #660f13 100%);
+  color: #FFFFFF;
+  padding: 13px 24px;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.01em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.eticket-card__body {
+  padding: 24px 28px;
+  background: #FFFFFF;
+}
+
+.eticket-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 32px;
+  row-gap: 18px;
+}
+
+.eticket-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.eticket-label {
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1A1512;
+}
+
+.eticket-label .required-star {
+  color: #DC2626;
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+.eticket-input {
+  background: #F1F4F9;
+  border: 1px solid #D0D7DE;
+  border-radius: 4px;
+  padding: 9px 12px;
+  font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
+  font-size: 0.92rem;
+  color: #1A1512;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.eticket-input:focus {
+  border-color: #8b181e;
+  box-shadow: 0 0 0 3px rgba(139, 24, 30, 0.16);
+  background: #FFFFFF;
+}
+
+.eticket-input:read-only,
+.eticket-input:disabled {
+  background: #EAEFF5;
+  color: #444444;
+  cursor: default;
+}
+
+.eticket-submit-btn {
+  background: linear-gradient(180deg, #8b181e 0%, #660f13 100%);
+  color: #FFFFFF !important;
+  border: none;
+  padding: 10px 28px;
+  font-family: 'Roboto Slab', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 2px 6px rgba(0, 0, 0, 0.25);
+  margin-top: 10px;
+}
+
+.eticket-submit-btn:hover {
+  background: linear-gradient(180deg, #961b21 0%, #701115 100%);
+  transform: translateY(-1px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 4px 12px rgba(139, 24, 30, 0.35);
+}
+
+.eticket-buy-btn {
+  background: linear-gradient(180deg, #8b181e 0%, #660f13 100%);
+  color: #FFFFFF !important;
+  border: none;
+  padding: 10px 24px;
+  font-family: 'Roboto Slab', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.eticket-buy-btn:hover {
+  background: linear-gradient(180deg, #961b21 0%, #701115 100%);
+  transform: translateY(-1px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 4px 12px rgba(139, 24, 30, 0.35);
+}
+
+.museum-story-content ol.how-to-buy-list,
+.how-to-buy-list {
+  padding-left: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.museum-story-content ol.how-to-buy-list li,
+.museum-story-content li.how-to-buy-step,
+.museum-story-content .how-to-buy-step,
+.how-to-buy-step {
+  font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif !important;
+  font-size: 0.92rem !important;
+  font-weight: 400 !important;
+  color: #333333 !important;
+  line-height: 1.65 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Card highlight pulse when clicking Buy eTicket from How to Buy */
+@keyframes eticketCardPulse {
+  0% {
+    box-shadow: 0 4px 16px rgba(139, 24, 30, 0.08);
+    border-color: #8b181e;
+  }
+  35% {
+    box-shadow: 0 0 0 5px rgba(139, 24, 30, 0.25), 0 8px 28px rgba(139, 24, 30, 0.22);
+    border-color: #961b21;
+  }
+  100% {
+    box-shadow: 0 4px 16px rgba(139, 24, 30, 0.08);
+    border-color: #8b181e;
+  }
+}
+
+.eticket-card--highlight {
+  animation: eticketCardPulse 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@media (max-width: 768px) {
+  .museum-story-content ol.how-to-buy-list,
+  .how-to-buy-list {
+    gap: 11px;
+  }
+  .museum-story-content ol.how-to-buy-list li,
+  .museum-story-content li.how-to-buy-step,
+  .museum-story-content .how-to-buy-step,
+  .how-to-buy-step {
+    font-size: 0.88rem !important;
+    line-height: 1.55 !important;
+  }
+  .eticket-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .eticket-card__body {
+    padding: 18px 16px;
+  }
+  .eticket-card__header {
+    padding: 12px 18px;
+    font-size: 1.15rem;
+  }
 }
 
 /* ==========================================================================
@@ -17328,11 +17840,14 @@ table {
 /* 5. Footer Quick Links Fluidity */
 @media (max-width: 480px) {
   .footer-links-grid {
-    grid-template-columns: 1fr !important;
-    row-gap: 10px !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    column-gap: 14px !important;
+    row-gap: 8px !important;
   }
   .footer-links-grid a {
-    font-size: 15px !important;
+    font-size: 14px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
   }
 }
 

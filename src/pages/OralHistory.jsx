@@ -505,8 +505,8 @@ export default function OralHistory() {
       {/* MAIN CONTENT WORKSPACE */}
       <main className="museum-story-content">
         <section className="block">
-          <div className="separator"></div>
           <Breadcrumb />
+          <div className="separator"></div>
 
           {/* DISTRICT SELECTION VIEW */}
           <div className="block__cap">

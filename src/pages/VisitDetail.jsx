@@ -67,8 +67,8 @@ export default function VisitDetail({ category }) {
                         <section className="block" key={index}>
                             {index === 0 && (
                                 <>
-                                    <div className="separator"></div>
                                     <Breadcrumb />
+                                    <div className="separator"></div>
                                 </>
                             )}
                             {!isRedundant && block.title && (

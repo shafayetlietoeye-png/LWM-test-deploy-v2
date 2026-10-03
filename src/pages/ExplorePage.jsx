@@ -78,8 +78,8 @@ export default function ExplorePage() {
             {/* CONTENT SECTION */}
             <main className="museum-story-content">
                 <section className="block">
-                    <div className="separator"></div>
                     <Breadcrumb />
+                    <div className="separator"></div>
                     <div className="block__content">
                         <p className="p">
                             This section of the Liberation War Museum is dedicated to <strong>{title}</strong>.

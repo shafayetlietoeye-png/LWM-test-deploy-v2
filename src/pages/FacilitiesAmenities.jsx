@@ -263,7 +263,7 @@ const TABS = [
 export default function FacilitiesAmenities({ initialTab }) {
     const [searchParams, setSearchParams] = useSearchParams();
     const queryTab = searchParams.get('tab');
-    
+
     // Determine active tab: query param, prop, or default to 'library'
     const defaultTab = initialTab && TABS.some(t => t.id === initialTab)
         ? initialTab
@@ -340,14 +340,14 @@ export default function FacilitiesAmenities({ initialTab }) {
 
                     {/* TAB PANELS */}
                     <div className="facilities-tab-content">
-                        
+
                         {/* =========================================================
                             TAB 1: LIBRARY & RESEARCH CENTRE
                            ========================================================= */}
                         {activeTab === 'library' && (
                             <div className="facilities-panel" role="tabpanel">
                                 <div className="facilities-grid facilities-grid--accred">
-                                    
+
                                     {/* Featured Full-Width Card */}
                                     <div className="facility-card facility-card--featured-accred">
                                         <div className="facility-label">
@@ -467,7 +467,7 @@ export default function FacilitiesAmenities({ initialTab }) {
                         {activeTab === 'kiosk' && (
                             <div className="facilities-panel" role="tabpanel">
                                 <div className="facilities-grid facilities-grid--accred">
-                                    
+
                                     {/* Featured Full-Width Card */}
                                     <div className="facility-card facility-card--featured-accred">
                                         <div className="facility-label">
@@ -593,7 +593,7 @@ export default function FacilitiesAmenities({ initialTab }) {
                         {activeTab === 'exhibition-gallery' && (
                             <div className="facilities-panel" role="tabpanel">
                                 <div className="facilities-grid facilities-grid--accred">
-                                    
+
                                     {/* Featured Full-Width Card */}
                                     <div className="facility-card facility-card--featured-accred">
                                         <div className="facility-label">
@@ -738,7 +738,7 @@ export default function FacilitiesAmenities({ initialTab }) {
                         {activeTab === 'cafes' && (
                             <div className="facilities-panel" role="tabpanel">
                                 <div className="facilities-grid facilities-grid--accred">
-                                    
+
                                     {/* Featured Full-Width Card */}
                                     <div className="facility-card facility-card--featured-accred">
                                         <div className="facility-label">

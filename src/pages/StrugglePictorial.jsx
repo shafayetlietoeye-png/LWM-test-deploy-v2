@@ -254,8 +254,8 @@ export default function StrugglePictorial() {
             {/* CONTENT */}
             <main className="museum-story-content">
                 <section className="block">
-                    <div className="separator"></div>
                     <Breadcrumb />
+                    <div className="separator"></div>
                     <div className="block__content">
                         <p className="p">
                             A historical record in pictures documenting the popular struggle, genocide, and eventual

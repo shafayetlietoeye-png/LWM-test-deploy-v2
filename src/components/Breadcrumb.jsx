@@ -1146,60 +1146,6 @@ export const BREADCRUMB_MAP = {
   ]
 };
 
-export default function Breadcrumb({ items, customTrail, className = '' }) {
-  const location = useLocation();
-  const currentPath = (location.pathname || '').replace(/\/$/, '') || '/';
-
-  // Use explicitly passed trail, or look up in BREADCRUMB_MAP
-  const rawTrail = customTrail || items || BREADCRUMB_MAP[currentPath];
-
-  // If this page is not registered in breadcrumb map, render nothing
-  if (!rawTrail || !Array.isArray(rawTrail) || rawTrail.length === 0) {
-    return null;
-  }
-
-  // Filter out any "Home" item so Home never appears in breadcrumbs on any page
-  const trail = rawTrail.filter((item) => {
-    const label = (typeof item === 'string' ? item : item?.label || '').trim().toLowerCase();
-    return label !== 'home' && label !== '';
-  });
-
-  if (trail.length === 0) {
-    return null;
-  }
-
-  return (
-    <nav className={`lwm-breadcrumb-container ${className}`} aria-label="Breadcrumb navigation">
-      <ol className="lwm-breadcrumb-list">
-        {trail.map((item, idx) => {
-          const isLast = idx === trail.length - 1;
-          const label = typeof item === 'string' ? item : item?.label || '';
-
-          return (
-            <React.Fragment key={idx}>
-              {idx > 0 && (
-                <li className="lwm-breadcrumb-divider" aria-hidden="true">
-                  ›
-                </li>
-              )}
-              <li
-                className={`lwm-breadcrumb-crumb ${isLast ? 'lwm-breadcrumb-crumb--current' : ''}`}
-                aria-current={isLast ? 'page' : undefined}
-              >
-                <span
-                  className={
-                    isLast
-                      ? 'lwm-breadcrumb-active lwm-breadcrumb-text--current'
-                      : 'lwm-breadcrumb-category lwm-breadcrumb-text'
-                  }
-                >
-                  {label}
-                </span>
-              </li>
-            </React.Fragment>
-          );
-        })}
-      </ol>
-    </nav>
-  );
+export default function Breadcrumb() {
+  return null;
 }

@@ -117,8 +117,8 @@ export default function NewMuseum() {
             {/* CONTENT SECTION */}
             <main className="museum-story-content">
                 <section className="block">
-                    <div className="separator"></div>
                     <Breadcrumb />
+                    <div className="separator"></div>
                     <div className="block__cap">
                         <span className="cap__title">Establishment and Location</span>
                     </div>

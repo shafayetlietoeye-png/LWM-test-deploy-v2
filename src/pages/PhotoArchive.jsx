@@ -188,8 +188,8 @@ export default function PhotoArchive() {
             {/* CONTENT */}
             <main className="museum-story-content">
                 <section className="block">
-                    <div className="separator"></div>
                     <Breadcrumb />
+                    <div className="separator"></div>
                     <div className="block__content">
                         <p className="p">
                             The Liberation War Museum's Photo Archive holds an extensive collection of historical photographs

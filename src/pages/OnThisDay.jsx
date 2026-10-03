@@ -166,8 +166,8 @@ export default function OnThisDay() {
             {/* CONTENT */}
             <main className="content content--otd">
                 <section className="block block--otd">
-                    <div className="separator"></div>
                     <Breadcrumb />
+                    <div className="separator"></div>
                     <div className="block__cap block__cap--center">
                         <span className="cap__title">ON THIS DAY</span>
                     </div>

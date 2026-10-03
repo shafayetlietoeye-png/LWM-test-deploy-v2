@@ -1,372 +1,585 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Breadcrumb from '../components/Breadcrumb';
 
 export default function TicketInformation() {
-    const [name, setName] = useState('');
-    const [contact, setContact] = useState('');
-    const [isSubmitted, setIsSubmitted] = useState(false);
+  const formRef = useRef(null);
 
-    useEffect(() => {
-        document.body.classList.add('page-museum-story');
-        document.title = "Ticket Information | Liberation War Museum";
-        return () => {
-            document.body.classList.remove('page-museum-story');
-        };
-    }, []);
+  // Form State (matching 10 fields in Image 2)
+  const [name, setName] = useState('');
+  const [visitDate, setVisitDate] = useState(() => {
+    const today = new Date();
+    today.setDate(today.getDate() + 1);
+    return today.toISOString().split('T')[0];
+  });
+  const [ticketCategory, setTicketCategory] = useState('bangladeshi-adult');
+  const [passportNo, setPassportNo] = useState('');
+  const [quantity, setQuantity] = useState(1);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (name.trim() && contact.trim()) {
-            setIsSubmitted(true);
+  // Accordion State (British Museum style)
+  const [openSections, setOpenSections] = useState({
+    'admission': true,
+    'how-to-buy': true,
+    'hours': true
+  });
+
+  const toggleSection = (id) => {
+    setOpenSections(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
+
+  useEffect(() => {
+    document.body.classList.add('page-museum-story');
+    document.title = "Ticket Information | Liberation War Museum";
+    return () => {
+      document.body.classList.remove('page-museum-story');
+    };
+  }, []);
+
+  // Pricing Matrix
+  const getUnitPrice = (cat) => {
+    switch (cat) {
+      case 'bangladeshi-child':
+        return 20.00;
+      case 'foreigner':
+        return 500.00;
+      case 'saarc':
+        return 50.00;
+      case 'bangladeshi-adult':
+      default:
+        return 50.00;
+    }
+  };
+
+  const unitPrice = getUnitPrice(ticketCategory);
+  const serviceChargePct = 4.00;
+  const totalTicketPrice = unitPrice * (parseInt(quantity, 10) || 1);
+  const serviceCharge = totalTicketPrice * (serviceChargePct / 100);
+  const netPayable = totalTicketPrice + serviceCharge;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!name.trim()) {
+      alert('Please enter your Name.');
+      return;
+    }
+    if (!visitDate) {
+      alert('Please select a Visit Date.');
+      return;
+    }
+    setIsSubmitted(true);
+  };
+
+  const scrollToBuy = () => {
+    const element = formRef.current || document.getElementById('buy-eticket-section');
+    if (element) {
+      const headerOffset = 120;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+
+      // Visual highlight pulse animation on the Buy eTicket card
+      element.classList.remove('eticket-card--highlight');
+      void element.offsetWidth; // Force DOM reflow to allow re-triggering animation
+      element.classList.add('eticket-card--highlight');
+
+      setTimeout(() => {
+        element.classList.remove('eticket-card--highlight');
+      }, 2000);
+
+      // Focus the first input smoothly without causing an abrupt scroll jump
+      setTimeout(() => {
+        const nameInput = document.getElementById('eticket-name-input');
+        if (nameInput) {
+          nameInput.focus({ preventScroll: true });
         }
-    };
+      }, 750);
+    }
+  };
 
-    const resetForm = () => {
-        setName('');
-        setContact('');
-        setIsSubmitted(false);
-    };
+  return (
+    <main
+      className="museum-story-content"
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: '130px',
+        paddingBottom: '70px',
+        minHeight: '85vh',
+        boxSizing: 'border-box',
+        width: '100%'
+      }}
+    >
+      <section className="block" style={{ width: '100%', maxWidth: '1200px', margin: '0 auto' }}>
+        <Breadcrumb
+          customTrail={[
+            { label: 'Visit', to: '/visit/ticket-information' },
+            { label: 'Ticket Information', to: '/visit/ticket-information' }
+          ]}
+        />
 
-    return (
-        <main 
-            className="museum-story-content" 
-            style={{ 
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                paddingTop: '130px', 
-                paddingBottom: '70px',
-                minHeight: '85vh',
-                boxSizing: 'border-box',
-                width: '100%'
-            }}
-        >
-            <section className="block" style={{ width: '100%', maxWidth: '1200px', margin: '0 auto' }}>
-                <Breadcrumb />
+        {/* 1. BUY ETICKET CARD (EXACT 10 FIELDS FROM USER SCREENSHOT) */}
+        <div ref={formRef} id="buy-eticket-section" className="eticket-card">
+          <div className="eticket-card__header">
+            Buy eTicket
+          </div>
 
-                {/* 1. ONLINE TICKET PURCHASE & BOOKING PORTAL (UPPER SECTION) */}
-                <div className="block__cap" style={{ marginBottom: '20px' }}>
-                    <span className="cap__title" style={{ fontSize: '1.35rem', letterSpacing: '0.04em' }}>
-                        Online Ticket Purchase &amp; Booking Portal
-                    </span>
+          <div className="eticket-card__body">
+            <form onSubmit={handleSubmit}>
+              <div className="eticket-grid">
+                {/* Left Column (5 fields) */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+                  {/* Field 1: Name */}
+                  <div className="eticket-field">
+                    <label className="eticket-label" htmlFor="eticket-name-input">
+                      Name
+                    </label>
+                    <input
+                      id="eticket-name-input"
+                      type="text"
+                      className="eticket-input"
+                      placeholder="PMO"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  {/* Field 2: Visit Date * */}
+                  <div className="eticket-field">
+                    <label className="eticket-label" htmlFor="eticket-date-input">
+                      Visit Date <span className="required-star">*</span>
+                    </label>
+                    <input
+                      id="eticket-date-input"
+                      type="date"
+                      className="eticket-input"
+                      value={visitDate}
+                      onChange={(e) => setVisitDate(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  {/* Field 3: Ticket Category * */}
+                  <div className="eticket-field">
+                    <label className="eticket-label" htmlFor="eticket-category-select">
+                      Ticket Category <span className="required-star">*</span>
+                    </label>
+                    <select
+                      id="eticket-category-select"
+                      className="eticket-input"
+                      value={ticketCategory}
+                      onChange={(e) => setTicketCategory(e.target.value)}
+                      required
+                      style={{ cursor: 'pointer' }}
+                    >
+                      <option value="bangladeshi-adult">Bangladeshi (Adult) - 50 BDT</option>
+                      <option value="bangladeshi-child">Bangladeshi (Child) - 20 BDT</option>
+                      <option value="saarc">SAARC Visitor - 50 BDT</option>
+                      <option value="foreigner">Foreign Visitor - 500 BDT</option>
+                    </select>
+                  </div>
+
+                  {/* Field 4: Passport No (for Foreigners) */}
+                  <div className="eticket-field">
+                    <label className="eticket-label" htmlFor="eticket-passport-input">
+                      Passport No (for Foreigners)
+                    </label>
+                    <input
+                      id="eticket-passport-input"
+                      type="text"
+                      className="eticket-input"
+                      placeholder=""
+                      value={passportNo}
+                      onChange={(e) => setPassportNo(e.target.value)}
+                    />
+                  </div>
+
+                  {/* Field 5: Quantity * */}
+                  <div className="eticket-field">
+                    <label className="eticket-label" htmlFor="eticket-quantity-input">
+                      Quantity <span className="required-star">*</span>
+                    </label>
+                    <input
+                      id="eticket-quantity-input"
+                      type="number"
+                      min="1"
+                      max="50"
+                      className="eticket-input"
+                      value={quantity}
+                      onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value, 10) || 1))}
+                      required
+                    />
+                  </div>
                 </div>
 
-                <div className="block__content">
-                    <p className="p" style={{ marginBottom: '12px' }}>
-                        Visitors can purchase entry tickets online through our secure portal. Online ticketing guarantees entry on your selected date and helps manage crowd flow inside the galleries.
-                    </p>
-                    <p className="p" style={{ marginBottom: '28px' }}>
-                        Upon successful payment, an e-ticket containing a QR code will be sent to your email. Please present this QR code on your mobile device or as a printout at the museum entrance scanner.
-                    </p>
+                {/* Right Column (5 fields) */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+                  {/* Field 6: Unit Price (BDT) */}
+                  <div className="eticket-field">
+                    <label className="eticket-label">
+                      Unit Price (BDT)
+                    </label>
+                    <input
+                      type="text"
+                      className="eticket-input"
+                      value={unitPrice.toFixed(2)}
+                      readOnly
+                      tabIndex="-1"
+                    />
+                  </div>
 
-                    {/* eTicket Portal & Schedule Grid */}
+                  {/* Field 7: Service Charge % (BDT) */}
+                  <div className="eticket-field">
+                    <label className="eticket-label">
+                      Service Charge % (BDT)
+                    </label>
+                    <input
+                      type="text"
+                      className="eticket-input"
+                      value={serviceChargePct.toFixed(2)}
+                      readOnly
+                      tabIndex="-1"
+                    />
+                  </div>
+
+                  {/* Field 8: Total Ticket Price (BDT) */}
+                  <div className="eticket-field">
+                    <label className="eticket-label">
+                      Total Ticket Price (BDT)
+                    </label>
+                    <input
+                      type="text"
+                      className="eticket-input"
+                      value={totalTicketPrice.toFixed(2)}
+                      readOnly
+                      tabIndex="-1"
+                    />
+                  </div>
+
+                  {/* Field 9: Service Charge (BDT) */}
+                  <div className="eticket-field">
+                    <label className="eticket-label">
+                      Service Charge (BDT)
+                    </label>
+                    <input
+                      type="text"
+                      className="eticket-input"
+                      value={serviceCharge.toFixed(2)}
+                      readOnly
+                      tabIndex="-1"
+                    />
+                  </div>
+
+                  {/* Field 10: Net Payable (BDT) */}
+                  <div className="eticket-field">
+                    <label className="eticket-label" style={{ color: '#8C1C19' }}>
+                      Net Payable (BDT)
+                    </label>
+                    <input
+                      type="text"
+                      className="eticket-input"
+                      value={netPayable.toFixed(2)}
+                      readOnly
+                      tabIndex="-1"
+                      style={{ fontWeight: '700', color: '#8C1C19', fontSize: '1rem' }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Submit Button & Notification Banner */}
+              <div style={{ marginTop: '16px' }}>
+                <button type="submit" className="eticket-submit-btn">
+                  Submit
+                </button>
+              </div>
+
+              {isSubmitted && (
+                <div
+                  style={{
+                    marginTop: '20px',
+                    padding: '16px 20px',
+                    backgroundColor: '#F0FDF4',
+                    border: '1.5px solid #86EFAC',
+                    borderRadius: '4px',
+                    color: '#166534',
+                    fontFamily: "'Roboto Slab', sans-serif"
+                  }}
+                >
+                  <div style={{ fontWeight: '700', fontSize: '1.05rem', marginBottom: '6px' }}>
+                    ✓ Order Generated Successfully!
+                  </div>
+                  <div style={{ fontSize: '0.92rem', lineHeight: '1.5', color: '#15803D' }}>
+                    Ticket order for <strong>{name}</strong> ({quantity} ticket{quantity > 1 ? 's' : ''}, Net Payable: <strong>BDT {netPayable.toFixed(2)}</strong>) has been processed. Frontend validation complete; ready for SSLCommerz payment integration.
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setIsSubmitted(false)}
+                    style={{
+                      marginTop: '10px',
+                      background: 'transparent',
+                      border: '1px solid #166534',
+                      color: '#166534',
+                      padding: '5px 14px',
+                      borderRadius: '3px',
+                      cursor: 'pointer',
+                      fontSize: '0.85rem',
+                      fontWeight: '600'
+                    }}
+                  >
+                    Edit / Place Another Order
+                  </button>
+                </div>
+              )}
+            </form>
+          </div>
+        </div>
+
+        {/* 2. BRITISH MUSEUM STYLE SINGLE-COLUMN ACCORDION */}
+        <div className="ticket-info-accordion">
+          {/* ACCORDION ITEM 1: Ticket fees and categories */}
+          <div className={`ticket-info-item ${openSections['admission'] ? 'is-open' : ''}`}>
+            <button
+              type="button"
+              className="ticket-info-trigger"
+              onClick={() => toggleSection('admission')}
+              aria-expanded={openSections['admission']}
+            >
+              <span className="ticket-info-icon" aria-hidden="true">
+                {openSections['admission'] ? (
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                ) : (
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                )}
+              </span>
+              <h3 className="ticket-info-title">Ticket fees and categories</h3>
+            </button>
+
+            {openSections['admission'] && (
+              <div className="ticket-info-content">
+                {/* Rate Table ONLY - As requested by user */}
+                <div style={{ marginTop: '10px', marginBottom: '10px', width: '100%', overflowX: 'auto' }}>
+                  <table style={{
+                    width: '100%',
+                    borderCollapse: 'collapse',
+                    fontFamily: "'Roboto Slab', sans-serif",
+                    fontSize: '0.92rem',
+                    backgroundColor: '#FFFFFF',
+                    border: '1px solid #DCD5C5',
+                    borderRadius: '4px'
+                  }}>
+                    <thead>
+                      <tr style={{ backgroundColor: '#FAF7EF', borderBottom: '2px solid #8b181e' }}>
+                        <th style={{ padding: '12px 18px', textAlign: 'left', color: '#1A1512', fontWeight: '700' }}>Category</th>
+                        <th style={{ padding: '12px 18px', textAlign: 'right', color: '#1A1512', fontWeight: '700' }}>Price (BDT)</th>
+                        <th style={{ padding: '12px 18px', textAlign: 'right', color: '#8b181e', fontWeight: '700' }}>Online Surcharge</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr style={{ borderBottom: '1px solid #EAE3D2' }}>
+                        <td style={{ padding: '12px 18px', color: '#333333' }}>Bangladeshi (Adult)</td>
+                        <td style={{ padding: '12px 18px', textAlign: 'right', fontWeight: '700', color: '#1A1512' }}>50.00</td>
+                        <td style={{ padding: '12px 18px', textAlign: 'right', color: '#8b181e', fontWeight: '600' }}>4%</td>
+                      </tr>
+                      <tr style={{ borderBottom: '1px solid #EAE3D2' }}>
+                        <td style={{ padding: '12px 18px', color: '#333333' }}>Bangladeshi (Child / Student)</td>
+                        <td style={{ padding: '12px 18px', textAlign: 'right', fontWeight: '700', color: '#1A1512' }}>20.00</td>
+                        <td style={{ padding: '12px 18px', textAlign: 'right', color: '#8b181e', fontWeight: '600' }}>4%</td>
+                      </tr>
+                      <tr style={{ borderBottom: '1px solid #EAE3D2' }}>
+                        <td style={{ padding: '12px 18px', color: '#333333' }}>SAARC Visitor</td>
+                        <td style={{ padding: '12px 18px', textAlign: 'right', fontWeight: '700', color: '#1A1512' }}>50.00</td>
+                        <td style={{ padding: '12px 18px', textAlign: 'right', color: '#8b181e', fontWeight: '600' }}>4%</td>
+                      </tr>
+                      <tr>
+                        <td style={{ padding: '12px 18px', color: '#333333' }}>Foreign Visitor</td>
+                        <td style={{ padding: '12px 18px', textAlign: 'right', fontWeight: '700', color: '#1A1512' }}>500.00</td>
+                        <td style={{ padding: '12px 18px', textAlign: 'right', color: '#8b181e', fontWeight: '600' }}>4%</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* ACCORDION ITEM 2: How to Buy Ticket (MATCHING USER SCREENSHOT IMAGE 1) */}
+          <div className={`ticket-info-item ${openSections['how-to-buy'] ? 'is-open' : ''}`}>
+            <button
+              type="button"
+              className="ticket-info-trigger"
+              onClick={() => toggleSection('how-to-buy')}
+              aria-expanded={openSections['how-to-buy']}
+            >
+              <span className="ticket-info-icon" aria-hidden="true">
+                {openSections['how-to-buy'] ? (
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                ) : (
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                )}
+              </span>
+              <h3 className="ticket-info-title">How to Buy Ticket</h3>
+            </button>
+
+            {openSections['how-to-buy'] && (
+              <div className="ticket-info-content">
+                <ol
+                  className="how-to-buy-list"
+                  style={{
+                    fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
+                    fontSize: '0.92rem',
+                    lineHeight: '1.65',
+                    color: '#1A1512',
+                    paddingLeft: '22px',
+                    margin: '0 0 20px 0'
+                  }}
+                >
+                  <li className="how-to-buy-step" style={{ fontFamily: "'Roboto Slab', sans-serif", fontSize: '0.92rem', color: '#1A1512', marginBottom: '12px' }}>
+                    First login to eTicket Portal by submitting your Name &amp; Phone number. On next page submit your OTP which is sent to your device.
+                  </li>
+                  <li className="how-to-buy-step" style={{ fontFamily: "'Roboto Slab', sans-serif", fontSize: '0.92rem', color: '#1A1512', marginBottom: '12px' }}>
+                    After login to ePortal, click on Buy eTicket button.
+                  </li>
+                  <li className="how-to-buy-step" style={{ fontFamily: "'Roboto Slab', sans-serif", fontSize: '0.92rem', color: '#1A1512', marginBottom: '12px' }}>
+                    Please fill up the Buy eTicket Form
+                  </li>
+                  <li className="how-to-buy-step" style={{ fontFamily: "'Roboto Slab', sans-serif", fontSize: '0.92rem', color: '#1A1512', marginBottom: '12px' }}>
+                    Afterwards click on "Make a Payment" button and complete your payment.
+                  </li>
+                  <li className="how-to-buy-step" style={{ fontFamily: "'Roboto Slab', sans-serif", fontSize: '0.92rem', color: '#1A1512', marginBottom: '12px' }}>
+                    Finally download and print your eTicket and bring your eTicket while you visit our museum.
+                  </li>
+                </ol>
+
+                {/* Buy eTicket Button - scrolls smoothly up to the Buy eTicket card */}
+                <div>
+                  <button
+                    type="button"
+                    onClick={scrollToBuy}
+                    className="eticket-buy-btn"
+                  >
+                    Buy eTicket
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* ACCORDION ITEM 3: LWM Opening & Closing Time (জাদুঘরের সময়সূচী) */}
+          <div className={`ticket-info-item ${openSections['hours'] ? 'is-open' : ''}`}>
+            <button
+              type="button"
+              className="ticket-info-trigger"
+              onClick={() => toggleSection('hours')}
+              aria-expanded={openSections['hours']}
+            >
+              <span className="ticket-info-icon" aria-hidden="true">
+                {openSections['hours'] ? (
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                ) : (
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                )}
+              </span>
+              <h3 className="ticket-info-title">LWM Opening &amp; Closing Time (জাদুঘরের সময়সূচী)</h3>
+            </button>
+
+            {openSections['hours'] && (
+              <div className="ticket-info-content">
+                <div style={{
+                  marginTop: '10px',
+                  marginBottom: '14px',
+                  width: '100%',
+                  background: '#FAF7EF',
+                  border: '1px solid #DCD5C5',
+                  borderTop: '3px solid #8C1C19',
+                  borderRadius: '2px',
+                  padding: '24px 28px',
+                  boxSizing: 'border-box'
+                }}>
+                  <h4 style={{
+                    fontFamily: "'Roboto Slab', 'Noto Sans Bengali', serif",
+                    fontSize: '1.2rem',
+                    fontWeight: '700',
+                    color: '#1A1512',
+                    margin: '0 0 18px 0'
+                  }}>
+                    LWM Opening &amp; Closing Time (জাদুঘরের সময়সূচী)
+                  </h4>
+
+                  <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    width: '100%',
+                    fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif"
+                  }}>
                     <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
-                        gap: '30px',
-                        alignItems: 'start'
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      padding: '14px 0',
+                      borderBottom: '1px solid #EAE3D2',
+                      fontSize: '0.92rem'
                     }}>
-                        {/* LEFT COLUMN: Portal Login */}
-                        <div style={{
-                            border: '1px solid #d4cbb3',
-                            borderTop: '4px solid #8d2024',
-                            backgroundColor: 'rgba(255, 255, 255, 0.45)',
-                            overflow: 'hidden',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            minHeight: '415px',
-                            boxSizing: 'border-box',
-                            boxShadow: '0 2px 8px rgba(26,21,18,0.06)'
-                        }}>
-                            <div style={{ padding: '20px 24px', borderBottom: '1px solid #e8e3d5' }}>
-                                <h3 style={{
-                                    fontFamily: "'Roboto Slab', serif",
-                                    fontSize: '1.2rem',
-                                    color: '#1a1512',
-                                    margin: 0,
-                                    fontWeight: '700'
-                                }}>
-                                    ই-টিকিট পোর্টাল লগইন
-                                </h3>
-                                <span style={{
-                                    fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
-                                    fontSize: '0.8rem',
-                                    color: '#777',
-                                    display: 'block',
-                                    marginTop: '4px'
-                                }}>
-                                    eTicket Portal Access &amp; Verification
-                                </span>
-                            </div>
-
-                            <div style={{ padding: '24px 28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                                {!isSubmitted ? (
-                                    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                                        <p style={{
-                                            fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
-                                            fontSize: '0.85rem',
-                                            color: '#666',
-                                            lineHeight: '1.5',
-                                            margin: '0 0 2px 0'
-                                        }}>
-                                            আপনি যদি ই-টিকিট পোর্টালে লগইন করতে চান, তবে নিচের তথ্যগুলো প্রদান করুন:
-                                        </p>
-
-                                        <div>
-                                            <label style={{
-                                                display: 'block',
-                                                fontSize: '0.8rem',
-                                                fontWeight: '700',
-                                                color: '#1a1512',
-                                                textTransform: 'uppercase',
-                                                letterSpacing: '0.04em',
-                                                marginBottom: '4px',
-                                                fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif"
-                                            }}>
-                                                Name / নাম
-                                            </label>
-                                            <input
-                                                type="text"
-                                                required
-                                                value={name}
-                                                onChange={(e) => setName(e.target.value)}
-                                                placeholder="Md. Shahinur Islam"
-                                                style={{
-                                                    width: '100%',
-                                                    padding: '10px 10px',
-                                                    fontSize: '0.9rem',
-                                                    border: '1px solid #d4cbb3',
-                                                    borderRadius: '3px',
-                                                    fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
-                                                    outline: 'none',
-                                                    boxSizing: 'border-box',
-                                                    backgroundColor: 'rgba(255,255,255,0.7)',
-                                                    color: '#1a1512'
-                                                }}
-                                            />
-                                            <span style={{ fontSize: '0.75rem', color: '#888', display: 'block', marginTop: '4px', lineHeight: '1.3' }}>
-                                                (আপনার নাম লিখুন, যেমন: Md. Shahinur Islam)
-                                            </span>
-                                        </div>
-
-                                        <div>
-                                            <label style={{
-                                                display: 'block',
-                                                fontSize: '0.8rem',
-                                                fontWeight: '700',
-                                                color: '#1a1512',
-                                                textTransform: 'uppercase',
-                                                letterSpacing: '0.04em',
-                                                marginBottom: '4px',
-                                                fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif"
-                                            }}>
-                                                Phone or E-mail / ফোন বা ই-মেইল
-                                            </label>
-                                            <input
-                                                type="text"
-                                                required
-                                                value={contact}
-                                                onChange={(e) => setContact(e.target.value)}
-                                                placeholder="015xxxxxxxx / yourname@mail.com"
-                                                style={{
-                                                    width: '100%',
-                                                    padding: '10px 10px',
-                                                    fontSize: '0.9rem',
-                                                    border: '1px solid #d4cbb3',
-                                                    borderRadius: '3px',
-                                                    fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
-                                                    outline: 'none',
-                                                    boxSizing: 'border-box',
-                                                    backgroundColor: 'rgba(255,255,255,0.7)',
-                                                    color: '#1a1512'
-                                                }}
-                                            />
-                                            <span style={{ fontSize: '0.75rem', color: '#888', display: 'block', marginTop: '4px', lineHeight: '1.3' }}>
-                                                (আপনার ফোন নম্বর বা ই-মেইল ঠিকানা লিখুন, যেমন: 015xxxxxxxx / yourname@mail.com)
-                                            </span>
-                                        </div>
-
-                                        <button
-                                            type="submit"
-                                            style={{
-                                                backgroundColor: '#8d2024',
-                                                color: '#fff',
-                                                border: 'none',
-                                                padding: '12px',
-                                                fontSize: '0.9rem',
-                                                fontWeight: '700',
-                                                borderRadius: '4px',
-                                                cursor: 'pointer',
-                                                fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
-                                                textTransform: 'uppercase',
-                                                letterSpacing: '0.06em',
-                                                marginTop: '6px',
-                                                boxShadow: '0 3px 6px rgba(141,32,36,0.15)',
-                                                transition: 'background-color 0.2s'
-                                            }}
-                                        >
-                                            Submit / সাবমিট করুন
-                                        </button>
-                                    </form>
-                                ) : (
-                                    <div style={{ textAlign: 'center', padding: '15px 0' }}>
-                                        <div style={{ fontSize: '3rem', marginBottom: '10px' }}>🎟️</div>
-                                        <h4 style={{ 
-                                            fontFamily: "'Roboto Slab', serif", 
-                                            color: '#1a1512',
-                                            margin: '0 0 10px 0', 
-                                            fontSize: '1.2rem',
-                                            fontWeight: '700'
-                                        }}>
-                                            Login Successful! / লগইন সফল হয়েছে!
-                                        </h4>
-                                        <p style={{ fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif", fontSize: '0.9rem', color: '#555', marginBottom: '20px', lineHeight: '1.5' }}>
-                                            Welcome, <strong>{name}</strong>. You can now select tickets and make payments.
-                                        </p>
-                                        <button
-                                            onClick={resetForm}
-                                            style={{
-                                                backgroundColor: 'transparent',
-                                                color: '#8d2024',
-                                                border: '2px solid #8d2024',
-                                                padding: '8px 20px',
-                                                fontSize: '0.85rem',
-                                                fontWeight: '700',
-                                                borderRadius: '4px',
-                                                cursor: 'pointer',
-                                                fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
-                                                textTransform: 'uppercase',
-                                                letterSpacing: '0.05em'
-                                            }}
-                                        >
-                                            Logout / লগআউট
-                                        </button>
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-
-                        {/* RIGHT COLUMN: Ticket Pricing & Museum Schedule */}
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', minHeight: '415px', justifyContent: 'space-between' }}>
-                            
-                            {/* Pricing Panel */}
-                            <div style={{
-                                border: '1px solid #d4cbb3',
-                                borderTop: '3px solid #8d2024',
-                                backgroundColor: 'rgba(255, 255, 255, 0.45)',
-                                padding: '16px 20px',
-                                boxShadow: '0 2px 8px rgba(26,21,18,0.06)',
-                                flex: '1 1 auto'
-                            }}>
-                                <h4 style={{
-                                    fontFamily: "'Roboto Slab', serif",
-                                    fontSize: '1rem',
-                                    color: '#1a1512',
-                                    margin: '0 0 10px 0',
-                                    fontWeight: '700'
-                                }}>
-                                    Ticket Price (টিকিট মূল্য)
-                                </h4>
-                                <table style={{
-                                    width: '100%',
-                                    borderCollapse: 'collapse',
-                                    fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
-                                    fontSize: '0.85rem',
-                                    textAlign: 'left'
-                                }}>
-                                    <thead>
-                                        <tr style={{ borderBottom: '1.5px solid #8d2024', color: '#1a1512' }}>
-                                            <th style={{ padding: '6px 0', fontWeight: '700' }}>Ticket Type</th>
-                                            <th style={{ padding: '6px', fontWeight: '700', textAlign: 'right' }}>Price (BDT)</th>
-                                            <th style={{ padding: '6px 0', fontWeight: '700', textAlign: 'right' }}>Service Charge</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr style={{ borderBottom: '1px solid #e8e3d5' }}>
-                                            <td style={{ padding: '6px 0' }}>Bangladeshi (Adult)</td>
-                                            <td style={{ padding: '6px', textAlign: 'right', fontWeight: '700', color: '#1a1512' }}>50.00</td>
-                                            <td style={{ padding: '6px 0', textAlign: 'right', color: '#8d2024', fontWeight: '600' }}>4%</td>
-                                        </tr>
-                                        <tr style={{ borderBottom: '1px solid #e8e3d5' }}>
-                                            <td style={{ padding: '6px 0' }}>Bangladeshi (Child)</td>
-                                            <td style={{ padding: '6px', textAlign: 'right', fontWeight: '700', color: '#1a1512' }}>20.00</td>
-                                            <td style={{ padding: '6px 0', textAlign: 'right', color: '#8d2024', fontWeight: '600' }}>4%</td>
-                                        </tr>
-                                        <tr style={{ borderBottom: '1px solid #e8e3d5' }}>
-                                            <td style={{ padding: '6px 0' }}>Foreign Visitor</td>
-                                            <td style={{ padding: '6px', textAlign: 'right', fontWeight: '700', color: '#1a1512' }}>500.00</td>
-                                            <td style={{ padding: '6px 0', textAlign: 'right', color: '#8d2024', fontWeight: '600' }}>4%</td>
-                                        </tr>
-                                        <tr style={{ borderBottom: '1px solid #e8e3d5' }}>
-                                            <td style={{ padding: '6px 0' }}>SAARC Visitor</td>
-                                            <td style={{ padding: '6px', textAlign: 'right', fontWeight: '700', color: '#1a1512' }}>50.00</td>
-                                            <td style={{ padding: '6px 0', textAlign: 'right', color: '#8d2024', fontWeight: '600' }}>4%</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            {/* Museum Opening Hours Table */}
-                            <div style={{
-                                border: '1px solid #d4cbb3',
-                                borderTop: '3px solid #8d2024',
-                                backgroundColor: 'rgba(255, 255, 255, 0.45)',
-                                padding: '16px 20px',
-                                boxShadow: '0 2px 8px rgba(26,21,18,0.06)',
-                                flex: '1 1 auto'
-                            }}>
-                                <h4 style={{
-                                    fontFamily: "'Roboto Slab', serif",
-                                    fontSize: '1rem',
-                                    color: '#1a1512',
-                                    margin: '0 0 10px 0',
-                                    fontWeight: '700'
-                                }}>
-                                    LWM Opening &amp; Closing Time (জাদুঘরের সময়সূচী)
-                                </h4>
-                                <table style={{
-                                    width: '100%',
-                                    borderCollapse: 'collapse',
-                                    fontFamily: "'Roboto Slab', 'Noto Sans Bengali', sans-serif",
-                                    fontSize: '0.85rem',
-                                    textAlign: 'left'
-                                }}>
-                                    <tbody>
-                                        <tr style={{ borderBottom: '1px solid #e8e3d5' }}>
-                                            <td style={{ padding: '6px 0', fontWeight: '500' }}>March to September:</td>
-                                            <td style={{ padding: '6px 0', textAlign: 'right', color: '#555' }}>10.00 am to 6.00 pm</td>
-                                        </tr>
-                                        <tr style={{ borderBottom: '1px solid #e8e3d5' }}>
-                                            <td style={{ padding: '6px 0', fontWeight: '500' }}>October to February:</td>
-                                            <td style={{ padding: '6px 0', textAlign: 'right', color: '#555' }}>10.00 am to 5.00 pm</td>
-                                        </tr>
-                                        <tr>
-                                            <td style={{ padding: '6px 0', fontWeight: '600', color: '#8d2024' }}>Weekly Holiday:</td>
-                                            <td style={{ padding: '6px 0', textAlign: 'right', fontWeight: '600', color: '#8d2024' }}>Sunday</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                        </div>
+                      <span style={{ fontWeight: '700', color: '#1A1512' }}>March to September:</span>
+                      <span style={{ color: '#2B2B2B' }}>10.00 am to 6.00 pm</span>
                     </div>
-                </div>
 
-                {/* 2. ADMISSION FEES & CATEGORIES (MOVED DOWN AS REQUESTED) */}
-                <div className="separator" style={{ margin: '45px 0 25px 0' }}></div>
-                <div className="block__cap" style={{ marginBottom: '18px' }}>
-                    <span className="cap__title">Admission Fees &amp; Categories</span>
+                    <div style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      padding: '14px 0',
+                      borderBottom: '1px solid #EAE3D2',
+                      fontSize: '0.92rem'
+                    }}>
+                      <span style={{ fontWeight: '700', color: '#1A1512' }}>October to February:</span>
+                      <span style={{ color: '#2B2B2B' }}>10.00 am to 5.00 pm</span>
+                    </div>
+
+                    <div style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      padding: '14px 0 4px 0',
+                      fontSize: '0.92rem'
+                    }}>
+                      <span style={{ fontWeight: '700', color: '#8C1C19' }}>Weekly Holiday:</span>
+                      <span style={{ fontWeight: '700', color: '#8C1C19' }}>Sunday</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="block__content">
-                    <p className="p" style={{ marginBottom: '12px' }}>
-                        The general admission ticket for domestic visitors is BDT 20. For international visitors, the entry fee is BDT 500. Admission is free for children under 5 years, war veterans, and differently-abled individuals.
-                    </p>
-                    <p className="p">
-                        Special discounts are available for school, college, and university student groups when booked in advance through their respective institutions.
-                    </p>
-                </div>
-            </section>
-        </main>
-    );
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 }

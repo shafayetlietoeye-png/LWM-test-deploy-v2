@@ -32,8 +32,8 @@ export default function CampaignLeaflets() {
             {/* CONTENT SECTION */}
             <main className="museum-story-content">
                 <section className="block">
-                    <div className="separator"></div>
                     <Breadcrumb />
+                    <div className="separator"></div>
                     <div className="block__content">
                         <p className="p">
                             The Liberation War Museum publishes leaflets to inform the public about its preservation campaigns, fundraising drives, and traveling museum programs. Below is the museum's fund collection leaflet.

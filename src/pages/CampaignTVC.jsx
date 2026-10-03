@@ -37,8 +37,8 @@ export default function CampaignTVC() {
             {/* CONTENT SECTION */}
             <main className="museum-story-content">
                 <section className="block">
-                    <div className="separator"></div>
                     <Breadcrumb />
+                    <div className="separator"></div>
                     <div className="block__content">
                         <p className="p">
                             The Liberation War Museum produces television commercials and digital video campaigns to appeal for public support, artifact donations, and volunteer engagement. These campaigns feature testimonies of freedom fighters and highlights of our educational initiatives.

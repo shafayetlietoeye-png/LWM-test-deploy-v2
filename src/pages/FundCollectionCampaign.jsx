@@ -127,8 +127,8 @@ export default function FundCollectionCampaign({ initialTab = 'all' }) {
             {/* MAIN CONTENT SECTION */}
             <main className="museum-story-content">
                 <section className="block">
-                    <div className="separator"></div>
                     <Breadcrumb />
+                    <div className="separator"></div>
 
                     {/* Media Tabs / Filter Switcher */}
                     <div className="fcc-media-filter-bar">

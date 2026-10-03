@@ -51,8 +51,8 @@ export default function ArchiveDonors() {
             <main className="museum-story-content">
                 {/* Block 1: Overview */}
                 <section className="block">
-                    <div className="separator"></div>
                     <Breadcrumb />
+                    <div className="separator"></div>
                     <div className="block__cap">
                         <span className="cap__title">Archive Donors</span>
                     </div>

@@ -577,8 +577,8 @@ export default function ActivityDetail() {
                 {/* CONTENT SECTION */}
                 <main className="museum-story-content">
                     <section className="block">
-                        <div className="separator"></div>
                         <Breadcrumb />
+                        <div className="separator"></div>
 
                         {/* INTRODUCTION CALLOUT */}
                         <div className="award-intro-banner">
@@ -847,8 +847,8 @@ export default function ActivityDetail() {
                 {/* CONTENT SECTION */}
                 <main className="museum-story-content">
                     <section className="block">
-                        <div className="separator"></div>
                         <Breadcrumb />
+                        <div className="separator"></div>
                         
                         {/* Modern Two-Column Editorial Showcase */}
                         <div className="sd-editorial-showcase">
@@ -1232,8 +1232,8 @@ export default function ActivityDetail() {
             <main className="museum-story-content">
                 {isPublicPrograms || isNewsletters || isAudioVisualArchive || isCsgjAbout || isCsgjSeminars || isCsgjResearch || isCsgjCertificateCourse || isCsgjExchangeProgram || isCsgjVolunteer || isCsgjWinterSchool ? (
                     <>
-                        <div className="separator"></div>
                         <Breadcrumb />
+                        <div className="separator"></div>
                     </>
                 ) : (
                     data.blocks.map((block, index) => {
@@ -1242,8 +1242,8 @@ export default function ActivityDetail() {
                             <section className="block" key={index}>
                                 {index === 0 && (
                                     <>
-                                        <div className="separator"></div>
                                         <Breadcrumb />
+                                        <div className="separator"></div>
                                     </>
                                 )}
                                 {!isRedundant && block.title && (

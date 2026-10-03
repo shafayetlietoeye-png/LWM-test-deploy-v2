@@ -27,15 +27,15 @@ export default function HomeFooter() {
                     <ul className="news-list">
                         <li>
                             <img src="/assets/icon/double arrow.png" className="f-arrow" alt="" />
-                            <a href="#">Museum reached a record high in fiscal year 2023-24</a>
+                            <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a>
                         </li>
                         <li>
                             <img src="/assets/icon/double arrow.png" className="f-arrow" alt="" />
-                            <a href="#">China to invest in museums in Bangladesh</a>
+                            <a href="#">Sed do eiusmod tempor incididunt ut labore et dolore magna</a>
                         </li>
                         <li>
                             <img src="/assets/icon/double arrow.png" className="f-arrow" alt="" />
-                            <a href="#">Liberation War Museum Expo in Bangladesh</a>
+                            <a href="#">Ut enim ad minim veniam, quis nostrud exercitation ullamco</a>
                         </li>
                     </ul>
                 </div>
@@ -46,15 +46,15 @@ export default function HomeFooter() {
                     <ul className="contact-list">
                         <li>
                             <img src="/assets/icon/location-pin-svgrepo-com 1.png" className="f-icon" alt="loc" />
-                            <span>F11/A &amp; F11/B Sher-e Bangla Nagar <br /> Civic Centre, Agargaon, Dhaka</span>
+                            <span>Lorem ipsum dolor sit amet, consectetur <br /> Adipiscing elit, sed do eiusmod tempor</span>
                         </li>
                         <li>
                             <img src="/assets/icon/phone-svgrepo-com 1.png" className="f-icon" alt="phone" />
-                            <span>02-48114991-3 <br /> 02-9142780</span>
+                            <span>+880 1234-567890 <br /> +880 9876-543210</span>
                         </li>
                         <li>
                             <img src="/assets/icon/email-svgrepo-com 1.png" className="f-icon" alt="email" />
-                            <span>info@liberationwarmuseumbd.org <br /> mukti.jadughar@gmail.com</span>
+                            <span>info@loremipsummuseum.org <br /> contact@loremipsum.com</span>
                         </li>
                     </ul>
                 </div>

@@ -68,8 +68,8 @@ export default function SupportDetail() {
             <main className="museum-story-content">
                 {isMembershipOverview ? (
                     <>
-                        <div className="separator"></div>
                         <Breadcrumb />
+                        <div className="separator"></div>
                         <MembershipOverview />
                     </>
                 ) : (
@@ -79,8 +79,8 @@ export default function SupportDetail() {
                             <section className="block" key={index}>
                                 {index === 0 && (
                                     <>
-                                        <div className="separator"></div>
                                         <Breadcrumb />
+                                        <div className="separator"></div>
                                     </>
                                 )}
                                 {!isRedundant && block.title && (

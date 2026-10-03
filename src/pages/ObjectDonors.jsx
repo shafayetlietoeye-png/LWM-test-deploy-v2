@@ -69,8 +69,8 @@ export default function ObjectDonors() {
             {/* CONTENT SECTION */}
             <main className="museum-story-content">
                 <section className="block">
-                    <div className="separator"></div>
                     <Breadcrumb />
+                    <div className="separator"></div>
                     
                     {/* Search and Filters Bar */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '40px' }}>

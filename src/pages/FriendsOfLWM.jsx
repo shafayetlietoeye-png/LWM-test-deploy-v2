@@ -106,8 +106,8 @@ export default function FriendsOfLWM() {
             {/* MAIN CONTENT SECTION */}
             <main className="museum-story-content">
                 <section className="block">
-                    <div className="separator"></div>
                     <Breadcrumb />
+                    <div className="separator"></div>
 
                     {/* SECTION 1: INSTITUTIONAL OVERVIEW & ALLIANCE */}
                     <div className="flwm-section-block">
