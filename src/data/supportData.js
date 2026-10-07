@@ -19,7 +19,7 @@ const membershipData = {
         'The main assets of the museum are objects relating to the Bengali nation’s struggle for democracy and national rights and liberation war that led to the emergence of independent Bangladesh. If you have in your possession or have knowledge of where such objects could be available please inform our office at your convenience. Such objects will enrich the display and the archive of LWM.'
       ],
       cta: {
-        label: 'Object Donor List',
+        label: 'Donate an Object',
         link: '/support/donation/object-donors'
       }
     },

@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, useRef } from 'react';
+import { useEffect, useState, useCallback, useRef, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { activitiesData } from '../data/activitiesData';
 import Breadcrumb from '../components/Breadcrumb';
@@ -98,6 +98,7 @@ const MOCK_NEWSLETTERS = [
         id: 'news-01',
         title: 'Liberation War Museum Newsletter',
         date: 'June 2026',
+        year: '2026',
         issue: 'Issue No. 112',
         pdfUrl: '/assets/sultanas-dream/818062.pdf',
         coverImage: '/assets/Virtual Tour youtube image.png'
@@ -106,6 +107,7 @@ const MOCK_NEWSLETTERS = [
         id: 'news-02',
         title: 'Liberation War Museum Newsletter',
         date: 'May 2026',
+        year: '2026',
         issue: 'Issue No. 111',
         pdfUrl: '/assets/sultanas-dream/818062.pdf',
         coverImage: '/assets/history image.png'
@@ -114,6 +116,7 @@ const MOCK_NEWSLETTERS = [
         id: 'news-03',
         title: 'Liberation War Museum Newsletter',
         date: 'April 2026',
+        year: '2026',
         issue: 'Issue No. 110',
         pdfUrl: '/assets/sultanas-dream/818062.pdf',
         coverImage: '/assets/homepage1image.png'
@@ -122,9 +125,64 @@ const MOCK_NEWSLETTERS = [
         id: 'news-04',
         title: 'Liberation War Museum Newsletter',
         date: 'March 2026',
+        year: '2026',
         issue: 'Issue No. 109',
         pdfUrl: '/assets/sultanas-dream/818062.pdf',
         coverImage: '/assets/Virtual Tour hero image.jpg'
+    },
+    {
+        id: 'news-05',
+        title: 'Liberation War Museum Newsletter',
+        date: 'December 2025',
+        year: '2025',
+        issue: 'Issue No. 108',
+        pdfUrl: '/assets/sultanas-dream/818062.pdf',
+        coverImage: '/assets/Virtual Tour youtube image.png'
+    },
+    {
+        id: 'news-06',
+        title: 'Liberation War Museum Newsletter',
+        date: 'September 2025',
+        year: '2025',
+        issue: 'Issue No. 107',
+        pdfUrl: '/assets/sultanas-dream/818062.pdf',
+        coverImage: '/assets/history image.png'
+    },
+    {
+        id: 'news-07',
+        title: 'Liberation War Museum Newsletter',
+        date: 'June 2025',
+        year: '2025',
+        issue: 'Issue No. 106',
+        pdfUrl: '/assets/sultanas-dream/818062.pdf',
+        coverImage: '/assets/homepage1image.png'
+    },
+    {
+        id: 'news-08',
+        title: 'Liberation War Museum Newsletter',
+        date: 'December 2024',
+        year: '2024',
+        issue: 'Issue No. 105',
+        pdfUrl: '/assets/sultanas-dream/818062.pdf',
+        coverImage: '/assets/Virtual Tour hero image.jpg'
+    },
+    {
+        id: 'news-09',
+        title: 'Liberation War Museum Newsletter',
+        date: 'June 2024',
+        year: '2024',
+        issue: 'Issue No. 104',
+        pdfUrl: '/assets/sultanas-dream/818062.pdf',
+        coverImage: '/assets/history image.png'
+    },
+    {
+        id: 'news-10',
+        title: 'Liberation War Museum Newsletter',
+        date: 'December 2023',
+        year: '2023',
+        issue: 'Issue No. 103',
+        pdfUrl: '/assets/sultanas-dream/818062.pdf',
+        coverImage: '/assets/Virtual Tour youtube image.png'
     }
 ];
 
@@ -330,6 +388,19 @@ export default function ActivityDetail() {
     const [activeSultanaTab, setActiveSultanaTab] = useState('english'); // 'english', 'bangla'
     const [awardSearchQuery, setAwardSearchQuery] = useState('');
     const [awardCategoryFilter, setAwardCategoryFilter] = useState('all'); // 'all', 'print', 'electronic'
+
+    // Newsletters filter state
+    const [selectedNewsletterYear, setSelectedNewsletterYear] = useState('all');
+
+    const availableNewsletterYears = useMemo(() => {
+        const years = MOCK_NEWSLETTERS.map(item => item.year || item.date?.match(/\d{4}/)?.[0]).filter(Boolean);
+        return Array.from(new Set(years)).sort((a, b) => b.localeCompare(a));
+    }, []);
+
+    const filteredNewsletters = useMemo(() => {
+        if (selectedNewsletterYear === 'all') return MOCK_NEWSLETTERS;
+        return MOCK_NEWSLETTERS.filter(item => (item.year || item.date?.match(/\d{4}/)?.[0]) === selectedNewsletterYear);
+    }, [selectedNewsletterYear]);
 
     const flattenedWinners = [];
     if (isMemorialAward && data && data.winners) {
@@ -2311,70 +2382,109 @@ export default function ActivityDetail() {
                 {/* MONTHLY NEWSLETTERS GRID ARCHIVE */}
                 {isNewsletters && (
                     <section className="block" style={{ paddingTop: 0 }}>
-                        <div className="block__cap">
-                            <span className="cap__title">Monthly Newsletter Releases</span>
-                        </div>
-                        <div className="sd-newsletter-grid" style={{ marginTop: '20px' }}>
-                            {MOCK_NEWSLETTERS.map((item) => (
-                                <div key={item.id} className="sd-news-card">
-                                    <div className="sd-news-card__paper">
-                                        <div className="sd-news-card__fold"></div>
-                                        <div className="sd-news-card__header">
-                                            <span className="sd-news-card__issue">{item.issue}</span>
-                                            <span className="sd-news-card__date">{item.date}</span>
-                                        </div>
-                                        
-                                        <div className="sd-news-card__cover">
-                                            <img src={item.coverImage} alt={item.title} className="sd-news-card__img" />
-                                        </div>
-                                        
-                                        <div className="sd-news-card__body">
-                                            <h4 className="sd-news-card__title">{item.title}</h4>
-                                            <p className="sd-news-card__desc">
-                                                Official monthly report detailing museum collections, educational activities, and historical archives.
-                                            </p>
-                                        </div>
-                                        
-                                        <div className="sd-news-card__actions">
-                                            <button 
-                                                onClick={() => openPdfViewer({
-                                                    isBinary: true,
-                                                    pdfUrl: item.pdfUrl,
-                                                    displayTitle: `${item.title} (${item.date})`,
-                                                    pages: 1
-                                                })}
-                                                className="sd-news-card__btn sd-news-card__btn--read"
+                        {/* Yearwise Filter (Front-End) */}
+                        <div className="events-filter-bar" style={{ marginBottom: '24px' }}>
+                            <div className="events-filter-bar__left">
+                                <span className="events-filter-label">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                                    </svg>
+                                    Filter by Year:
+                                </span>
+                                <div className="events-filter-pills">
+                                    <button
+                                        type="button"
+                                        className={`events-filter-pill ${selectedNewsletterYear === 'all' ? 'events-filter-pill--active' : ''}`}
+                                        onClick={() => setSelectedNewsletterYear('all')}
+                                    >
+                                        All Years ({MOCK_NEWSLETTERS.length})
+                                    </button>
+                                    {availableNewsletterYears.map((yr) => {
+                                        const count = MOCK_NEWSLETTERS.filter(
+                                            (n) => (n.year || n.date?.match(/\d{4}/)?.[0]) === yr
+                                        ).length;
+                                        return (
+                                            <button
+                                                key={yr}
+                                                type="button"
+                                                className={`events-filter-pill ${selectedNewsletterYear === yr ? 'events-filter-pill--active' : ''}`}
+                                                onClick={() => setSelectedNewsletterYear(yr)}
                                             >
-                                                Read Issue
+                                                {yr} ({count})
                                             </button>
-                                            <a 
-                                                href={item.pdfUrl} 
-                                                download 
-                                                className="sd-news-card__btn sd-news-card__btn--download"
-                                            >
-                                                Download
-                                            </a>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                            <div className="events-filter-count">
+                                Showing <strong>{filteredNewsletters.length}</strong> {filteredNewsletters.length === 1 ? 'issue' : 'issues'}
+                            </div>
+                        </div>
+
+                        {filteredNewsletters.length === 0 ? (
+                            <div style={{ textAlign: 'center', padding: '40px 20px', color: '#666' }}>
+                                No newsletters found for the selected year.
+                            </div>
+                        ) : (
+                            <div className="sd-newsletter-grid" style={{ marginTop: '20px' }}>
+                                {filteredNewsletters.map((item) => (
+                                    <div key={item.id} className="sd-news-card">
+                                        <div className="sd-news-card__paper">
+                                            <div className="sd-news-card__fold"></div>
+                                            <div className="sd-news-card__header">
+                                                <span className="sd-news-card__issue">{item.issue}</span>
+                                                <span className="sd-news-card__date">{item.date}</span>
+                                            </div>
+                                            
+                                            <div className="sd-news-card__cover">
+                                                <img src={item.coverImage} alt={item.title} className="sd-news-card__img" />
+                                            </div>
+                                            
+                                            <div className="sd-news-card__body">
+                                                <h4 className="sd-news-card__title">{item.title}</h4>
+                                            </div>
+                                            
+                                            <div className="sd-news-card__actions">
+                                                <button 
+                                                    onClick={() => openPdfViewer({
+                                                        isBinary: true,
+                                                        pdfUrl: item.pdfUrl,
+                                                        displayTitle: `${item.title} (${item.date})`,
+                                                        pages: 1
+                                                    })}
+                                                    className="sd-news-card__btn sd-news-card__btn--read"
+                                                >
+                                                    Read
+                                                </button>
+                                                <a 
+                                                    href={item.pdfUrl} 
+                                                    download 
+                                                    className="sd-news-card__btn sd-news-card__btn--download"
+                                                >
+                                                    Download
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                        )}
                     </section>
                 )}
 
                 {/* DYNAMIC PHOTO GALLERY */}
                 {(isPublicPrograms || isReachoutPrograms || isOutreachPrograms || isDigitalThread || isOtherPublications || isPressReleases || isCsgjAbout) && (
                     <section className="block" style={{ paddingTop: 0 }}>
-                        <div className="block__cap">
-                            <span className="cap__title">
-                                {isOtherPublications 
-                                    ? "Publications Cover Gallery" 
-                                    : (isPressReleases 
-                                        ? "Press Coverage Archive (Newspaper Clippings)" 
-                                        : (isCsgjAbout ? "Gallery" : "Photographic Record"))}
-                            </span>
-                        </div>
-                        <div className={isCsgjAbout ? "photo-archive-grid sd-csgj-gallery-grid" : "photo-archive-grid"} style={{ marginTop: '20px' }}>
+                        {!isPressReleases && (
+                            <div className="block__cap">
+                                <span className="cap__title">
+                                    {isOtherPublications 
+                                        ? "Publications Cover Gallery" 
+                                        : (isCsgjAbout ? "Gallery" : "Photographic Record")}
+                                </span>
+                            </div>
+                        )}
+                        <div className={isCsgjAbout ? "photo-archive-grid sd-csgj-gallery-grid" : "photo-archive-grid"} style={{ marginTop: isPressReleases ? '0px' : '20px' }}>
                             {activePhotos.map((photo, index) => (
                                 <button
                                     key={photo.src}

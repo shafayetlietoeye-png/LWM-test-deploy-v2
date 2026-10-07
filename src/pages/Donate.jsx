@@ -93,7 +93,7 @@ export default function Donate() {
                             marginTop: '15px'
                         }}>
                             <p className="p" style={{ margin: 0, fontSize: '1.02rem', lineHeight: '1.7', color: '#3d2e0d', fontWeight: '500' }}>
-                                <strong style={{ color: '#8b181e' }}>★ স্থায়ী সম্মাননা:</strong> অনুদান-দাতার নাম জাদুঘর ভবনে স্থায়ীভাবে প্রদর্শিত হবে। যে ব্যক্তি বা প্রতিষ্ঠানের নামে অনুদানভূক্তি হবে তা পরিষ্কার হরফে বাংলায় ও ইংরেজিতে লিখুন (আপনার প্রদত্ত বানান অনুযায়ী নাম প্রদর্শিত হবে)।
+                                <strong style={{ color: '#8b181e' }}>স্থায়ী সম্মাননা:</strong> অনুদান-দাতার নাম জাদুঘর ভবনে স্থায়ীভাবে প্রদর্শিত হবে। যে ব্যক্তি বা প্রতিষ্ঠানের নামে অনুদানভূক্তি হবে তা পরিষ্কার হরফে বাংলায় ও ইংরেজিতে লিখুন (আপনার প্রদত্ত বানান অনুযায়ী নাম প্রদর্শিত হবে)।
                             </p>
                         </div>
                     </div>
@@ -117,19 +117,19 @@ export default function Donate() {
                         
                         <ul className="p" style={{ listStyle: 'none', paddingLeft: 0, margin: '0 0 20px 0' }}>
                             <li style={{ marginBottom: '10px', fontSize: '0.98rem' }}>
-                                <strong style={{ color: '#8d2024' }}>• ঐতিহাসিক স্মারক সংরক্ষণ:</strong> স্বাধীনতা যুদ্ধের দুষ্প্রাপ্য দলিলাদি, আলোকচিত্র এবং ঐতিহাসিক নিদর্শনগুলো বৈজ্ঞানিক পদ্ধতিতে সংগ্রহ ও মহাফেজখানায় (আর্কাইভ) সংরক্ষণ করা।
+                                <strong style={{ color: '#8d2024' }}>ঐতিহাসিক স্মারক সংরক্ষণ:</strong> স্বাধীনতা যুদ্ধের দুষ্প্রাপ্য দলিলাদি, আলোকচিত্র এবং ঐতিহাসিক নিদর্শনগুলো বৈজ্ঞানিক পদ্ধতিতে সংগ্রহ ও মহাফেজখানায় (আর্কাইভ) সংরক্ষণ করা।
                             </li>
                             <li style={{ marginBottom: '10px', fontSize: '0.98rem' }}>
-                                <strong style={{ color: '#8d2024' }}>• গবেষণা ও শিক্ষা কার্যক্রম:</strong> মুক্তিযুদ্ধ বিষয়ক মৌলিক গবেষণা পরিচালনা এবং নতুন প্রজন্মের জন্য বিশেষ শিক্ষামূলক কর্মসূচি চালু রাখা।
+                                <strong style={{ color: '#8d2024' }}>গবেষণা ও শিক্ষা কার্যক্রম:</strong> মুক্তিযুদ্ধ বিষয়ক মৌলিক গবেষণা পরিচালনা এবং নতুন প্রজন্মের জন্য বিশেষ শিক্ষামূলক কর্মসূচি চালু রাখা।
                             </li>
                             <li style={{ marginBottom: '10px', fontSize: '0.98rem' }}>
-                                <strong style={{ color: '#8d2024' }}>• প্রদর্শনী ও সচেতনতা:</strong> বিশেষ প্রদর্শনী এবং জনসচেতনতামূলক বিভিন্ন সৃজনশীল উদ্যোগের আয়োজন করা।
+                                <strong style={{ color: '#8d2024' }}>প্রদর্শনী ও সচেতনতা:</strong> বিশেষ প্রদর্শনী এবং জনসচেতনতামূলক বিভিন্ন সৃজনশীল উদ্যোগের আয়োজন করা।
                             </li>
                             <li style={{ marginBottom: '10px', fontSize: '0.98rem' }}>
-                                <strong style={{ color: '#8d2024' }}>• অবকাঠামোগত উন্নয়ন:</strong> জাদুঘরের সার্বিক রক্ষণাবেক্ষণ এবং দর্শনার্থীদের জন্য সুযোগ-সুবিধার আধুনিকায়ন ও উন্নয়ন নিশ্চিত করা।
+                                <strong style={{ color: '#8d2024' }}>অবকাঠামোগত উন্নয়ন:</strong> জাদুঘরের সার্বিক রক্ষণাবেক্ষণ এবং দর্শনার্থীদের জন্য সুযোগ-সুবিধার আধুনিকায়ন ও উন্নয়ন নিশ্চিত করা।
                             </li>
                             <li style={{ marginBottom: '10px', fontSize: '0.98rem' }}>
-                                <strong style={{ color: '#8d2024' }}>• মুক্তিযুদ্ধের মূল্যবোধ ছড়িয়ে দেওয়া:</strong> আগামী প্রজন্মের হৃদয়ে মুক্তিযুদ্ধের চেতনা, আদর্শ এবং সঠিক মূল্যবোধকে শাশ্বত করে তোলা।
+                                <strong style={{ color: '#8d2024' }}>মুক্তিযুদ্ধের মূল্যবোধ ছড়িয়ে দেওয়া:</strong> আগামী প্রজন্মের হৃদয়ে মুক্তিযুদ্ধের চেতনা, আদর্শ এবং সঠিক মূল্যবোধকে শাশ্বত করে তোলা।
                             </li>
                         </ul>
                     </div>
@@ -222,10 +222,6 @@ export default function Donate() {
                                 
                                 {submitted ? (
                                     <div style={{ textAlign: 'center', padding: '30px 10px' }}>
-                                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" strokeWidth="2" style={{ marginBottom: '15px' }}>
-                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                            <polyline points="22 4 12 14.01 9 11.01" />
-                                        </svg>
                                         <h5 style={{ fontFamily: "'Noto Sans Bengali', sans-serif", fontSize: '1.3rem', color: '#2e7d32', margin: '0 0 10px 0' }}>
                                             ধন্যবাদ! Thank You!
                                         </h5>
@@ -349,7 +345,7 @@ export default function Donate() {
                                         {formData.donationType === 'Other' && (
                                             <div>
                                                 <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '8px', color: '#1a1512' }}>
-                                                    ৳ অন্যান্য পরিমাণ / Other Amount (TK)*:
+                                                    অন্যান্য পরিমাণ / Other Amount (TK)*:
                                                 </label>
                                                 <input 
                                                     type="number" 
@@ -464,11 +460,7 @@ export default function Donate() {
                                     সরাসরি মুক্তিযুদ্ধ জাদুঘর কার্যালয়ে (Directly to Office)
                                 </h4>
                                 
-                                <div style={{ display: 'flex', gap: '15px', alignItems: 'flex-start', backgroundColor: '#fff', padding: '20px', border: '1px solid #e8e3d5', borderRadius: '4px' }}>
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8d2024" strokeWidth="1.5" style={{ flexShrink: 0, marginTop: '4px' }}>
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                        <circle cx="12" cy="10" r="3" />
-                                    </svg>
+                                <div style={{ backgroundColor: '#fff', padding: '20px', border: '1px solid #e8e3d5', borderRadius: '4px' }}>
                                     <div>
                                         <h5 style={{ fontFamily: "'Noto Sans Bengali', sans-serif", fontSize: '1.1rem', color: '#1a1512', margin: '0 0 8px 0', fontWeight: 'bold' }}>
                                             জাদুঘরের ঠিকানা (Museum Address)

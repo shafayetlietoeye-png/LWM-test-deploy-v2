@@ -651,8 +651,7 @@ export const activitiesData = {
       {
         title: 'Press Coverage & Media Clippings',
         paragraphs: [
-          'The Liberation War Museum regularly receives extensive press coverage and media attention regarding national day observances, special lecture announcements, international collaborations, and historical preservation efforts.',
-          'These records serve as the archive of the museum\'s media coverage, public positions, statements on historical integrity, and responses to contemporary human rights issues in Bangladesh and abroad.'
+          'The Liberation War Museum regularly receives extensive press coverage and media attention regarding national day observances, special lecture announcements, international collaborations, and historical preservation efforts. These records serve as the archive of the museum\'s media coverage, public positions, statements on historical integrity, and responses to contemporary human rights issues in Bangladesh and abroad.'
         ]
       }
     ]
@@ -664,8 +663,7 @@ export const activitiesData = {
       {
         title: 'Press Coverage & Media Clippings',
         paragraphs: [
-          'The Liberation War Museum regularly receives extensive press coverage and media attention regarding national day observances, special lecture announcements, international collaborations, and historical preservation efforts.',
-          'These records serve as the archive of the museum\'s media coverage, public positions, statements on historical integrity, and responses to contemporary human rights issues in Bangladesh and abroad.'
+          'The Liberation War Museum regularly receives extensive press coverage and media attention regarding national day observances, special lecture announcements, international collaborations, and historical preservation efforts. These records serve as the archive of the museum\'s media coverage, public positions, statements on historical integrity, and responses to contemporary human rights issues in Bangladesh and abroad.'
         ]
       }
     ]
@@ -1456,8 +1454,7 @@ export const activitiesData = {
       {
         title: 'Annual Institutional Performance Report',
         paragraphs: [
-          'The Annual Performance Report offers a comprehensive summary of the museum\'s achievements, visitor footfall, educational outreach statistics, research publications, and audited financial statements.',
-          'These reports reflect our accountability to the citizens of Bangladesh, our trustees, and international institutional partners, documenting our public service impact.'
+          'The Annual Performance Report offers a comprehensive summary of the museum\'s achievements, visitor footfall, educational outreach statistics, research publications, and audited financial statements. These reports reflect our accountability to the citizens of Bangladesh, our trustees, and international institutional partners, documenting our public service impact.'
         ]
       }
     ]
@@ -1469,8 +1466,7 @@ export const activitiesData = {
       {
         title: 'Independent Financial Audit Reports',
         paragraphs: [
-          'The accounts of the Liberation War Museum are audited annually by reputed independent chartered accounting firms in Bangladesh.',
-          'These audit reports are published to maintain financial transparency, verify that public donations and grants are utilized appropriately, and confirm the compliance of our governance systems.'
+          'The accounts of the Liberation War Museum are audited annually by reputed independent chartered accounting firms in Bangladesh. These audit reports are published to maintain financial transparency, verify that public donations and grants are utilized appropriately, and confirm the compliance of our governance systems.'
         ]
       }
     ]
