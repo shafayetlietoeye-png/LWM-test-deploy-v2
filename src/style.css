@@ -18310,6 +18310,213 @@ table {
   }
 }
 
+/* ===================================================
+   FUND COLLECTION CAMPAIGN - APPEAL SECTION STYLES
+=================================================== */
+.appeal-content-body {
+  font-family: 'Noto Sans Bengali', 'Roboto Slab', sans-serif;
+  color: #1A1512;
+  margin-top: 15px;
+}
+
+.museum-story-content h3.appeal-salutation,
+.appeal-salutation {
+  font-family: 'Noto Sans Bengali', 'Roboto Slab', serif;
+  font-size: 1.35rem !important;
+  font-weight: 700;
+  color: #1A1512;
+  margin-top: 0 !important;
+  margin-bottom: 18px !important;
+  padding-top: 0 !important;
+  line-height: 1.4;
+}
+
+.appeal-paragraph {
+  font-family: 'Noto Sans Bengali', 'Roboto Slab', sans-serif;
+  font-size: 1.05rem !important;
+  line-height: 1.85 !important;
+  color: #26201A !important;
+  margin-bottom: 22px !important;
+  text-align: justify;
+}
+
+.appeal-activities-card {
+  background: #FAF7EF;
+  border: 1px solid #DCD5C5;
+  border-left: 4px solid #8C1C19;
+  border-radius: 4px;
+  padding: 22px 28px;
+  margin: 24px 0 28px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.appeal-activities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.appeal-activities-list li {
+  display: flex;
+  gap: 10px;
+  font-family: 'Noto Sans Bengali', 'Roboto Slab', sans-serif;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: #1A1512;
+  align-items: baseline;
+}
+
+.appeal-num {
+  font-weight: 700;
+  color: #8C1C19;
+  min-width: 22px;
+  flex-shrink: 0;
+}
+
+.appeal-endowment-card {
+  background: #FFFFFF;
+  border: 1px solid #DCD5C5;
+  border-top: 3.5px solid #8C1C19;
+  border-radius: 4px;
+  padding: 24px 28px;
+  margin: 28px 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.appeal-endowment-title {
+  font-family: 'Noto Sans Bengali', 'Roboto Slab', sans-serif;
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #1A1512;
+  margin: 0 0 18px 0;
+}
+
+.appeal-endowment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.appeal-endowment-item {
+  background: #FAF7EF;
+  border: 1px solid #E6DEC8;
+  border-radius: 4px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.appeal-endowment-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(140, 28, 25, 0.08);
+  border-color: #DCD5C5;
+}
+
+.appeal-endowment-rank {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #1A1512;
+}
+
+.appeal-endowment-amount {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #8C1C19;
+}
+
+.appeal-bank-card {
+  background: linear-gradient(180deg, #FAF7EF 0%, #F5EEDD 100%);
+  border: 1.5px solid #DCD5C5;
+  border-radius: 6px;
+  padding: 24px 30px;
+  margin: 28px 0 35px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.appeal-bank-title {
+  font-family: 'Noto Sans Bengali', 'Roboto Slab', sans-serif;
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #1A1512;
+  margin: 0 0 16px 0;
+  border-bottom: 1px dashed #DCD5C5;
+  padding-bottom: 10px;
+}
+
+.appeal-bank-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: 'Noto Sans Bengali', 'Roboto Slab', sans-serif;
+}
+
+.appeal-bank-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: baseline;
+  font-size: 1.05rem;
+}
+
+.appeal-bank-label {
+  font-weight: 700;
+  color: #555555;
+  min-width: 130px;
+}
+
+.appeal-bank-val {
+  font-weight: 700;
+  color: #1A1512;
+}
+
+.appeal-bank-val--acc {
+  color: #8C1C19;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+.appeal-video-container {
+  max-width: 860px;
+  margin: 40px auto 20px auto;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #DCD5C5;
+  border-top: 4px solid #8C1C19;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  background: #000;
+}
+
+.appeal-video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.appeal-video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .appeal-activities-card,
+  .appeal-endowment-card,
+  .appeal-bank-card {
+    padding: 18px 20px;
+  }
+  .appeal-endowment-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 
 
