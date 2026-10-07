@@ -37,14 +37,6 @@ const TVCS = [
         duration: '1:30 min',
         embedUrl: 'https://www.youtube.com/embed/pVYkVwb9_Qw',
         youtubeUrl: 'https://www.youtube.com/watch?v=pVYkVwb9_Qw'
-    },
-    {
-        id: 'tvc-02',
-        title: 'TV Commercial 02',
-        bengaliTitle: 'টিভি বিজ্ঞাপন ০২',
-        duration: '1:45 min',
-        embedUrl: 'https://www.youtube.com/embed/9qnIgzI0rZA',
-        youtubeUrl: 'https://www.youtube.com/watch?v=9qnIgzI0rZA'
     }
 ];
 
@@ -138,7 +130,7 @@ export default function FundCollectionCampaign({ initialTab = 'all' }) {
                             onClick={() => setActiveTab('all')}
                         >
                             <span>All Campaign Materials</span>
-                            <span className="fcc-filter-count">5</span>
+                            <span className="fcc-filter-count">{LEAFLETS.length + TVCS.length}</span>
                         </button>
                         <button
                             type="button"
@@ -150,7 +142,7 @@ export default function FundCollectionCampaign({ initialTab = 'all' }) {
                                 <polyline points="14 2 14 8 20 8" />
                             </svg>
                             <span>Campaign Leaflets (মূল প্রচারপত্র)</span>
-                            <span className="fcc-filter-count">3</span>
+                            <span className="fcc-filter-count">{LEAFLETS.length}</span>
                         </button>
                         <button
                             type="button"
@@ -162,7 +154,7 @@ export default function FundCollectionCampaign({ initialTab = 'all' }) {
                                 <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
                             </svg>
                             <span>TV Commercials (টিভি প্রচারণা)</span>
-                            <span className="fcc-filter-count">2</span>
+                            <span className="fcc-filter-count">{TVCS.length}</span>
                         </button>
                     </div>
 

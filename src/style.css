@@ -15956,7 +15956,8 @@ button.uitem--btn {
 /* TV Commercials Grid */
 .fcc-tvcs-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  max-width: 680px;
   gap: 26px;
   margin-top: 15px;
 }
@@ -15964,6 +15965,7 @@ button.uitem--btn {
 @media (max-width: 860px) {
   .fcc-tvcs-grid {
     grid-template-columns: 1fr;
+    max-width: 100%;
   }
 }
 
@@ -17257,7 +17259,7 @@ button.uitem--btn {
 
 .bm-getting-here-map {
   width: 100%;
-  height: 380px;
+  height: 340px;
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid #DCD5C5;
@@ -17272,33 +17274,56 @@ button.uitem--btn {
   background: transparent;
 }
 
+.bm-getting-here-heading {
+  font-family: 'Roboto Slab', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1A1512;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
 .bm-getting-here-details {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 20px;
   font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
+  padding-top: 2px;
 }
 
 .bm-detail-block {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
+.museum-story-content h3.bm-detail-label,
+.museum-story-content .bm-detail-label,
+.bm-detail-block .bm-detail-label,
 .bm-detail-label {
   font-family: 'Roboto Slab', serif;
-  font-size: 1.05rem;
+  font-size: 1.15rem !important;
   font-weight: 700;
   color: #1A1512;
-  margin: 0;
+  margin: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 4px !important;
+  padding: 0 !important;
+  line-height: 1.3 !important;
 }
 
+.museum-story-content .bm-detail-text,
+.bm-detail-block .bm-detail-text,
 .bm-detail-text {
   font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 1.02rem;
+  line-height: 1.65;
   color: #333333;
-  margin: 0;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .bm-detail-text strong {
@@ -17306,29 +17331,45 @@ button.uitem--btn {
   font-weight: 700;
 }
 
-.bm-detail-coords {
-  color: #666666;
-  font-size: 0.88rem;
-  margin-top: 3px;
-  display: block;
+.bm-detail-link {
+  color: #1A1512;
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
-.bm-detail-subtext {
-  font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
-  font-size: 0.88rem;
-  line-height: 1.5;
-  color: #555555;
-  margin: 5px 0 0 0;
+.bm-detail-link:hover {
+  color: #8C1C19;
+  text-decoration: underline;
 }
 
-.bm-detail-recommendation {
+.bm-detail-email {
+  color: #8C1C19;
+  text-decoration: underline;
+}
+
+.bm-detail-email:hover {
+  color: #5E110F;
+  text-decoration: underline;
+}
+
+.bm-inline-link {
+  color: #8C1C19;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.bm-inline-link:hover {
+  color: #5E110F;
+  text-decoration: underline;
+}
+
+.getting-here-paragraph {
   font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
-  font-size: 0.92rem;
-  line-height: 1.55;
-  color: #444444;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: #333333;
   margin: 0;
-  padding-top: 8px;
-  border-top: 1px dashed #DCD5C5;
 }
 
 @media (max-width: 900px) {
@@ -17338,6 +17379,80 @@ button.uitem--btn {
   }
   .bm-getting-here-map {
     height: 320px;
+  }
+}
+
+/* ===================================================
+   BRITISH MUSEUM STYLE - ENTERING THE MUSEUM SECTION
+=================================================== */
+.bm-entering-museum-wrap {
+  width: 100%;
+  margin: 15px 0 35px 0;
+}
+
+.bm-entering-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 36px;
+  align-items: start;
+  width: 100%;
+}
+
+.bm-entering-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.bm-entering-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bm-entering-list li {
+  font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: #333333;
+}
+
+.bm-entering-right {
+  width: 100%;
+}
+
+.bm-entering-img-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bm-entering-img {
+  width: 100%;
+  height: 310px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #DCD5C5;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.bm-entering-caption {
+  font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
+  font-size: 0.88rem;
+  color: #666666;
+  margin: 8px 0 0 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .bm-entering-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .bm-entering-img {
+    height: 250px;
   }
 }
 
@@ -17561,29 +17676,29 @@ button.uitem--btn {
 }
 
 /* ===================================================
-   BUY ETICKET FORM & CARD (MATCHING USER SCREENSHOT)
+   BUY ETICKET FORM & CARD (SIGNATURE MUSEUM RED THEME)
 =================================================== */
 .eticket-card {
   width: 100%;
-  border: 1.5px solid #8b181e;
+  border: 1.5px solid #8C1C19;
   border-radius: 4px;
   background: #FFFFFF;
   overflow: hidden;
-  margin-top: 10px;
-  margin-bottom: 40px;
-  box-shadow: 0 4px 16px rgba(139, 24, 30, 0.08);
+  margin-top: 8px;
+  margin-bottom: 22px;
+  box-shadow: 0 4px 16px rgba(140, 28, 25, 0.08);
 }
 
 .eticket-card__header {
   background: linear-gradient(180deg, #8b181e 0%, #660f13 100%);
   color: #FFFFFF;
-  padding: 13px 24px;
+  padding: 14px 24px;
   font-family: 'Roboto Slab', serif;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 700;
   margin: 0;
   letter-spacing: -0.01em;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .eticket-card__body {
@@ -17632,8 +17747,8 @@ button.uitem--btn {
 }
 
 .eticket-input:focus {
-  border-color: #8b181e;
-  box-shadow: 0 0 0 3px rgba(139, 24, 30, 0.16);
+  border-color: #8C1C19;
+  box-shadow: 0 0 0 3px rgba(140, 28, 25, 0.16);
   background: #FFFFFF;
 }
 
@@ -17648,21 +17763,123 @@ button.uitem--btn {
   background: linear-gradient(180deg, #8b181e 0%, #660f13 100%);
   color: #FFFFFF !important;
   border: none;
-  padding: 10px 28px;
+  padding: 12px 32px;
   font-family: 'Roboto Slab', serif;
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   font-weight: 700;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 2px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 6px rgba(140, 28, 25, 0.25);
   margin-top: 10px;
 }
 
 .eticket-submit-btn:hover {
-  background: linear-gradient(180deg, #961b21 0%, #701115 100%);
+  background: linear-gradient(180deg, #9b1c23 0%, #701115 100%);
   transform: translateY(-1px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 4px 12px rgba(139, 24, 30, 0.35);
+  box-shadow: 0 4px 12px rgba(140, 28, 25, 0.35);
+}
+
+/* Section Card Box (for Ticket Fees and Categories, Museum Opening Hours) */
+.section-card-box {
+  background: #FAF7EF;
+  border: 1px solid #DCD5C5;
+  border-top: 3px solid #8C1C19;
+  border-radius: 4px;
+  padding: 18px 24px;
+  margin-top: 0;
+  margin-bottom: 22px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.museum-story-content h3.section-card-title,
+.section-card-box .section-card-title,
+.section-card-title {
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1A1512;
+  margin-top: 0 !important;
+  margin-bottom: 14px !important;
+  padding-top: 0 !important;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  line-height: 1.3;
+}
+
+.section-card-subtitle {
+  font-family: 'Noto Sans Bengali', 'Roboto Slab', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #555555;
+}
+
+.ticket-rate-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
+  font-size: 0.95rem;
+  background: #FFFFFF;
+  border: 1px solid #EAE3D2;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.ticket-rate-table th {
+  padding: 12px 18px;
+  background: #F4EFE6;
+  color: #1A1512;
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 1px solid #DCD5C5;
+}
+
+.ticket-rate-table td {
+  padding: 12px 18px;
+  color: #333333;
+  border-bottom: 1px solid #EAE3D2;
+}
+
+.ticket-rate-table tr:last-child td {
+  border-bottom: none;
+}
+
+.hours-list-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-family: 'Roboto Slab', 'Noto Sans Bengali', sans-serif;
+}
+
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 0;
+  border-bottom: 1px solid #EAE3D2;
+  font-size: 0.95rem;
+}
+
+.hours-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.hours-label {
+  font-weight: 700;
+  color: #1A1512;
+}
+
+.hours-val {
+  color: #2B2B2B;
+}
+
+.hours-row--holiday .holiday-label,
+.hours-row--holiday .holiday-val {
+  color: #8C1C19;
+  font-weight: 700;
 }
 
 .eticket-buy-btn {

@@ -5,10 +5,6 @@ const tvcs = [
     {
         title: 'TV Commercial 01',
         embedUrl: 'https://www.youtube.com/embed/pVYkVwb9_Qw'
-    },
-    {
-        title: 'TV Commercial 02',
-        embedUrl: 'https://www.youtube.com/embed/9qnIgzI0rZA'
     }
 ];
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import Breadcrumb from '../components/Breadcrumb';
 
 export default function PlanYourVisit({ initialTab }) {
@@ -7,12 +7,13 @@ export default function PlanYourVisit({ initialTab }) {
   const queryTab = searchParams.get('tab');
 
   const getInitialOpen = () => {
-    const valid = ['hours', 'guidelines', 'photography', 'tours', 'accessibility'];
+    const valid = ['hours', 'guidelines', 'restricted', 'photography'];
     if (queryTab && valid.includes(queryTab)) return { [queryTab]: true };
     if (initialTab && valid.includes(initialTab)) return { [initialTab]: true };
-    return { 'hours': true };
+    return {};
   };
 
+  // Initially closed by default as requested
   const [openSections, setOpenSections] = useState(getInitialOpen);
 
   useEffect(() => {
@@ -39,50 +40,64 @@ export default function PlanYourVisit({ initialTab }) {
   const accordionItems = [
     {
       id: 'hours',
-      title: 'Opening hours',
+      title: 'Opening Hours',
       bullets: [
-        '<strong>Summer Operating Schedule (March – September):</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. The museum concourse and permanent exhibition galleries remain open from 10:00 AM to 6:00 PM.',
-        '<strong>Winter Operating Schedule (October – February):</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Galleries operate from 10:00 AM to 5:00 PM.',
-        '<strong>Weekly Holiday & Archival Maintenance:</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. The museum remains closed every Sunday for routine conservation and gallery preservation.',
-        '<strong>Last Admission Policy:</strong> Entry gates and ticket counters close strictly 30 minutes prior to closing time. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.'
+        '<strong>March to September:</strong> 10:00 AM to 6:00 PM',
+        '<strong>October to February:</strong> 10:00 AM to 5:00 PM',
+        '<strong>Ramadan:</strong> 10:00 AM to 4:00 PM',
+        '<strong>Weekly Holiday:</strong> Sunday',
+        'The Museum remains closed on government-declared public holidays.',
+        'Special or extended visiting hours and commemorative exhibitions may be arranged on important national occasions, including Independence Day (26 March), Martyred Intellectuals Day (14 December), and Victory Day (16 December).',
+        'Entry gates and ticket counters close 30 minutes before the Museum’s closing time.'
       ]
     },
     {
       id: 'guidelines',
-      title: 'Visitor guidelines',
+      title: 'Visitor Guidelines',
       bullets: [
-        '<strong>Gallery Conduct & Respect:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. As a national memorial and research institution, visitors are requested to maintain decorum and dignified silence throughout commemorative galleries.',
-        '<strong>Baggage, Cloakroom & Food Policy:</strong> Large backpacks, umbrellas, outside food, and beverages are not permitted inside exhibition galleries. Complimentary secure cloakroom lockers are provided at the concourse entrance.',
-        '<strong>Preservation of Historic Artifacts:</strong> Touching display cases, original documents, historical relics, and memorial murals is strictly prohibited. Pellentesque habitant morbi tristique senectus et netus.',
-        '<strong>Children & Delegation Supervision:</strong> School children and youth delegations must remain accompanied by authorized teachers or guardians at all times. Sed porttitor lectus nibh vivamus magna justo.'
+        'All visitors must follow the Museum’s guidelines, security procedures and staff instructions.',
+        'Bags and personal belongings may be screened before entry. Prohibited, illegal or dangerous items may be confiscated, and visitors who refuse security checks may be denied entry.',
+        'Wheelchairs and pushchairs are permitted. Visitors requiring accessibility assistance may approach Museum staff.',
+        'Children under 12 must be accompanied by an adult. School groups should have at least one teacher or responsible adult for every 15 students.',
+        'Mobile devices should remain silent, calls should be taken outside gallery spaces, and earphones should be used for multimedia content.',
+        'Personal belongings must not be left unattended.',
+        'Violence, harassment, abusive or threatening behaviour and sexual misconduct are strictly prohibited. Visitors who fail to follow security instructions may be asked to leave, and serious incidents may be reported to the police.',
+        'Entry without a pre-booked ticket is subject to capacity. Tickets may not be resold, transferred or used commercially.',
+        'On-site parking is not available, although passenger drop-off is permitted near the entrance where applicable.',
+        'Food and drinks may only be consumed in designated areas.',
+        'Visitors must not touch exhibits or lean on display cases, railings or gallery barriers unless specifically permitted during an authorised Museum activity.',
+        'CCTV operates throughout the Museum for safety and security. Visitors must not enter restricted, staff-only or closed areas without permission.',
+        'The Museum may update these regulations or close all or part of the premises when necessary, including for safety, security or operational reasons, without prior notice. Special exhibitions may also have additional rules.'
+      ]
+    },
+    {
+      id: 'restricted',
+      title: 'Restricted Items',
+      bullets: [
+        'Large luggage, wheeled suitcases, sports equipment, folding bicycles, musical instruments and items over 40 × 40 × 50 cm or over 5 kg are not permitted. Small personal bags and essential baby-care items are allowed after screening.',
+        'Running, jumping, shouting or other disruptive behaviour is not allowed in galleries.',
+        'Smoking, vaping and electronic cigarettes are prohibited throughout the Museum premises.',
+        'For everyone\'s safety, all weapons, dangerous chemicals, and suspicious items must be surrendered before entering.',
+        'You can collect your items as you leave, provided there are no legal restrictions preventing their return.'
       ]
     },
     {
       id: 'photography',
-      title: 'Photography & filming',
+      title: 'Photography and Filming',
       bullets: [
-        '<strong>Personal Handheld Photography:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non-flash personal photography using mobile phones and handheld cameras is permitted in designated gallery concourses.',
-        '<strong>Flash, Tripods & Selfie-Sticks:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. The use of flash, external lighting equipment, tripods, monopods, and selfie sticks is strictly prohibited inside all permanent exhibition galleries.',
-        '<strong>Commercial Filming & Media Coverage:</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. Television broadcast crews, documentary filmmakers, and commercial media must obtain prior written accreditation.',
-        '<strong>Archival Reproduction & Rights:</strong> Excepteur sint occaecat cupidatat non proident. High-resolution digital reproduction of historical documents and photographic archives requires formal authorization.'
-      ]
-    },
-    {
-      id: 'tours',
-      title: 'Guided tours & educational visits',
-      bullets: [
-        '<strong>Docent-Led Walkthroughs:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dedicated docents offer guided walkthroughs for educational institutions, youth delegations, and international guests.',
-        '<strong>Advance Reservation for Delegations:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. School groups and delegations comprising 20 or more visitors are requested to reserve advance booking.',
-        '<strong>Bilingual Orientation:</strong> Curated gallery presentations and guided orientations are available in both Bengali and English. Mauris blandit aliquet elit eget tincidunt nibh pulvinar a.'
-      ]
-    },
-    {
-      id: 'accessibility',
-      title: 'Accessibility & visitor amenities',
-      bullets: [
-        '<strong>Barrier-Free Step-Free Access:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ramps, elevators, and wide corridors ensure complete step-free access across all four permanent galleries, auditoriums, and memorial courtyards.',
-        '<strong>Wheelchairs & Mobility Support:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Manual wheelchairs are available free of charge at the reception desk for visitors with mobility impairments.',
-        '<strong>Restrooms, Prayer Space & Museum Cafe:</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. Dedicated accessible restrooms, clean ablution & prayer spaces, and a courtyard cafeteria are conveniently situated.'
+        'Handheld smartphones, compact cameras and tablets may be used for personal, educational and non-commercial photography, video and audio recording, except where restrictions are displayed.',
+        'Photography or recording may be restricted in Study Rooms, archives, special exhibitions and other sensitive areas. Flash should not be used near light-sensitive documents, textiles, photographs or similar objects.',
+        'Personal photographs and recordings may be shared on non-commercial social media, blogs or websites, but may not be sold, licensed or otherwise used commercially without Museum permission.',
+        'Tripods, monopods, selfie sticks, gimbals, extension poles and professional lighting or audio equipment require prior authorization.',
+        '3D imaging, scanning and similar digital-capture methods require specific permission. Drones and UAVs are prohibited throughout the Museum premises.',
+        'Photography or recording of security checkpoints, surveillance systems, restricted offices and other security-sensitive areas is not permitted.',
+        'Visitors must respect the privacy and comfort of others while photographing or recording. Museum staff may ask visitors to stop any activity considered intrusive or disruptive.',
+        'Journalists, documentary filmmakers, television crews and other media or production teams must apply in writing at least five business days in advance, providing the production scope, crew size, filming dates and a brief content or script outline. Approved teams may be accompanied by a Museum representative.',
+        'Commercial or professional photography, filming and audio recording require prior approval. Commercial filming during public opening hours is not permitted unless specifically authorized by the Museum.',
+        'Scholars and postgraduate researchers working on the 1971 Genocide and Liberation War may apply for specialized photographic or archival access with an institutional recommendation letter. Approved researchers may receive access to relevant high-resolution scans or archival records and must properly acknowledge the Liberation War Museum in resulting publications.',
+        'Museum collections, oral histories, photographs, documents, memorial objects and architectural elements are protected by applicable copyright, intellectual property and heritage provisions. Permission to photograph does not automatically grant reproduction or commercial-use rights.',
+        'Commercial image licensing, publication, postcard or other reproduction requests should be directed to the Museum\'s relevant authority or Publications Directorate. Unauthorized commercial use of martyr testimonies, oral histories or archival materials is prohibited.',
+        'Special permission may be granted in exceptional cases for otherwise restricted equipment or activities. Visitors and production teams should contact the Museum in advance.'
       ]
     }
   ];
@@ -95,7 +110,7 @@ export default function PlanYourVisit({ initialTab }) {
           <div className="hero-card hero-card--dark-brush hero-card--wide">
             <div className="hero-card__title">Plan Your Visit</div>
             <div className="hero-card__desc">
-              Essential visiting schedule, gallery conduct guidelines, and photography policies to ensure an enriching and memorable experience at the Liberation War Museum.
+              Essential visiting schedule, gallery conduct guidelines, security procedures, and photography policies to ensure an enriching and memorable experience at the Liberation War Museum.
             </div>
           </div>
         </div>
@@ -103,7 +118,6 @@ export default function PlanYourVisit({ initialTab }) {
 
       {/* CONTENT SECTION */}
       <main className="museum-story-content">
-        {/* VISITING SCHEDULE & GALLERY GUIDELINES */}
         <section className="block">
           <Breadcrumb
             customTrail={[
@@ -111,60 +125,99 @@ export default function PlanYourVisit({ initialTab }) {
               { label: 'Plan Your Visit', to: '/visit/plan-your-visit' }
             ]}
           />
-          <div className="separator"></div>
+          <div className="separator" style={{ marginBottom: '28px' }}></div>
 
-          <div className="block__cap">
-            <span className="cap__title">Visiting Schedule &amp; Gallery Guidelines</span>
+          {/* 1. ENTERING THE MUSEUM (ALWAYS OPEN, BRITISH MUSEUM STYLE) */}
+          <div className="bm-entering-museum-wrap">
+            <div className="bm-entering-grid">
+              {/* Left Column: Heading & British Museum Style Bullet Points */}
+              <div className="bm-entering-left">
+                <h2 className="bm-section-title">Entering the Museum</h2>
+                <ul className="bm-entering-list">
+                  <li>
+                    To ensure entry on your preferred day, guests are encouraged to{' '}
+                    <Link to="/visit/ticket-information" className="bm-content-link">
+                      book tickets
+                    </Link>{' '}
+                    ahead of time.
+                  </li>
+                  <li>
+                    By entering the Museum, visitors agree to follow all guidelines and conditions of entry.
+                  </li>
+                  <li>
+                    All guests must undergo a mandatory security check and bag inspection before entry.
+                  </li>
+                  <li>
+                    All visitors are requested to use the main entrance on Agargaon Road.
+                  </li>
+                  <li>
+                    For your convenience,{' '}
+                    <Link to="/visit/maps-directions" className="bm-content-link">
+                      map directions and transportation options
+                    </Link>{' '}
+                    can be found right here.
+                  </li>
+                </ul>
+              </div>
+
+              {/* Right Column: Museum Building Image with Caption */}
+              <div className="bm-entering-right">
+                <div className="bm-entering-img-card">
+                  <img
+                    src="/assets/about/Museum Story/museum story hero image.jpg"
+                    alt="Exterior photograph of the Liberation War Museum building"
+                    className="bm-entering-img"
+                  />
+                  <p className="bm-entering-caption">
+                    Exterior photograph of the Liberation War Museum building, Agargaon.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="block__content">
-            <p className="p" style={{ marginBottom: '24px' }}>
-              Select a section below to view operating schedules, gallery etiquette, photography policies, and accessibility services:
-            </p>
-
-            <div className="plan-visit-accordion">
-              {accordionItems.map((item) => {
-                const isOpen = !!openSections[item.id];
-                return (
-                  <div
-                    key={item.id}
-                    className={`plan-visit-item ${isOpen ? 'is-open' : ''}`}
+          {/* 2. EXPANDABLE SECTIONS (INITIALLY CLOSED ACCORDION) */}
+          <div className="plan-visit-accordion" style={{ marginTop: '35px' }}>
+            {accordionItems.map((item) => {
+              const isOpen = !!openSections[item.id];
+              return (
+                <div
+                  key={item.id}
+                  className={`plan-visit-item ${isOpen ? 'is-open' : ''}`}
+                >
+                  <button
+                    type="button"
+                    className="plan-visit-trigger"
+                    onClick={() => toggleSection(item.id)}
+                    aria-expanded={isOpen}
                   >
-                    <button
-                      type="button"
-                      className="plan-visit-trigger"
-                      onClick={() => toggleSection(item.id)}
-                      aria-expanded={isOpen}
-                    >
-                      <span className="plan-visit-icon" aria-hidden="true">
-                        {isOpen ? (
-                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="18" y1="6" x2="6" y2="18" />
-                            <line x1="6" y1="6" x2="18" y2="18" />
-                          </svg>
-                        ) : (
-                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="12" y1="5" x2="12" y2="19" />
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                          </svg>
-                        )}
-                      </span>
-                      <h3 className="plan-visit-title">{item.title}</h3>
-                    </button>
+                    <span className="plan-visit-icon" aria-hidden="true">
+                      {isOpen ? (
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                      ) : (
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="12" y1="5" x2="12" y2="19" />
+                          <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                      )}
+                    </span>
+                    <h3 className="plan-visit-title">{item.title}</h3>
+                  </button>
 
-                    {isOpen && (
-                      <div className="plan-visit-content">
-                        <ul className="plan-visit-list">
-                          {item.bullets.map((bullet, idx) => (
-                            <li key={idx} dangerouslySetInnerHTML={{ __html: bullet }} />
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
+                  {isOpen && (
+                    <div className="plan-visit-content">
+                      <ul className="plan-visit-list">
+                        {item.bullets.map((bullet, idx) => (
+                          <li key={idx} dangerouslySetInnerHTML={{ __html: bullet }} />
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </section>
       </main>

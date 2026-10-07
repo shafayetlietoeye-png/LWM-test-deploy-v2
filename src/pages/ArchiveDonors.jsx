@@ -61,21 +61,8 @@ export default function ArchiveDonors() {
                         <p className="p">
                             The Liberation War Museum's archival collections are enriched by extraordinary personal endeavors of dedicated patriots, scholars, diplomats, and journalists. During and after the 1971 War of Liberation, these esteemed donors meticulously preserved wartime news reports, diplomatic dispatches, international broadcasts, and primary evidence from across the globe.
                         </p>
-                        <p className="p">
+                        <p className="p" style={{ marginBottom: '30px' }}>
                             Their priceless donations form the bedrock of the Museum's research archives, providing historians, researchers, and future generations with indispensable primary records of Bangladesh's struggle for independence.
-                        </p>
-                    </div>
-                </section>
-
-                {/* Block 2: Major Archival Collections */}
-                <section className="block">
-                    <div className="block__cap">
-                        <span className="cap__title">Major Archival Collections</span>
-                    </div>
-
-                    <div className="block__content">
-                        <p className="p" style={{ marginBottom: '24px' }}>
-                            Explore the primary historical documentations, newspaper records, and collections preserved in the library and research centre of the Liberation War Museum:
                         </p>
 
                         <div className="archive-donors-grid">
